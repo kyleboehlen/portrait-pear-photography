@@ -1,0 +1,14 @@
+{
+  "appId": "photography.portraitpear.www",
+  "appName": "Portrait Pear",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    },
+    "CapacitorSQLite": {
+      "iosDatabaseLocation": "Library/PortraitPearDatabase"
+    }
+  }
+}

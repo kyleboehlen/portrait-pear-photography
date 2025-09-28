@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Kodchasan";
+    src: local("Kodchasan"),
+        url(@/assets/fonts/Kodchasan-Regular.ttf) format("truetype");
+}
