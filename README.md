@@ -38,8 +38,10 @@ use the Wrangler CLI without adding API keys to container environments—I can s
 
 `cd frontend && pnpm install && pnpm run dev`
 
-TODO: Add Go docker build step
+If you're using GoLand (or another Go IDE), just run the debug config against `main.go`. It'll prompt to make sure you<br>
+have Go, and the xcode command line tools installed.
 
 ## Deployment
 
-TODO
+The backend can be built with Docker:
+`docker build -f Dockerfile --target dum-e -o ./bin .`

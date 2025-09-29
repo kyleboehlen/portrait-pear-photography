@@ -1,1 +1,1 @@
-module portrait-pear-photography
+module friday
