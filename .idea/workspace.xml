@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add initial go backend&#10;Adds dockerfile for building for windows/linux/mac&#10;Sets up how responses and error codes will look from the api&#10;Renames the module to Friday&#10;Adds a health check heartbeat endpoint&#10;Sets the pattern for how routing/controllers/handlers will be handled&#10;Updates the readme (uses local development, not docker)&#10;Saves goland run configs&#10;Tests for everything included (unit/acceptance)" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="update goland workspace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +70,7 @@
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
     "settings.editor.selected.configurable": "com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable",
+    "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -113,9 +118,21 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add initial go backend&#10;Adds dockerfile for building for windows/linux/mac&#10;Sets up how responses and error codes will look from the api&#10;Renames the module to Friday&#10;Adds a health check heartbeat endpoint&#10;Sets the pattern for how routing/controllers/handlers will be handled&#10;Updates the readme (uses local development, not docker)&#10;Saves goland run configs&#10;Tests for everything included (unit/acceptance)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial go backend&#10;Adds dockerfile for building for windows/linux/mac&#10;Sets up how responses and error codes will look from the api&#10;Renames the module to Friday&#10;Adds a health check heartbeat endpoint&#10;Sets the pattern for how routing/controllers/handlers will be handled&#10;Updates the readme (uses local development, not docker)&#10;Saves goland run configs&#10;Tests for everything included (unit/acceptance)" />
+    <MESSAGE value="update goland workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="update goland workspace" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

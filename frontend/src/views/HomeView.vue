@@ -2,7 +2,7 @@
   <main class="flex">
     <!-- No images found message -->
     <Transition name="fade">
-      <NotFoundMessage v-if="apiCallFinished && filteredPhotos.length == 0" :msg="notFoundMsg" class="w-full" />
+      <NotFoundMessage v-if="apiCallFinished && filteredPhotos.length === 0" :msg="notFoundMsg" class="w-full" />
     </Transition>
 
     <!-- Actually show images! -->
