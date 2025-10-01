@@ -45,8 +45,7 @@ import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue"
 import { useHomeStore } from "@/stores/home.js"
 import { useImagesStore } from "@/stores/images.js"
 import { useFilterStore } from "@/stores/filter.js"
-// Capacitor
-import { Capacitor } from "@capacitor/core"
+import TheInstagramButton from "@/components/TheInstagramButton.vue";
 
 const home = useHomeStore()
 const images = useImagesStore()

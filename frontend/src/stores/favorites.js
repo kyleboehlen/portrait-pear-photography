@@ -5,6 +5,9 @@ import { ref } from "vue"
 import { Preferences } from "@capacitor/preferences"
 import { Capacitor } from "@capacitor/core"
 
+/**
+ * @deprecated use usePhotosStore instead
+ */
 export const useFavoritesStore = defineStore("favorites", () => {
   const shoots = ref([])
 

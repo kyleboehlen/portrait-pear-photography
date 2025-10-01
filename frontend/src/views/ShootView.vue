@@ -19,7 +19,7 @@
     </Transition>
 
     <!-- Favorites button -->
-    <TheFavoritesButton
+    <TheInstagramButton
       v-if="showFavoritesButton"
       :shootSlug="shootSlug"
       :photos="photos"
@@ -44,7 +44,7 @@ import { Capacitor } from "@capacitor/core"
 // Vue
 import { onMounted, computed, ref, watch } from "vue"
 // Components
-import TheFavoritesButton from "@/components/TheFavoritesButton.vue"
+import TheInstagramButton from "@/components/TheInstagramButton.vue"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 import PhotoCard from "@/components/panel/PhotoCard.vue"
 import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue"

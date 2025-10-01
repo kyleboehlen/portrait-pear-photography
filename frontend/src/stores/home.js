@@ -1,7 +1,9 @@
 import { defineStore } from "pinia"
 
-export const useHomeStore = defineStore({
-  id: "home",
+/**
+ * @deprecated use usePhotosStore instead
+ */
+export const useHomeStore = defineStore("home",{
   state: () => ({
     lastUpdated: 0, // Last time we've gotten the home view from the API
     photos: [],

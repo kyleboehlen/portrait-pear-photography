@@ -1,5 +1,8 @@
 import { defineStore } from "pinia"
 
+/**
+ * @deprecated use usePhotosStore instead
+ */
 export const useContactStore = defineStore({
   id: "contact",
   state: () => ({

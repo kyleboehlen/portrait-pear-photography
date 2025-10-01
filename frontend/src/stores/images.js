@@ -1,6 +1,9 @@
 import { defineStore } from "pinia"
 import { inject } from "vue"
 
+/**
+ * @deprecated use usePhotosStore instead
+ */
 export const useImagesStore = defineStore("images", () => {
   const db = inject("db")
 

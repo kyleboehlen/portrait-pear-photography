@@ -3,7 +3,7 @@
   <label for="modal-nav" class="modal cursor-pointer">
     <label class="modal-box relative flex flex-col items-center max-xs:px-0" for="">
       <!-- Filter folders select -->
-      <div class="form-control w-11/12 xs:w-5/6 mt-2">
+      <div class="form-control w-11/12 xs:w-5/6 mt-3">
         <label class="label">
           <span class="label-text">Filter Photos</span>
         </label>
@@ -45,22 +45,8 @@
       </div>
 
       <!-- Spacer -->
-      <div class="pt-32"></div>
+      <div class="pt-7"></div>
 
-      <!-- Bottom Nav -->
-      <div class="btm-nav mb-2">
-        <!-- Home -->
-        <BottomButton icon="home" label="Home" @click="navigate('home')" />
-
-        <!-- Contact Me -->
-        <BottomButton icon="mail" label="Contact" @click="navigate('contact')" />
-
-        <!-- Instagram -->
-        <BottomButton icon="insta" label="Instagram" @click="navigate('instagram')" />
-
-        <!-- If native: Favorited shoots ELSE: app store -->
-        <BottomButton v-if="isNative" icon="heart" label="Favorites" @click="navigate('favorites')" />
-      </div>
     </label>
   </label>
 </template>
@@ -69,8 +55,6 @@
 // Vue
 import { computed, ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
-// Components
-import BottomButton from "@/components/nav/BottomButton.vue"
 // Capacitor
 import { Capacitor } from "@capacitor/core"
 // Store
