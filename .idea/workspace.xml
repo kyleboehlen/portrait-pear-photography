@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Start removing capacitor" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Update goland workspace">
+      <change afterPath="$PROJECT_DIR$/backend/api/middleware/cors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,34 +49,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go Build.go build friday.executor&quot;: &quot;Debug&quot;,
-    &quot;Go Build.go build portrait-pear-photography.executor&quot;: &quot;Debug&quot;,
-    &quot;Go Test.TestWriteJSONErrorResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.go test backend.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.go test friday/api/routing.executor&quot;: &quot;Run&quot;,
-    &quot;Go Test.gobench friday/api/response.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build friday.executor": "Run",
+    "Go Build.go build portrait-pear-photography.executor": "Debug",
+    "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
+    "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
+    "Go Test.go test backend.executor": "Run",
+    "Go Test.go test friday/api/routing.executor": "Run",
+    "Go Test.gobench friday/api/response.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
+    "settings.editor.selected.configurable": "com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable",
+    "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend" />
@@ -129,7 +136,8 @@
     <MESSAGE value="Add initial go backend&#10;Adds dockerfile for building for windows/linux/mac&#10;Sets up how responses and error codes will look from the api&#10;Renames the module to Friday&#10;Adds a health check heartbeat endpoint&#10;Sets the pattern for how routing/controllers/handlers will be handled&#10;Updates the readme (uses local development, not docker)&#10;Saves goland run configs&#10;Tests for everything included (unit/acceptance)" />
     <MESSAGE value="update goland workspace" />
     <MESSAGE value="Start removing capacitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start removing capacitor" />
+    <MESSAGE value="Update goland workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update goland workspace" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -139,7 +147,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/main.go</url>
-          <line>12</line>
+          <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
