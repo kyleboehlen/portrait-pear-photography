@@ -4,6 +4,7 @@ import (
 	_ "friday/api/handlers" // This is required to register the routes
 	"friday/api/middleware"
 	"friday/api/routing"
+	"friday/database/repository"
 	"log"
 	"net/http"
 )
@@ -16,6 +17,12 @@ func main() {
 	// Reflect Origin to satisfy CORS requirements for pre-flight checks - we may need to limit this in the future to
 	// origins specified in the .env vars
 	httpHandler := middleware.CORS(mux)
+
+	// Setup database - run migrations and check for database file
+	_, err := repository.SetupWithMigration(true)
+	if err != nil {
+		log.Fatalf("Failed to set up database: %v", err)
+	}
 
 	// Health - need to add db status checks
 

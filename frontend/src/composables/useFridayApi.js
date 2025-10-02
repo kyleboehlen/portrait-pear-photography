@@ -44,7 +44,7 @@ async function healthCheck() {
 
     const result = await getApi('/health');
     if (result !== false) {
-        console.log('Health check success:', result);
+        console.log('Health check success:', result); // This should write "heartbeat"
     } else {
         console.log('Health check failed.');
     }

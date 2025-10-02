@@ -1,0 +1,1 @@
+NOTE: Need to make sure to deploy the migrations with the binary executable
