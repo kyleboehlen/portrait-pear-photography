@@ -58,7 +58,7 @@ import { useRouter } from "vue-router"
 // Capacitor
 import { Capacitor } from "@capacitor/core"
 // Store
-import { useFilterStore } from "@/stores/filter.js"
+// import { useFilterStore } from "@/stores/filter.js"
 // Icons
 import { Icon, addIcon } from "@iconify/vue/offline"
 import home from "@iconify-icons/pajamas/home"
@@ -81,7 +81,7 @@ const isNative = computed(() => {
   return Capacitor.isNativePlatform()
 })
 
-const filter = useFilterStore()
+// const filter = useFilterStore()
 const filterSelect = ref()
 const filterPhotos = () => {
   filter.setCategory(filterSelect.value)

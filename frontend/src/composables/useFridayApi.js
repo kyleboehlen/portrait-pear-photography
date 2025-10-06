@@ -3,39 +3,57 @@ import { ref } from 'vue';
 
 const baseUrl = import.meta.env.VITE_API_URL;
 const apiCallInProgress = ref(false);
+const adminApiIsAuthenticated = ref(false);
 
-async function baseApiCall(method, path, body = null) {
+async function baseApiCall(method, path, body = null, token = null) {
     apiCallInProgress.value = true
     try {
-        const response = await axios({
+        const config = {
             method,
             url: `${baseUrl}${path}`,
             data: body,
-        });
+        };
 
+        if (token) {
+            config.headers = {
+                'Authorization': `Bearer ${token}`
+            };
+        }
+
+        const response = await axios(config);
         const apiRes = response.data;
+
         apiCallInProgress.value = false
 
         if (!apiRes.success) {
+            // TODO: If token was provided and we got a forbidden response set authenticated to false
             console.error(`API Error [${apiRes.error_code}]: ${apiRes.error_message}`);
             return false;
+        }
+
+        if (token) {
+            adminApiIsAuthenticated.value = true;
         }
 
         return apiRes.content;
     } catch (err) {
         console.error('API error:', err);
 
-        apiCallInProgress.value = true
+        apiCallInProgress.value = false
         return false;
     }
 }
 
-function getApi(path) {
-    return baseApiCall('get', path);
+function deleteApi(path, token = null) {
+    return baseApiCall('delete', path, token);
 }
 
-function postApi(path, body) {
-    return baseApiCall('post', path, body);
+function getApi(path, token = null) {
+    return baseApiCall('get', path, null, token);
+}
+
+function postApi(path, body, token = null) {
+    return baseApiCall('post', path, body, token);
 }
 
 async function healthCheck() {
@@ -55,5 +73,5 @@ export const useFridayApi = () => {
     healthCheck();
 
     // Expose the ref for logic regarding waiting for API calls, and expose methods to make GET and POST requests
-    return { apiCallInProgress, getApi, postApi };
+    return { apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi };
 };

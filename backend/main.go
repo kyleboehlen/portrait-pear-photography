@@ -24,8 +24,6 @@ func main() {
 		log.Fatalf("Failed to set up database: %v", err)
 	}
 
-	// Health - need to add db status checks
-
 	// Get all home page photos
 	// Get photos from shoot
 

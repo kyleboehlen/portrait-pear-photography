@@ -22,15 +22,15 @@ import { computed, ref, onMounted } from "vue"
 // Images
 import logo from "@/assets/imgs/green-camera-logo.png?url"
 // Store
-import { useImagesStore } from "@/stores/images.js"
+// import { useImagesStore } from "@/stores/images.js"
 // Capacitor
 import { Capacitor } from "@capacitor/core"
 // Composable
-import { toDataURL } from "@/composables/todataurl.js"
+// import { toDataURL } from "@/composables/todataurl.js"
 
 const props = defineProps(["photo", "cache", "cachedPhotos"])
 
-const images = useImagesStore()
+// const images = useImagesStore()
 
 const img = ref()
 const isOnline = ref(false)
@@ -78,11 +78,11 @@ const setOffline = () => {
 
 // const toDataURL = useToDataURL()
 const onLoad = () => {
-  if (props.cache && !isCached.value && Capacitor.isNativePlatform() && navigator.onLine) {
-    toDataURL(props.photo.full_res_asset_url, async (dataUrl) => {
-      images.store(props.photo.compressed_asset_url, dataUrl)
-    })
-  }
+  // if (props.cache && !isCached.value && Capacitor.isNativePlatform() && navigator.onLine) {
+  //   toDataURL(props.photo.full_res_asset_url, async (dataUrl) => {
+  //     images.store(props.photo.compressed_asset_url, dataUrl)
+  //   })
+  // }
 }
 
 const lazyLifecycle = {

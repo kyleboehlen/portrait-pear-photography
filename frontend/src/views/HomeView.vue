@@ -42,13 +42,13 @@ import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 import PhotoCard from "@/components/panel/PhotoCard.vue"
 import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue"
 // Store
-import { useHomeStore } from "@/stores/home.js"
-import { useImagesStore } from "@/stores/images.js"
-import { useFilterStore } from "@/stores/filter.js"
+// import { useHomeStore } from "@/stores/home.js"
+// import { useImagesStore } from "@/stores/images.js"
+// import { useFilterStore } from "@/stores/filter.js"
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 
-const home = useHomeStore()
-const images = useImagesStore()
+// const home = useHomeStore()
+// const images = useImagesStore()
 
 // Show loader logic
 const apiCallFinished = ref(false)
@@ -68,7 +68,7 @@ const photos = ref([])
 const cachedPhotos = ref([])
 
 // Filtering
-const filter = useFilterStore()
+// const filter = useFilterStore()
 const filteredPhotos = computed(() => {
   let returnPhotos = []
 

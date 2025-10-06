@@ -1,9 +1,6 @@
 <template>
   <!-- Header -->
   <header class="w-100 sticky top-0">
-    <!-- iOS safe area spacer -->
-    <div class="w-full bg-base-100" :style="{ height: safeAreaTop }"></div>
-
     <!-- Header proper -->
     <div
       class="w-full px-2 bg-secondary flex flex-row flex-nowrap justify-between items-center rounded-b-xl"
@@ -16,7 +13,7 @@
       </h1>
       <label
         for="modal-nav"
-        class="btn flex w-auto p-0 aspect-square"
+        class="btn btn-neutral flex w-auto p-0 aspect-square"
         :class="{ 'h-3/5': !shrink, 'sm:h-3/4': !shrink, 'btn-sm': shrink }">
         <Icon icon="hamburger" class="text-primary h-2/3 w-auto"></Icon>
       </label>

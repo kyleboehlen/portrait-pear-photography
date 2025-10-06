@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_09_30_A-create-migrations-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/repository/sqlite.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/deploy_notes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/go.sum" afterDir="false" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/health.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/health.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/composables/todataurl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/favorites.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/filter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ContactView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/FavoritesView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,39 +61,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build friday.executor": "Debug",
-    "Go Build.go build portrait-pear-photography.executor": "Debug",
-    "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
-    "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
-    "Go Test.go test backend.executor": "Run",
-    "Go Test.go test friday/api/routing.executor": "Run",
-    "Go Test.gobench friday/api/response.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
-    "settings.editor.selected.configurable": "com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable",
-    "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build friday.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Build.go build portrait-pear-photography.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestWriteJSONErrorResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test backend.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/routing.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.gobench friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend" />
@@ -105,12 +110,6 @@
       <item itemvalue="Go Build.go build friday" />
       <item itemvalue="Go Test.go test backend" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build friday" />
-        <item itemvalue="Go Test.go test backend" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

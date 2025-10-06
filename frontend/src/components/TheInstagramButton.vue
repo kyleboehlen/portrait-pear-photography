@@ -1,7 +1,7 @@
 <template>
   <!-- Favorite heart button -->
   <span class="fixed right-0 bottom-0 pb-4 pr-4">
-    <button class="btn btn-lg btn-circle" @click="redirectToInstagram">
+    <button class="btn btn-lg btn-neutral btn-circle" @click="redirectToInstagram">
       <Icon icon="insta" class="text-primary w-2/3 h-auto" />
     </button>
   </span>

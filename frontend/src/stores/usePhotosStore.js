@@ -1,6 +1,6 @@
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
 
-export const usePhotosStore = defineStore("images",  {
+export const usePhotosStore = defineStore("photos",  {
     // Photos property that can be iterated over in shared photo component
     // Filter id property
     // Action to set filter

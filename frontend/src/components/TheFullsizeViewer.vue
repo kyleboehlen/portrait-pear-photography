@@ -73,7 +73,7 @@ import { Capacitor } from "@capacitor/core"
 // Components
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 // Stores
-import { useImagesStore } from "@/stores/images.js"
+// import { useImagesStore } from "@/stores/images.js"
 
 addIcon("close", close)
 addIcon("download", download)

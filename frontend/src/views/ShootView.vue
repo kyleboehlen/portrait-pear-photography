@@ -49,9 +49,9 @@ import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 import PhotoCard from "@/components/panel/PhotoCard.vue"
 import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue"
 // Store
-import { useFilterStore } from "@/stores/filter.js"
-import { useFavoritesStore } from "@/stores/favorites.js"
-import { useImagesStore } from "@/stores/images.js"
+// import { useFilterStore } from "@/stores/filter.js"
+// import { useFavoritesStore } from "@/stores/favorites.js"
+// import { useImagesStore } from "@/stores/images.js"
 
 const props = defineProps(["shoot_slug"])
 
@@ -60,8 +60,8 @@ const photos = ref(null)
 const cachedPhotos = ref([])
 
 // Stores
-const favorites = useFavoritesStore()
-const images = useImagesStore()
+// const favorites = useFavoritesStore()
+// const images = useImagesStore()
 
 const shootSlug = computed(() => {
   if (props.shoot_slug === undefined || props.shoot_slug === null) {
@@ -76,9 +76,9 @@ const isShoot = computed(() => {
   return shootSlug.value !== null && apiCallFinished.value && shootFound.value
 })
 
-const showFavoritesButton = computed(() => {
-  return isShoot.value && Capacitor.isNativePlatform()
-})
+// const showFavoritesButton = computed(() => {
+//   return isShoot.value && Capacitor.isNativePlatform()
+// })
 
 const filter = useFilterStore()
 const filteredPhotos = computed(() => {
