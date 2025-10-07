@@ -4,25 +4,24 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" afterDir="false" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions">
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/auth/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/middleware/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/composables/todataurl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/contact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/favorites.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/filter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/images.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ContactView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/FavoritesView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,25 +149,10 @@
     <MESSAGE value="Update goland workspace" />
     <MESSAGE value="API functions for the frontend composable&#10;.env for frontend API urls&#10;Health check on API composable first reference&#10;CORs middleware&#10;Placeholder for admin auth middleware" />
     <MESSAGE value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
+    <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/main.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/main.go</url>
-          <line>21</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

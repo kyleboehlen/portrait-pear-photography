@@ -14,6 +14,7 @@ type SQLRepo struct {
 }
 
 func Setup() (*SQLRepo, error) {
+	// TODO: I'd like to save a secret key in the database for JWT generation on each setup
 	return SetupWithMigration(false)
 }
 

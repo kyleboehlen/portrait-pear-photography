@@ -18,6 +18,9 @@ func main() {
 	// origins specified in the .env vars
 	httpHandler := middleware.CORS(mux)
 
+	// Check auth for admin routes
+	httpHandler = middleware.AuthenticateAdmin(httpHandler)
+
 	// Setup database - run migrations and check for database file
 	_, err := repository.SetupWithMigration(true)
 	if err != nil {

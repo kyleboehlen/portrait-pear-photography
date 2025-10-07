@@ -1,4 +1,5 @@
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
+import { useFridayApi } from "@/composables/useFridayApi";
 
 export const useAdminStore = defineStore("admin",  {
     state: () => ({
@@ -6,10 +7,12 @@ export const useAdminStore = defineStore("admin",  {
     }),
     actions: {
         // Somehow we need to catch forbidden errors and clear the token
-        authenticate(password) {
-            // Call the API to get the auth token
-            // If successful, set the bearerToken property
-            //
+        async authenticate(password) {
+            const { postApi } = useFridayApi();
+            const res = await postApi('/authenticate', { password: password });
+            if (res !== false) {
+                this.bearerToken = res.token;
+            }
         }
     }
 })

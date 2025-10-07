@@ -22,16 +22,31 @@ async function baseApiCall(method, path, body = null, token = null) {
 
         const response = await axios(config);
         const apiRes = response.data;
+        /* Expected API response structure:
+            {
+                "success": bool,
+                "error_code": number, // 0 if success is true
+                "error_message": "string", // "" if success is true
+                "content": {...}, // JSON content based on response struct
+             }
+         */
 
         apiCallInProgress.value = false
 
         if (!apiRes.success) {
-            // TODO: If token was provided and we got a forbidden response set authenticated to false
-            console.error(`API Error [${apiRes.error_code}]: ${apiRes.error_message}`);
+            const errorCode = apiRes.error_code;
+
+            // These are specifically the error codes for admin auth related issues, if we get one of these then the
+            // token is no longer valid, or we don't have a token.
+            if (errorCode >= 20 && errorCode < 30 ){
+                adminApiIsAuthenticated.value = false;
+            }
+
+            console.error(`API Error [${errorCode}]: ${apiRes.error_message}`);
             return false;
         }
 
-        if (token) {
+        if ('token' in apiRes.content) {
             adminApiIsAuthenticated.value = true;
         }
 
@@ -70,7 +85,7 @@ async function healthCheck() {
 
 export const useFridayApi = () => {
     // Perform a health check when the composable is first used
-    healthCheck();
+    // healthCheck();
 
     // Expose the ref for logic regarding waiting for API calls, and expose methods to make GET and POST requests
     return { apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi };
