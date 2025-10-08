@@ -121,3 +121,6 @@ Who?
 
 *"Did you also set up this application to generate a random new 512-bit, on every cold start, for signing JWTs?"*<br>
 Idk, did I?
+
+*"Doesn't this script take forever to run?"*<br>
+CPU cores go brrrrr.
