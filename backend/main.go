@@ -5,18 +5,11 @@ import (
 	"friday/api/middleware"
 	"friday/api/routing"
 	"friday/database/repository"
-	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 )
 
 func main() {
-	// Use .env file for local development
-	err := godotenv.Load()
-	if err != nil {
-		log.Printf("Error loading .env file, ignore warning if running in production: %v", err)
-	}
-
 	// This gets a new server mux with all routes registered, this allows routes to be defined in their own file
 	// alongside the handlers they're associated with
 	mux := routing.GetNewRouter()
@@ -31,7 +24,7 @@ func main() {
 	httpHandler = middleware.CORS(httpHandler)
 
 	// Setup database - run migrations and check for database file
-	_, err = repository.SetupWithMigration(true)
+	_, err := repository.SetupWithMigration(true)
 	if err != nil {
 		log.Fatalf("Failed to set up database: %v", err)
 	}

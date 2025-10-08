@@ -2,6 +2,9 @@
   <configuration default="false" name="go build friday" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
     <module name="portrait-pear-photography" />
     <working_directory value="$PROJECT_DIR$/backend" />
+    <envs>
+      <env name="DEBUG_CORS" value="true" />
+    </envs>
     <kind value="PACKAGE" />
     <package value="friday" />
     <directory value="$PROJECT_DIR$" />

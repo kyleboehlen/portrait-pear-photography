@@ -46,9 +46,21 @@ Backend:
 - Use a bcrypt service to generate a hash for your password and add it to the .env file
 - On run the backend will automatically crate a JWT secret
 
-Recommend using GoLand and use the saved configurations
+Recommend using GoLand and use the saved configurations.
+For example for CORs to work locally you'll need to add the env var: `DEBUG_CORS=true`
 
 ## Deployment
 
+In order to truly commit to the "Oh no he left a hardcoded hash in the source code!" bit you need to generate a hash file:
+`cd ./passwords && go run main.go "<your password>"`
+
+"What!? Are you insane??" you might ask. No. I just didn't want to deal with .env vars in production. This was uh totally<br>
+the easier solution. Definitely not insane. Go read the source code and do the math. It's fine.<br>
+I promise, really. Definitely. Totally. ;)
+
 The backend can be built with Docker:
 `docker build -f Dockerfile --target dum-e -o ./bin .`
+
+## Kyle, I'm not going to go do the math on your insane crypto solution
+Okay first of all, buzz kill. Go read [TheForbiddenHashArray.md](./passwords/TheForbiddenHashArray.md)
+

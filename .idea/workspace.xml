@@ -4,26 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace">
-      <change afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/api/util/utils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme">
+      <change afterPath="$PROJECT_DIR$/backend/services/auth/hashes.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/passwords/TheForbiddenHashArray.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/passwords/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/passwords/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/middleware/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/auth/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +105,7 @@
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/passwords" />
       <recent name="$PROJECT_DIR$/backend/api" />
       <recent name="$PROJECT_DIR$/backend/routing" />
       <recent name="$PROJECT_DIR$/backend" />
@@ -165,7 +163,8 @@
     <MESSAGE value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
     <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
     <MESSAGE value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
+    <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -175,7 +174,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>63</line>
+          <line>62</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -195,12 +194,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>35</line>
+          <line>34</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>41</line>
+          <line>40</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>

@@ -72,3 +72,10 @@ func IsJWTValid(tokenString string) (bool, error) {
 
 	return true, nil
 }
+
+func GetCurrentHash() (string, bool) {
+	now := time.Now()
+	key := now.Format("2006-01")
+	hash, exists := theForbiddenHashArray[key]
+	return hash, exists
+}
