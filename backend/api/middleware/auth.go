@@ -29,8 +29,7 @@ func AuthenticateAdmin(next http.Handler) http.Handler {
 			token := parts[1]
 
 			// We don't actually use any claims, so we just need to know that it will parse correctly without errors
-			// TODO: Remove the hardcoded secret
-			if _, err := auth.ParseAdminJWT(token, "861a2703c15c319bd379d9a776232872ef5b82968a4b65627cf4d689def3b9383647849df7899ae80bd9cf0f8c7b1edb03472f6596498648a299cbf36aad837b"); err != nil {
+			if valid, err := auth.IsJWTValid(token); err != nil || !valid {
 				response.WriteJSONErrorResponse(w, "Invalid or expired token", response.ErrorCodeInvalidOrExpiredToken)
 				return
 			}

@@ -2,10 +2,33 @@ package auth
 
 import (
 	"github.com/golang-jwt/jwt/v5"
+	"sync"
 	"time"
 )
 
-func CreateAdminJWT(secretKey string) (string, error) {
+type Secrets struct {
+	key string
+}
+
+var (
+	secrets *Secrets
+	once    sync.Once
+)
+
+func setup() {
+	once.Do(func() {
+		// Generate a 512-bit (64-byte) random key
+		secrets = &Secrets{
+			key: string(make([]byte, 64)),
+		}
+	})
+}
+
+func CreateAdminJWT() (string, error) {
+	if secrets == nil {
+		setup()
+	}
+
 	// Only claims we care about are timestamps/issuer. We're only utilizing AuthN, not AuthZ. AuthZ is implied.
 	claims := jwt.RegisteredClaims{
 		ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
@@ -15,7 +38,7 @@ func CreateAdminJWT(secretKey string) (string, error) {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	tokenString, err := token.SignedString([]byte(secretKey))
+	tokenString, err := token.SignedString([]byte(secrets.key))
 	if err != nil {
 		return "", err
 	}
@@ -23,11 +46,11 @@ func CreateAdminJWT(secretKey string) (string, error) {
 	return tokenString, nil
 }
 
-func ParseAdminJWT(tokenString, secretKey string) (*jwt.RegisteredClaims, error) {
+func parseAdminJWT(tokenString string) (*jwt.RegisteredClaims, error) {
 	claims := &jwt.RegisteredClaims{}
 
 	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(secretKey), nil
+		return []byte(secrets.key), nil
 	})
 
 	if err != nil || !token.Valid {
@@ -35,4 +58,17 @@ func ParseAdminJWT(tokenString, secretKey string) (*jwt.RegisteredClaims, error)
 	}
 
 	return claims, nil
+}
+
+func IsJWTValid(tokenString string) (bool, error) {
+	claims, err := parseAdminJWT(tokenString)
+	if err != nil {
+		return false, err
+	}
+
+	if claims.ExpiresAt.Time.Before(time.Now()) || claims.Issuer != "friday-api" {
+		return false, nil
+	}
+
+	return true, nil
 }

@@ -31,15 +31,22 @@ the SQLite database and can purge unused images from Cloudflare. I'll start with
 current portfolio photos but retain the ability to share full-resolution shoots. This allows the flexibility of testing<br>
 it locally using the real services, but easily prune out data that isn't necessary.
 
-I might add Docker support later, but local tooling and deployment scripts work fine for now. This approach lets me <br>
-use the Wrangler CLI without adding API keys to container environments—I can stick with local auth callbacks.
-
 ## Development
 
+### Prerequisites
+- Node.js and pnpm
+- Go 1.24+
+- Whatever delve tells you it needs during debugging
+
+Frontend: 
 `cd frontend && pnpm install && pnpm run dev`
 
-If you're using GoLand (or another Go IDE), just run the debug config against `main.go`. It'll prompt to make sure you<br>
-have Go, and the xcode command line tools installed.
+Backend:
+- Copy the .env.example to .env
+- Use a bcrypt service to generate a hash for your password and add it to the .env file
+- On run the backend will automatically crate a JWT secret
+
+Recommend using GoLand and use the saved configurations
 
 ## Deployment
 

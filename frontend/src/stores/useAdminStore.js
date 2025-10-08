@@ -13,6 +13,10 @@ export const useAdminStore = defineStore("admin",  {
             if (res !== false) {
                 this.bearerToken = res.token;
             }
+        },
+        async testToken() {
+            const { getApi } = useFridayApi();
+            const res = await getApi('/admin/test', this.bearerToken);
         }
     }
 })

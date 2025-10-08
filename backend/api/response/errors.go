@@ -25,6 +25,10 @@ const (
 	ErrorCodeJWTGenerationFailed ErrorCode = 24
 	// ErrorCodeInvalidPassword An error if the provided password doesn't match the bcrypt hash
 	ErrorCodeInvalidPassword ErrorCode = 25
+	// ErrorCodeAdminPasswordNotSet An error if the ADMIN_PASSWORD_HASH env var isn't set
+	ErrorCodeAdminPasswordNotSet ErrorCode = 26
+	// ErrorCodeMissingAdminPassword The request body does not contain the password
+	ErrorCodeMissingAdminPassword ErrorCode = 27
 
 	// ErrorCodeRequestGeneral General request error code - starts the Request error block
 	ErrorCodeRequestGeneral ErrorCode = 30
