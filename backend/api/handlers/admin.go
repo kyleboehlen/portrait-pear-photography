@@ -7,6 +7,7 @@ import (
 	"friday/services/auth"
 	"golang.org/x/crypto/bcrypt"
 	"net/http"
+	"time"
 )
 
 type AdminAuthRequest struct {
@@ -38,7 +39,9 @@ var AuthenticateRoute = routing.Route{
 			return
 		}
 
-		if err := bcrypt.CompareHashAndPassword([]byte(passwordHash), []byte(adminAuthReq.Password)); err != nil {
+		now := time.Now()
+		salt := now.Format("2006-01")
+		if err := bcrypt.CompareHashAndPassword([]byte(passwordHash), []byte(adminAuthReq.Password+salt)); err != nil {
 			response.WriteJSONErrorResponse(w, "Invalid password", response.ErrorCodeInvalidPassword)
 			return
 		}

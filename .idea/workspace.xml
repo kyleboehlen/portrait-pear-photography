@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Nevermind, i don't wanna use env vars">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Finish generating hashes">
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/auth/hashes.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/hashes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passwords/TheForbiddenHashArray.md" beforeDir="false" afterPath="$PROJECT_DIR$/passwords/TheForbiddenHashArray.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/passwords/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/passwords/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +158,8 @@
     <MESSAGE value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
     <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
     <MESSAGE value="Nevermind, i don't wanna use env vars" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nevermind, i don't wanna use env vars" />
+    <MESSAGE value="Finish generating hashes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish generating hashes" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -169,7 +169,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>62</line>
+          <line>65</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -189,13 +189,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>40</line>
+          <line>43</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>45</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
