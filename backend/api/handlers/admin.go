@@ -7,7 +7,6 @@ import (
 	"friday/services/auth"
 	"golang.org/x/crypto/bcrypt"
 	"net/http"
-	"os"
 )
 
 type AdminAuthRequest struct {
@@ -33,7 +32,7 @@ var AuthenticateRoute = routing.Route{
 			return
 		}
 
-		passwordHash, exists := os.LookupEnv("ADMIN_PASSWORD_HASH")
+		passwordHash, exists := auth.GetCurrentHash()
 		if !exists {
 			response.WriteJSONErrorResponse(w, "Admin password hash not set", response.ErrorCodeAdminPasswordNotSet)
 			return
