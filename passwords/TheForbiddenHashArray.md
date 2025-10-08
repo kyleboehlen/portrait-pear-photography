@@ -99,16 +99,25 @@ But this password will remain.
 
 ---
 
-*"But why not just use environment variables?"*  
+*"But why not just use environment variables?"*<br>
 What are environment variables? Never heard of them.
 
-*"Isn't this overkill?"*  
+*"Isn't this overkill?"*<br>
 Brother, we passed overkill at the 32-character mark. Now we're just style points.
 
-*"What if quantum computers—"*  
+*"What if quantum computers—"*<br>
 Even Shor's algorithm doesn't help with brute-forcing symmetric keys.<br>
 You'd need Grover's algorithm, which would "only" square-root the search time.<br>
 That brings us down to... *checks notes* ...still 10^42 years.
 
-*"I'm going to get the password out of the passwords.txt file on your desktop."*
+*"I'm going to get the password out of the passwords.txt file on your desktop."*<br>
 Nuh uh, I wrote it on a sticky note an... Oh, you almost got me there you rascal you!
+
+*"Actushuly Bcrypt supports up to 72 bytes so this isn't optimal"*<br>
+Yeah, I know. Do you feel better about your self?
+
+*"Why not use Argon2 or PBKDF2 instead of Bcrypt?"*<br>
+Who?
+
+*"Did you also set up this application to generate a random new 512-bit, on every cold start, for signing JWTs?"*<br>
+Idk, did I?

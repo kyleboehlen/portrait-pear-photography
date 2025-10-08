@@ -13,7 +13,7 @@ func main() {
 	// Check if password was provided
 	if len(os.Args) < 2 {
 		_, _ = fmt.Fprintln(os.Stderr, "Usage: go run main.go <password>")
-		_, _ = fmt.Fprintln(os.Stderr, "Example: go run main.go 'your-50-char-password'")
+		_, _ = fmt.Fprintln(os.Stderr, "Example: go run main.go 'your-64-char-password'")
 		os.Exit(1)
 	}
 
@@ -57,7 +57,7 @@ func main() {
 	// Generate hashes for 10 years, monthly
 	startDate := time.Date(2025, 1, 1, 0, 0, 0, 0, time.UTC)
 
-	fmt.Println("Generating 120 hashes (this will take 1-2 minutes)...")
+	fmt.Println("Generating 120 hashes (this will take a while)...")
 	fmt.Printf("Password length: %d characters ✓\n", len(password))
 
 	for i := 0; i < 120; i++ { // 10 years * 12 months
