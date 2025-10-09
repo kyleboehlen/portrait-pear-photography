@@ -124,3 +124,7 @@ Idk, did I?
 
 *"Doesn't this script take forever to run?"*<br>
 CPU cores go brrrrr. (it runs concurrently across all cores)
+
+*"What if...."*<br>
+Golang is compiled, it's deployed as a binary. You know you can just regenerate the hashes before deployment, right?<br>
+What makes you so certain the current hashes in source code are the ones on the server?
