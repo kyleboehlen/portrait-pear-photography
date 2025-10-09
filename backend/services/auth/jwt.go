@@ -2,7 +2,6 @@ package auth
 
 import (
 	"github.com/golang-jwt/jwt/v5"
-	"sync"
 	"time"
 )
 
@@ -10,24 +9,18 @@ type Secrets struct {
 	key string
 }
 
-var (
-	secrets *Secrets
-	once    sync.Once
-)
+var secrets *Secrets
 
-func setup() {
-	once.Do(func() {
-		// Generate a 512-bit (64-byte) random key
+func setSecretKey() {
+	if secrets == nil {
 		secrets = &Secrets{
 			key: string(make([]byte, 64)),
 		}
-	})
+	}
 }
 
 func CreateAdminJWT() (string, error) {
-	if secrets == nil {
-		setup()
-	}
+	setSecretKey()
 
 	// Only claims we care about are timestamps/issuer. We're only utilizing AuthN, not AuthZ. AuthZ is implied.
 	claims := jwt.RegisteredClaims{
