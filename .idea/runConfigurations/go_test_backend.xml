@@ -2,6 +2,9 @@
   <configuration default="false" name="go test backend" type="GoTestRunConfiguration" factoryName="Go Test" nameIsGenerated="true">
     <module name="portrait-pear-photography" />
     <working_directory value="$PROJECT_DIR$/backend" />
+    <envs>
+      <env name="TEST" value="true" />
+    </envs>
     <kind value="DIRECTORY" />
     <package value="friday" />
     <directory value="$PROJECT_DIR$/backend" />

@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Finish generating hashes">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="JWT test">
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/admin_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/middleware/auth_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/go_test_backend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/go_test_backend.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/auth/hashes.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/hashes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/auth/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/jwt.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/passwords/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/passwords/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,10 +46,13 @@
     &quot;accountId&quot;: &quot;e48e7869-355a-4051-957f-753ca6079707&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -65,10 +71,16 @@
     "Go Build.go build friday.executor": "Debug",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
+    "Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor": "Run",
+    "Go Test.TestTestRoute_Success in friday/api/handlers.executor": "Run",
     "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
     "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
     "Go Test.go test backend.executor": "Run",
+    "Go Test.go test friday/api/handlers.executor": "Run",
+    "Go Test.go test friday/api/middleware.executor": "Run",
     "Go Test.go test friday/api/routing.executor": "Run",
+    "Go Test.go test friday/api/util.executor": "Run",
+    "Go Test.go test friday/services/auth.executor": "Run",
     "Go Test.gobench friday/api/response.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -105,7 +117,63 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build friday">
+  <component name="RunManager" selected="Go Test.TestTestRoute_Success in friday/api/handlers">
+    <configuration name="TestTestRoute_Success in friday/api/handlers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/handlers" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/handlers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestTestRoute_Success\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test friday/api/handlers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/handlers" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/handlers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/middleware" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test friday/api/util" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/util" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/util" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test friday/services/auth" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/services/auth" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/services/auth" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -113,7 +181,21 @@
     <list>
       <item itemvalue="Go Build.go build friday" />
       <item itemvalue="Go Test.go test backend" />
+      <item itemvalue="Go Test.TestTestRoute_Success in friday/api/handlers" />
+      <item itemvalue="Go Test.go test friday/api/handlers" />
+      <item itemvalue="Go Test.go test friday/api/middleware" />
+      <item itemvalue="Go Test.go test friday/api/util" />
+      <item itemvalue="Go Test.go test friday/services/auth" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestTestRoute_Success in friday/api/handlers" />
+        <item itemvalue="Go Test.go test friday/api/handlers" />
+        <item itemvalue="Go Test.go test friday/services/auth" />
+        <item itemvalue="Go Test.go test friday/api/middleware" />
+        <item itemvalue="Go Test.go test friday/api/util" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -159,7 +241,13 @@
     <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
     <MESSAGE value="Nevermind, i don't wanna use env vars" />
     <MESSAGE value="Finish generating hashes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish generating hashes" />
+    <MESSAGE value="Still salty, now with infinitely more concurrency!" />
+    <MESSAGE value="Ruining the bit :(" />
+    <MESSAGE value="Removing open origins from CORS" />
+    <MESSAGE value="Update read body util to be strict&#10;Add tests for read body util&#10;(Thank god they added generics to go)" />
+    <MESSAGE value="CORS test" />
+    <MESSAGE value="JWT test" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT test" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -171,36 +259,6 @@
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
           <line>65</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/services/auth/jwt.go</url>
-          <line>63</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/services/auth/jwt.go</url>
-          <line>59</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/services/auth/jwt.go</url>
-          <line>68</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>35</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>43</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>45</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
