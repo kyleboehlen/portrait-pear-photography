@@ -68,8 +68,6 @@ import close from "@iconify-icons/pajamas/close"
 import download from "@iconify-icons/pajamas/download"
 import left from "@iconify-icons/pajamas/chevron-lg-left"
 import right from "@iconify-icons/pajamas/chevron-lg-right"
-// Capacitor
-import { Capacitor } from "@capacitor/core"
 // Components
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 // Stores
@@ -82,7 +80,7 @@ addIcon("right", right)
 
 const props = defineProps(["photo", "photos", "cachedPhotos"])
 
-const isNative = Capacitor.isNativePlatform()
+const isNative = false
 const isOnline = ref(navigator.onLine)
 const loading = ref(true)
 

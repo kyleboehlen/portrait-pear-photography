@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center bg-secondary/50 max-xs:w-full max-sm:w-3/4 sm:h-96 border-1 shadow-md shadow-secondary rounded-lg border-secondary m-4">
+    class="flex justify-center bg-secondary/50 max-xs:w-full max-sm:w-3/4 sm:h-96 border shadow-md shadow-secondary rounded-lg border-secondary m-4">
     <!-- If not cached show lazy load, otherwise paint it from cache -->
     <img
       v-if="crossorigin"
@@ -23,8 +23,6 @@ import { computed, ref, onMounted } from "vue"
 import logo from "@/assets/imgs/green-camera-logo.png?url"
 // Store
 // import { useImagesStore } from "@/stores/images.js"
-// Capacitor
-import { Capacitor } from "@capacitor/core"
 // Composable
 // import { toDataURL } from "@/composables/todataurl.js"
 
@@ -44,11 +42,11 @@ const isCached = computed(() => {
 })
 
 const useCached = computed(() => {
-  return isCached.value && Capacitor.isNativePlatform() && !isOnline.value
+  return isCached.value && false && !isOnline.value
 })
 
 const crossorigin = computed(() => {
-  if (Capacitor.isNativePlatform() && !isCached.value) {
+  if (false && !isCached.value) {
     return true
   }
   return false

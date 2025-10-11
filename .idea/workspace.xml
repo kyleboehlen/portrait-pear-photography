@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="JWT test">
-      <change afterPath="$PROJECT_DIR$/backend/api/handlers/admin_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/api/middleware/auth_test.go" afterDir="false" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Auth tests">
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/go_test_backend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/go_test_backend.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/auth/hashes.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/hashes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/auth/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/auth/jwt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passwords/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/passwords/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/imgs/metronome-pear-white.apng" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/imgs/metronome-pear-white.apng" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFooter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/NotFoundMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/NotFoundMessage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +80,12 @@
     "Go Build.go build friday.executor": "Debug",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
+    "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor": "Run",
     "Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor": "Run",
     "Go Test.TestTestRoute_Success in friday/api/handlers.executor": "Run",
     "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
@@ -117,31 +132,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestTestRoute_Success in friday/api/handlers">
-    <configuration name="TestTestRoute_Success in friday/api/handlers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/handlers" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/handlers" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestTestRoute_Success\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go test friday/api/handlers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/handlers" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/handlers" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go test friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.go test backend">
+    <configuration name="TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="portrait-pear-photography" />
       <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
       <root_directory value="$PROJECT_DIR$/backend" />
@@ -150,28 +142,55 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_ExpiredToken\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go test friday/api/util" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/util" />
+      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
       <root_directory value="$PROJECT_DIR$/backend" />
       <kind value="PACKAGE" />
-      <package value="friday/api/util" />
+      <package value="friday/api/middleware" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go test friday/services/auth" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/services/auth" />
+      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
       <root_directory value="$PROJECT_DIR$/backend" />
       <kind value="PACKAGE" />
-      <package value="friday/services/auth" />
+      <package value="friday/api/middleware" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_InvalidToken\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/middleware" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_MissingAuthHeader\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="portrait-pear-photography" />
+      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
+      <root_directory value="$PROJECT_DIR$/backend" />
+      <kind value="PACKAGE" />
+      <package value="friday/api/middleware" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAuthenticateAdmin_DifferentAdminPaths\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
@@ -181,19 +200,19 @@
     <list>
       <item itemvalue="Go Build.go build friday" />
       <item itemvalue="Go Test.go test backend" />
-      <item itemvalue="Go Test.TestTestRoute_Success in friday/api/handlers" />
-      <item itemvalue="Go Test.go test friday/api/handlers" />
-      <item itemvalue="Go Test.go test friday/api/middleware" />
-      <item itemvalue="Go Test.go test friday/api/util" />
-      <item itemvalue="Go Test.go test friday/services/auth" />
+      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" />
+      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" />
+      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" />
+      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" />
+      <item itemvalue="Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestTestRoute_Success in friday/api/handlers" />
-        <item itemvalue="Go Test.go test friday/api/handlers" />
-        <item itemvalue="Go Test.go test friday/services/auth" />
-        <item itemvalue="Go Test.go test friday/api/middleware" />
-        <item itemvalue="Go Test.go test friday/api/util" />
+        <item itemvalue="Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" />
+        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" />
+        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" />
+        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" />
+        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +266,9 @@
     <MESSAGE value="Update read body util to be strict&#10;Add tests for read body util&#10;(Thank god they added generics to go)" />
     <MESSAGE value="CORS test" />
     <MESSAGE value="JWT test" />
-    <option name="LAST_COMMIT_MESSAGE" value="JWT test" />
+    <MESSAGE value="Admin test" />
+    <MESSAGE value="Auth tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth tests" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -259,6 +280,30 @@
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
           <line>65</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>44</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>48</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>55</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>59</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

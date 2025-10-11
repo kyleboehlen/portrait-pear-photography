@@ -1,9 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    preferesdark: false;
+    color-scheme: light;
+    --color-base-100: "#222325";
+    --color-primary: "#3db084";
+    --color-secondary: "#012217";
+    --color-accent: "#4278A9";
+    --color-neutral: "#4f5256";
+    --color-info: "#4278A9";
+    --color-success: "#3eb389";
+    --color-warning: "#FFBA58";
+    --color-error: "#DB2D5C";
+}
+@plugin "daisyui" {
+    themes: light --prefers-light;
+}
+input {
+    --tw-ring-shadow: 0 0 #000 !important;
+}
 
 @font-face {
     font-family: "Kodchasan";
     src: local("Kodchasan"),
-        url(@/assets/fonts/Kodchasan-Regular.ttf) format("truetype");
+    url("@/assets/fonts/Kodchasan-Regular.ttf") format("truetype");
 }

@@ -1,19 +1,19 @@
 <template>
   <!-- Header -->
-  <header class="w-100 sticky top-0">
+  <header class="w-full sticky top-0">
     <!-- Header proper -->
     <div
       class="w-full px-2 bg-secondary flex flex-row flex-nowrap justify-between items-center rounded-b-xl"
       :class="{ 'h-28': !shrink, 'md:h-24': !shrink, 'h-12': shrink }">
-      <img :src="logo" class="h-3/4 xs:h-full cursor-pointer" @click="navigateHome" />
+      <img :src="logo" class="h-full xs:h-full cursor-pointer" @click="navigateHome" />
       <h1
-        class="md:whitespace-nowrap text-center uppercase"
+        class="md:whitespace-nowrap text-center uppercase text-white/75"
         :class="{ 'text-4xl': !shrink, 'sm:text-5xl': !shrink, 'md:text-6xl': !shrink, 'text-3xl': shrink }">
         Portrait Pear
       </h1>
       <label
         for="modal-nav"
-        class="btn btn-neutral flex w-auto p-0 aspect-square"
+        class="bg-neutral flex w-auto p-0 aspect-square rounded-xl"
         :class="{ 'h-3/5': !shrink, 'sm:h-3/4': !shrink, 'btn-sm': shrink }">
         <Icon icon="hamburger" class="text-primary h-2/3 w-auto"></Icon>
       </label>
@@ -33,9 +33,6 @@ import { useRouter } from "vue-router"
 // Iconify
 import { Icon, addIcon } from "@iconify/vue/offline"
 import hamburger from "@iconify-icons/pajamas/hamburger"
-// Capacitor
-import { Capacitor } from "@capacitor/core"
-import { SafeArea } from "capacitor-plugin-safe-area"
 // Components
 import TheModalNav from "@/components/TheModalNav.vue"
 
@@ -58,13 +55,6 @@ const safeAreaTop = ref(0)
 onMounted(() => {
   // Mount on scroll for shrink
   window.addEventListener("scroll", shrinkOnScroll)
-
-  // Get the status bar height and add proper padding
-  if (Capacitor.getPlatform() === "ios") {
-    SafeArea.getStatusBarHeight().then(({ statusBarHeight }) => {
-      safeAreaTop.value = statusBarHeight + "px"
-    })
-  }
 })
 
 // Home link
@@ -76,7 +66,7 @@ const navigateHome = () => {
 
 <style scoped>
 h1 {
-  font-family: Kodchasan;
+  font-family: Kodchasan,sans-serif;
   transition: 0.2s;
 }
 header {

@@ -55,8 +55,6 @@
 // Vue
 import { computed, ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
-// Capacitor
-import { Capacitor } from "@capacitor/core"
 // Store
 // import { useFilterStore } from "@/stores/filter.js"
 // Icons
@@ -78,18 +76,18 @@ addIcon("funnel", funnel)
 addIcon("heart", heart)
 
 const isNative = computed(() => {
-  return Capacitor.isNativePlatform()
+  return false
 })
 
 // const filter = useFilterStore()
 const filterSelect = ref()
 const filterPhotos = () => {
-  filter.setCategory(filterSelect.value)
+  // filter.setCategory(filterSelect.value)
   hideModal()
 }
 
 onMounted(() => {
-  filterSelect.value = filter.category
+  // filterSelect.value = filter.category
 })
 
 const modalToggle = ref()
