@@ -11,20 +11,59 @@
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-108@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-24@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-27.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-44@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-50@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-72@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-86@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon-98@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/icon/icon@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-1792h~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-2436h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-2688h~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-568h@2x~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-667h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-736h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape-1792h~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape-2436h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape-2688h~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape-736h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape@2x~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape@~ipadpro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Landscape~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Portrait@2x~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Portrait@~ipadpro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default-Portrait~ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default@2x~iphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default@2x~universal~anyany.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/resources/ios/splash/Default~iphone.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/imgs/metronome-pear-white.apng" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/imgs/metronome-pear-white.apng" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFooter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/NotFoundMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/NotFoundMessage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +116,7 @@
     "Docker.Debug.executor": "Run",
     "Docker.Develop.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Debug",
+    "Go Build.go build friday.executor": "Run",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
     "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
@@ -132,67 +171,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test backend">
-    <configuration name="TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/middleware" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_ExpiredToken\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/middleware" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/middleware" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_InvalidToken\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/middleware" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateAdmin_AdminRoute_MissingAuthHeader\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="portrait-pear-photography" />
-      <working_directory value="$PROJECT_DIR$/backend/api/middleware" />
-      <root_directory value="$PROJECT_DIR$/backend" />
-      <kind value="PACKAGE" />
-      <package value="friday/api/middleware" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestAuthenticateAdmin_DifferentAdminPaths\E$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build friday">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -200,21 +179,7 @@
     <list>
       <item itemvalue="Go Build.go build friday" />
       <item itemvalue="Go Test.go test backend" />
-      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" />
-      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" />
-      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" />
-      <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" />
-      <item itemvalue="Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware" />
-        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware" />
-        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware" />
-        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware" />
-        <item itemvalue="Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

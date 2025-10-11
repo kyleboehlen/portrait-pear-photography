@@ -61,7 +61,7 @@
 // Vue
 import { ref, computed, onMounted, nextTick } from "vue"
 // Loader
-import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
+// import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
 // Icons
 import { Icon, addIcon } from "@iconify/vue/offline"
 import close from "@iconify-icons/pajamas/close"

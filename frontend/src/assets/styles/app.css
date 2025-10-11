@@ -17,9 +17,6 @@
 @plugin "daisyui" {
     themes: light --prefers-light;
 }
-input {
-    --tw-ring-shadow: 0 0 #000 !important;
-}
 
 @font-face {
     font-family: "Kodchasan";

@@ -4,6 +4,7 @@
     <working_directory value="$PROJECT_DIR$/backend" />
     <envs>
       <env name="DEBUG_CORS" value="true" />
+      <env name="TEST" value="true" />
     </envs>
     <kind value="PACKAGE" />
     <package value="friday" />

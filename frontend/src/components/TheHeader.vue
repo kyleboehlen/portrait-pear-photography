@@ -13,9 +13,9 @@
       </h1>
       <label
         for="modal-nav"
-        class="bg-neutral flex w-auto p-0 aspect-square rounded-xl"
+        class="bg-neutral flex w-auto p-0 aspect-square rounded-xl flex flex-row justify-center items-center text-white/70 hover:text-primary hover:cursor-pointer"
         :class="{ 'h-3/5': !shrink, 'sm:h-3/4': !shrink, 'btn-sm': shrink }">
-        <Icon icon="hamburger" class="text-primary h-2/3 w-auto"></Icon>
+        <Icon icon="hamburger" class="h-2/3 w-auto"></Icon>
       </label>
     </div>
   </header>
