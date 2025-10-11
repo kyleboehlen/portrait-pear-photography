@@ -74,7 +74,7 @@ func GetCurrentHash() (string, bool) {
 
 	var test, exists = os.LookupEnv("TEST")
 	if exists && test == "true" {
-		hash, _ := bcrypt.GenerateFromPassword([]byte("password"+key), 1)
+		hash, _ := bcrypt.GenerateFromPassword([]byte("password"+key), 14)
 		return string(hash), true
 	}
 
