@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Seed categories">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Increase text bcrypt cost for fe animation purposes">
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionSelectorWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/composables/useAdminRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +184,8 @@
     <MESSAGE value="Admin test" />
     <MESSAGE value="Auth tests" />
     <MESSAGE value="Seed categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seed categories" />
+    <MESSAGE value="Increase text bcrypt cost for fe animation purposes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increase text bcrypt cost for fe animation purposes" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -4,6 +4,7 @@
     default: true;
     preferesdark: false;
     color-scheme: light;
+    --color-base: "#222325";
     --color-base-100: "#222325";
     --color-primary: "#3db084";
     --color-secondary: "#012217";
