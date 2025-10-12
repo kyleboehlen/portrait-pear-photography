@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAdminRoutes } from '@/composables/useAdminRoutes'
+import CreateNewShootWidget from "@/components/admin/CreateNewShootWidget.vue";
 
 const { entity, action, selector, setEntity, setAction, setSelector } = useAdminRoutes()
 
@@ -55,7 +56,7 @@ const actions = computed(() => {
 
 <template>
   <div class="w-full mt-2">
-    <div class="w-5/8 flex flex-row justify-end text-white gap-4">
+    <div class="w-full 2xl:w-5/8 pr-16 2xl:pr-0 flex flex-row justify-end text-white gap-2">
       <select
           :value="entity"
           class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white"
@@ -85,6 +86,8 @@ const actions = computed(() => {
       </select>
 
       <span v-if="action" class="text-white text-3xl">-></span>
+
+      <CreateNewShootWidget v-if="entity === 'shoots' && action === 'create'" />
     </div>
   </div>
 </template>
