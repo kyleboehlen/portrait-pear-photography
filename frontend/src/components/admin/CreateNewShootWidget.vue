@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useFridayApi } from '@/composables/useFridayApi'
+import { useAdminStore } from '@/stores/useAdminStore'
 import TheLoader from "@/components/TheLoader.vue";
 
 const { apiCallInProgress } = useFridayApi()
+const adminStore = useAdminStore()
 const shootName = ref("");
 const handleCreateShoot = () => {
-  console.log("Create shoot: " + shootName.value);
+  adminStore.createShoot(shootName.value)
 };
 </script>
 

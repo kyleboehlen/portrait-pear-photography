@@ -31,18 +31,13 @@ func main() {
 
 	// Get all home page photos
 	// Get photos from shoot
+	// Get all shoots
 
-	// Admin - Upsert shoot
 	// Admin - Delete shoot
 	// Admin - Upsert photo
 	// Admin - Delete photo
 
 	// Admin - set home page photos
-
-	// Route groups
-	// handlers map one-to-one functions with routes
-	// Handlers call services, they orchestrate between basic functions, like deleting a shoot might call delete photos first then delete shoot
-	// Repositories interact with outside services, database, file storage, cloudflare, etc.
 
 	log.Printf("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", httpHandler); err != nil {

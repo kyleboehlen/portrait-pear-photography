@@ -37,6 +37,12 @@ const (
 	// ErrorCodeRequestJSONUnmarshalFailed Failed to unmarshal a request body into a struct, usually due to invalid JSON
 	ErrorCodeRequestJSONUnmarshalFailed ErrorCode = 32
 
+	// ErrorCodeShootsGeneral General shoots error code - starts the Shoots error block
+	ErrorCodeShootsGeneral               ErrorCode = 40
+	ErrorCodeShootsMissingRequiredFields ErrorCode = 41
+	// ErrorCodeFailedToCreateShoot API return error for repository.CreateShoot failures
+	ErrorCodeFailedToCreateShoot ErrorCode = 42
+
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota
 )

@@ -4,6 +4,8 @@ import (
 	"friday/api/response"
 	"friday/api/routing"
 	"friday/api/util"
+	"friday/database/models"
+	"friday/database/repository"
 	"friday/services/auth"
 	"golang.org/x/crypto/bcrypt"
 	"net/http"
@@ -55,6 +57,41 @@ var AuthenticateRoute = routing.Route{
 	},
 }
 
+var UpsertShootRoute = routing.Route{
+	Method: "POST",
+	Path:   "/admin/shoots",
+	Handle: func(w http.ResponseWriter, r *http.Request) {
+		var shoot models.Shoot
+		if result, err := util.ReadRequestBody(w, r, &shoot); err != nil || !result {
+			return
+		}
+
+		// Create a database connection
+		db, err := repository.Setup()
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
+		}
+
+		// We need an ID for updates, or a Name for creates
+		if shoot.ID != 0 {
+			// TODO: Update existing shoot
+		} else if shoot.Name != "" {
+			// Create new shoot
+			err = db.CreateShoot(&shoot)
+			if err != nil {
+				response.WriteJSONErrorResponse(w, "Failed to create shoot", response.ErrorCodeFailedToCreateShoot)
+				return
+			}
+		} else { // We need an ID for updates or a Name for creates - at least one is required
+			response.WriteJSONErrorResponse(w, "Shoots requests require ID or Name", response.ErrorCodeShootsMissingRequiredFields)
+			return
+		}
+
+		// This returns the updated shoot, or the created shoot with the new ID
+		response.WriteJSONSuccessResponse(w, &shoot)
+	},
+}
+
 type AdminTestResponse struct {
 	Test string `json:"test"`
 }
@@ -69,6 +106,7 @@ var TestRoute = routing.Route{
 
 var AdminRoutes = []routing.Route{
 	AuthenticateRoute,
+	UpsertShootRoute,
 	TestRoute,
 }
 

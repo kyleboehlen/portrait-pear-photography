@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Increase text bcrypt cost for fe animation purposes">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminActionSelectorWidget.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_10_13_A-create-shoots-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_10_13_B-create-photos-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_10_13_C-create-shoots-categories-pivot.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_10_13_D-create-photos-categories-pivot.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_10_13_E-create-shoots-photos-pivot.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/models/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/repository/shoots.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/composables/useAdminRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/CreateNewShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/CreateNewShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +76,7 @@
     "Docker.Debug.executor": "Run",
     "Docker.Develop.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Run",
+    "Go Build.go build friday.executor": "Debug",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
     "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
@@ -99,7 +109,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
-    "settings.editor.selected.configurable": "com.microsoft.azure.toolkit.intellij.legacy.function.settings.AzureFunctionConfigurable",
+    "settings.editor.selected.configurable": "SQL Dialects",
     "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -194,11 +204,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>65</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
           <line>44</line>
           <option name="timeStamp" value="24" />
@@ -221,6 +226,26 @@
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>85</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>86</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/shoots.go</url>
+          <line>25</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/shoots.go</url>
+          <line>31</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
