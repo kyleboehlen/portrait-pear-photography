@@ -1,5 +1,5 @@
 import {useRoute, useRouter} from 'vue-router';
-import {computed} from 'vue';
+import { computed } from 'vue';
 
 export const useAdminRoutes = () => {
     const route = useRoute();

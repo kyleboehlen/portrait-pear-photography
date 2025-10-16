@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useAdminRoutes } from '@/composables/useAdminRoutes'
 import CreateNewShootWidget from "@/components/admin/CreateNewShootWidget.vue";
+import SelectShootWidget from "@/components/admin/SelectShootWidget.vue";
 
 const { entity, action, selector, setEntity, setAction, setSelector } = useAdminRoutes()
 
@@ -55,11 +56,11 @@ const actions = computed(() => {
 </script>
 
 <template>
-  <div class="w-full mt-2">
+  <div class="w-full mt-2 ml-2">
     <div class="w-full 2xl:w-5/8 pr-16 2xl:pr-0 flex flex-row justify-end text-white gap-2">
       <select
           :value="entity"
-          class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white"
+          class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white flex-1 max-w-1/3"
           :class="{
           '!border-primary': entity,
           '!border-neutral': !entity
@@ -71,11 +72,11 @@ const actions = computed(() => {
         <option value="database">Database</option>
       </select>
 
-      <span v-if="entity" class="text-white text-3xl">-></span>
+      <span v-if="entity" class="text-white text-3xl whitespace-nowrap">-></span>
       <select
           v-if="entity"
           :value="action"
-          class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white"
+          class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white flex-1 max-w-1/3"
           :class="{
             '!border-primary': action,
             '!border-neutral': !action
@@ -85,9 +86,12 @@ const actions = computed(() => {
         <option v-for="a in actions" :value="a.value">{{ a.label }}</option>
       </select>
 
-      <span v-if="action" class="text-white text-3xl">-></span>
 
-      <CreateNewShootWidget v-if="entity === 'shoots' && action === 'create'" />
+      <span v-if="action" class="text-white text-3xl whitespace-nowrap">-></span>
+      <span v-if="entity === 'shoots' && action" class="flex-1 max-w-1/3">
+        <CreateNewShootWidget v-if="action === 'create'" />
+        <SelectShootWidget v-else />
+      </span>
     </div>
   </div>
 </template>

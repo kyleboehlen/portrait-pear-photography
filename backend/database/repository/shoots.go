@@ -2,6 +2,7 @@ package repository
 
 import (
 	"crypto/rand"
+	"database/sql"
 	"encoding/hex"
 	"fmt"
 	"friday/database/models"
@@ -34,6 +35,34 @@ func (r *SQLRepo) CreateShoot(shoot *models.Shoot) error {
 
 	shoot.ID = int(id)
 	return nil
+}
+
+func (r *SQLRepo) GetShoots() ([]*models.Shoot, error) {
+	// Specifically grabbing only the columns that are part of the Shoot struct
+	query := `SELECT id, name, date, slug FROM shoots`
+	rows, err := r.db.Query(query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get shoots: %w", err)
+	}
+	defer func(rows *sql.Rows) {
+		_ = rows.Close()
+	}(rows)
+
+	var shoots []*models.Shoot
+	for rows.Next() {
+		var shoot models.Shoot
+		err := rows.Scan(&shoot.ID, &shoot.Name, &shoot.Date, &shoot.Slug)
+		if err != nil {
+			return nil, fmt.Errorf("failed to scan shoot: %w", err)
+		}
+		shoots = append(shoots, &shoot)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("row error: %w", err)
+	}
+
+	return shoots, nil
 }
 
 func generateRandomSlug(length int) string {

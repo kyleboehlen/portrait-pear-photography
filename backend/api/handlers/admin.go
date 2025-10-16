@@ -59,7 +59,7 @@ var AuthenticateRoute = routing.Route{
 
 var UpsertShootRoute = routing.Route{
 	Method: "POST",
-	Path:   "/admin/shoots",
+	Path:   "/admin/shoot",
 	Handle: func(w http.ResponseWriter, r *http.Request) {
 		var shoot models.Shoot
 		if result, err := util.ReadRequestBody(w, r, &shoot); err != nil || !result {
@@ -92,6 +92,25 @@ var UpsertShootRoute = routing.Route{
 	},
 }
 
+var GetShootsRoute = routing.Route{
+	Method: "GET",
+	Path:   "/admin/shoots",
+	Handle: func(w http.ResponseWriter, r *http.Request) {
+		// Create a database connection
+		db, err := repository.Setup()
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
+		}
+
+		shoots, err := db.GetShoots()
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to get shoots", response.ErrorCodeFailedToGetShoots)
+		}
+
+		response.WriteJSONSuccessResponse(w, &shoots)
+	},
+}
+
 type AdminTestResponse struct {
 	Test string `json:"test"`
 }
@@ -107,6 +126,7 @@ var TestRoute = routing.Route{
 var AdminRoutes = []routing.Route{
 	AuthenticateRoute,
 	UpsertShootRoute,
+	GetShootsRoute,
 	TestRoute,
 }
 

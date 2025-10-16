@@ -2,13 +2,17 @@
 import { ref } from "vue";
 import { useFridayApi } from '@/composables/useFridayApi'
 import { useAdminStore } from '@/stores/useAdminStore'
+import { useAdminRoutes } from '@/composables/useAdminRoutes'
 import TheLoader from "@/components/TheLoader.vue";
 
 const { apiCallInProgress } = useFridayApi()
 const adminStore = useAdminStore()
+const { setAction } = useAdminRoutes()
 const shootName = ref("");
 const handleCreateShoot = () => {
-  adminStore.createShoot(shootName.value)
+  adminStore.createShoot(shootName.value).then(() => {
+    setAction('update')
+  });
 };
 </script>
 
