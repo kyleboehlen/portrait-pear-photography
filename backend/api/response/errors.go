@@ -44,6 +44,8 @@ const (
 	ErrorCodeFailedToCreateShoot ErrorCode = 42
 	// ErrorCodeFailedToGetShoots API return error for repository.GetShoots failures
 	ErrorCodeFailedToGetShoots ErrorCode = 43
+	// ErrorCodeFailedToDeleteShoot API return error for repository.DeleteShoot failures
+	ErrorCodeFailedToDeleteShoot ErrorCode = 44
 
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota

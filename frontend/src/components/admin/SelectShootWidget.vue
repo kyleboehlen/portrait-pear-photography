@@ -15,13 +15,13 @@ onMounted(() => {
 <template>
 <!--  TODO: show loader instead of select on api call in progress?-->
   <select
-      :value="adminStore.selectedShootId"
+      v-model.number="adminStore.selectedShootId"
       class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white"
       :class="{
           '!border-primary': adminStore.selectedShootId != 0,
           '!border-neutral': adminStore.selectedShootId == 0
         }">
-    <option value="0" disabled>Select a Shoot</option>
+    <option :value="0" disabled>Select a Shoot</option>
     <option v-for="shoot in adminStore.shoots" :key="shoot.id" :value="shoot.id">{{ shoot.name }}</option>
   </select>
 </template>

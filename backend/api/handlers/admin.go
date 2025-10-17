@@ -53,6 +53,7 @@ var AuthenticateRoute = routing.Route{
 			response.WriteJSONErrorResponse(w, "Failed to create JWT", response.ErrorCodeJWTGenerationFailed)
 			return
 		}
+
 		response.WriteJSONSuccessResponse(w, AdminAuthResponse{Token: token})
 	},
 }
@@ -70,6 +71,7 @@ var UpsertShootRoute = routing.Route{
 		db, err := repository.Setup()
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
+			return
 		}
 
 		// We need an ID for updates, or a Name for creates
@@ -100,14 +102,50 @@ var GetShootsRoute = routing.Route{
 		db, err := repository.Setup()
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
+			return
 		}
 
 		shoots, err := db.GetShoots()
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to get shoots", response.ErrorCodeFailedToGetShoots)
+			return
 		}
 
 		response.WriteJSONSuccessResponse(w, &shoots)
+	},
+}
+
+type DeleteShootRequest struct {
+	ID int `json:"id"`
+}
+
+var DeleteShootRoute = routing.Route{
+	Method: "DELETE",
+	Path:   "/admin/unshoot",
+	Handle: func(w http.ResponseWriter, r *http.Request) {
+		var deleteShootRequest DeleteShootRequest
+		if result, err := util.ReadRequestBody(w, r, &deleteShootRequest); err != nil || !result {
+			return
+		}
+		if deleteShootRequest.ID == 0 {
+			response.WriteJSONErrorResponse(w, "Request is missing shoot ID", response.ErrorCodeShootsMissingRequiredFields)
+			return
+		}
+
+		// Create a database connection
+		db, err := repository.Setup()
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
+			return
+		}
+
+		err = db.DeleteShoot(deleteShootRequest.ID)
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to delete shoot", response.ErrorCodeFailedToDeleteShoot)
+			return
+		}
+
+		response.WriteJSONSuccessResponse(w, nil)
 	},
 }
 
@@ -127,6 +165,7 @@ var AdminRoutes = []routing.Route{
 	AuthenticateRoute,
 	UpsertShootRoute,
 	GetShootsRoute,
+	DeleteShootRoute,
 	TestRoute,
 }
 

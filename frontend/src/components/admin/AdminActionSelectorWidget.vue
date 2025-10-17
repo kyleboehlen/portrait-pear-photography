@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useAdminRoutes } from '@/composables/useAdminRoutes'
 import CreateNewShootWidget from "@/components/admin/CreateNewShootWidget.vue";
 import SelectShootWidget from "@/components/admin/SelectShootWidget.vue";
+import DeleteShootButton from "@/components/admin/DeleteShootButton.vue";
 
 const { entity, action, selector, setEntity, setAction, setSelector } = useAdminRoutes()
 
@@ -88,9 +89,10 @@ const actions = computed(() => {
 
 
       <span v-if="action" class="text-white text-3xl whitespace-nowrap">-></span>
-      <span v-if="entity === 'shoots' && action" class="flex-1 max-w-1/3">
+      <span v-if="entity === 'shoots' && action" class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
         <CreateNewShootWidget v-if="action === 'create'" />
         <SelectShootWidget v-else />
+        <DeleteShootButton v-if="action == 'delete'" class="ml-4" />
       </span>
     </div>
   </div>

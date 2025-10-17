@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { useFridayApi } from "@/composables/useFridayApi";
 
-const { postApi, getApi } = useFridayApi();
+const { postApi, getApi, deleteApi } = useFridayApi();
 
 export const useAdminStore = defineStore("admin",  {
     state: () => ({
@@ -10,6 +10,11 @@ export const useAdminStore = defineStore("admin",  {
         selectedShootId: 0,
         updateShoot: {},
     }),
+    getters: {
+      selectedShoot(state) {
+            return state.shoots.find(shoot => shoot.id === state.selectedShootId) || null;
+        }
+    },
     // TODO: isDirty computed property - for when a shoot or a list of photos is changed w/o being persisted yet
     actions: {
         // Somehow we need to catch forbidden errors and clear the token
@@ -32,6 +37,13 @@ export const useAdminStore = defineStore("admin",  {
             const res = await getApi('/admin/shoots', this.bearerToken);
             if (res !== false) {
                 this.shoots = res;
+            }
+        },
+        async deleteSelectedShoot() {
+            const res = await deleteApi(`/admin/unshoot`, { id: this.selectedShootId }, this.bearerToken);
+            if (res !== false) {
+                this.shoots = this.shoots.filter(shoot => shoot.id !== this.selectedShootId);
+                this.selectedShootId = 0;
             }
         }
     },

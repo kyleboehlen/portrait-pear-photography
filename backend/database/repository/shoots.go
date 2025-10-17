@@ -65,6 +65,26 @@ func (r *SQLRepo) GetShoots() ([]*models.Shoot, error) {
 	return shoots, nil
 }
 
+func (r *SQLRepo) DeleteShoot(id int) error {
+	query := `DELETE FROM shoots WHERE id = ?`
+
+	result, err := r.db.Exec(query, id)
+	if err != nil {
+		return fmt.Errorf("failed to delete shoot: %w", err)
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("failed to get rows affected: %w", err)
+	}
+
+	if rowsAffected == 0 {
+		return fmt.Errorf("shoot with ID %d not found", id)
+	}
+
+	return nil
+}
+
 func generateRandomSlug(length int) string {
 	bytes := make([]byte, length/2)
 	_, _ = rand.Read(bytes)

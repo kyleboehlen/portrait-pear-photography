@@ -46,7 +46,7 @@ async function baseApiCall(method, path, body = null, token = null) {
             return false;
         }
 
-        if (token) {
+        if (token || 'token' in apiRes.content) {
             adminApiIsAuthenticated.value = true;
         }
 
@@ -59,8 +59,8 @@ async function baseApiCall(method, path, body = null, token = null) {
     }
 }
 
-function deleteApi(path, token = null) {
-    return baseApiCall('delete', path, token);
+function deleteApi(path, body = null, token = null) {
+    return baseApiCall('delete', path, body, token);
 }
 
 function getApi(path, token = null) {

@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Initial create shoot by textbox name widget">
+      <change afterPath="$PROJECT_DIR$/src/components/admin/DeleteShootButton.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/services/auth/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/services/auth/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/database/repository/shoots.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/repository/shoots.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/PasswordPromptWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminActionSelectorWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminActionSelectorWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/SelectShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/SelectShootWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/useFridayApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
@@ -96,7 +100,7 @@
       <workItem from="1759204131750" duration="26224000" />
       <workItem from="1759593668556" duration="26403000" />
       <workItem from="1760119002539" duration="38818000" />
-      <workItem from="1760670996047" duration="786000" />
+      <workItem from="1760670996047" duration="7010000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
