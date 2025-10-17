@@ -46,7 +46,7 @@ async function baseApiCall(method, path, body = null, token = null) {
             return false;
         }
 
-        if ('token' in apiRes.content) {
+        if (token) {
             adminApiIsAuthenticated.value = true;
         }
 

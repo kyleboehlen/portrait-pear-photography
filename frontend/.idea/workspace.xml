@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="WIP">
-      <change afterPath="$PROJECT_DIR$/src/components/admin/AdminActionFlowWidget.vue" afterDir="false" />
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Initial create shoot by textbox name widget">
       <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootForm.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootWidget.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/imgs/metronome-pear-white.apng" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/imgs/metronome-pear-white.apng" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheFullsizeViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheModalNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheModalNav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/services/auth/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/services/auth/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/PasswordPromptWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PasswordPromptWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/useFridayApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +54,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.useAdminStore.js.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend/src/assets/imgs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,6 +74,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/imgs" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -97,7 +95,8 @@
       <updated>1759204130440</updated>
       <workItem from="1759204131750" duration="26224000" />
       <workItem from="1759593668556" duration="26403000" />
-      <workItem from="1760119002539" duration="2940000" />
+      <workItem from="1760119002539" duration="38818000" />
+      <workItem from="1760670996047" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
@@ -123,7 +122,47 @@
       <option name="project" value="LOCAL" />
       <updated>1760121436288</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update EVERYTHING&#10;First step on removing dasiyUI&#10;Added vue dev tools plugin">
+      <option name="closed" value="true" />
+      <created>1760207446392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760207446392</updated>
+    </task>
+    <task id="LOCAL-00005" summary="More style fixes&#10;Fix loader icon&#10;Remove iOS resources">
+      <option name="closed" value="true" />
+      <created>1760210645924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760210645924</updated>
+    </task>
+    <task id="LOCAL-00006" summary="so my ide will stop yelling at me about import routes">
+      <option name="closed" value="true" />
+      <created>1760215176300</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760215176300</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Entity and Action part of the admin workflow selector">
+      <option name="closed" value="true" />
+      <created>1760238179928</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760238179928</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Initial create shoot by textbox name widget">
+      <option name="closed" value="true" />
+      <created>1760298987249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760298987249</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +184,11 @@
     <MESSAGE value="Update App to use a single photos view &#10;Change the favorites button to be the instagram link&#10;Remove the contact and home buttons from the modal&#10;Deprecate the old stores&#10;Remove the offline verbiage from the NotFoundMessage&#10;Establish new composables/store for photos/api calls" />
     <MESSAGE value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
     <MESSAGE value="WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+    <MESSAGE value="Update EVERYTHING&#10;First step on removing dasiyUI&#10;Added vue dev tools plugin" />
+    <MESSAGE value="More style fixes&#10;Fix loader icon&#10;Remove iOS resources" />
+    <MESSAGE value="so my ide will stop yelling at me about import routes" />
+    <MESSAGE value="Entity and Action part of the admin workflow selector" />
+    <MESSAGE value="Initial create shoot by textbox name widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial create shoot by textbox name widget" />
   </component>
 </project>

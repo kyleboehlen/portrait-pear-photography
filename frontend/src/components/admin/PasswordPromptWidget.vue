@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useAdminStore } from '@/stores/useAdminStore'
 import { useFridayApi } from '@/composables/useFridayApi'
 import TheLoader from '@/components/TheLoader.vue'
@@ -8,6 +8,14 @@ const { apiCallInProgress } = useFridayApi()
 
 const password = ref('')
 const adminStore = useAdminStore()
+
+// It is the job of the password widget to determine whether or not to show the password prompt, therefore it needs to
+// be responsible for checking whether the current token is valid. If an authenticated call fails or succeeds the api
+// composable will update its state accordingly.
+onMounted(() => {
+  adminStore.testToken()
+});
+
 const handleAuthenticate = () => {
   adminStore.authenticate(password.value)
 };

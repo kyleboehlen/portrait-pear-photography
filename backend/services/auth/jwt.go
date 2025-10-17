@@ -13,6 +13,10 @@ type Secrets struct {
 
 var secrets *Secrets
 
+func init() {
+	setSecretKey()
+}
+
 func setSecretKey() {
 	if secrets == nil {
 		secrets = &Secrets{
@@ -22,8 +26,6 @@ func setSecretKey() {
 }
 
 func CreateAdminJWT() (string, error) {
-	setSecretKey()
-
 	// Only claims we care about are timestamps/issuer. We're only utilizing AuthN, not AuthZ. AuthZ is implied.
 	claims := jwt.RegisteredClaims{
 		ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),

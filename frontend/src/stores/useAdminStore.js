@@ -20,7 +20,7 @@ export const useAdminStore = defineStore("admin",  {
             }
         },
         async testToken() {
-            const res = await getApi('/admin/test', this.bearerToken);
+            await getApi('/admin/test', this.bearerToken);
         },
         async createShoot(shootName) {
             const res = await postApi('/admin/shoot', { name: shootName }, this.bearerToken);
@@ -34,5 +34,6 @@ export const useAdminStore = defineStore("admin",  {
                 this.shoots = res;
             }
         }
-    }
+    },
+    persist: true,
 })
