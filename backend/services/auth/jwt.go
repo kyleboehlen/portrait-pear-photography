@@ -14,10 +14,10 @@ type Secrets struct {
 var secrets *Secrets
 
 func init() {
-	setSecretKey()
+	SetSecretKey()
 }
 
-func setSecretKey() {
+func SetSecretKey() {
 	if secrets == nil {
 		secrets = &Secrets{
 			key: string(make([]byte, 64)),

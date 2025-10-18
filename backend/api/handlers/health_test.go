@@ -26,7 +26,3 @@ func TestHealthEndpoint(t *testing.T) {
 		t.Errorf("Expected content 'Heartbeat', got %v", resp.Content)
 	}
 }
-
-// TODO: test response when DB is down
-// TODO: test response when DB is up
-// NOTE: We may have multiple error states for the DB to mock

@@ -139,6 +139,7 @@ func TestAuthenticateAdmin_AdminRoute_ValidToken(t *testing.T) {
 
 	// Reset auth secrets
 	auth.ResetSecrets()
+	auth.SetSecretKey()
 
 	// Create a valid token
 	token, err := auth.CreateAdminJWT()

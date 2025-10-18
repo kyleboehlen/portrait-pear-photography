@@ -2,23 +2,63 @@ package repository
 
 import (
 	"database/sql"
+	"embed"
 	"fmt"
+	_ "github.com/mattn/go-sqlite3"
 	"os"
 	"path/filepath"
-
-	_ "github.com/mattn/go-sqlite3"
 )
 
 type SQLRepo struct {
 	db *sql.DB
 }
 
-func Setup() (*SQLRepo, error) {
-	return SetupWithMigration(false)
+var instance *SQLRepo
+
+// Get returns the singleton repository instance
+func Get() *SQLRepo {
+	if instance == nil {
+		panic("repository not initialized - call Setup() first")
+	} else {
+		return instance
+	}
+}
+
+func Setup(migrationFS embed.FS) error {
+	if os.Getenv("TEST") == "true" {
+		repo, err := setupTestDB()
+		if err != nil {
+			return err
+		}
+		instance = repo
+	} else {
+		repo, err := SetupWithMigration(migrationFS)
+		if err != nil {
+			return err
+		}
+		instance = repo
+	}
+
+	return nil
+}
+
+func setupTestDB() (*SQLRepo, error) {
+	// Use in-memory SQLite for tests
+	db, err := sql.Open("sqlite3", ":memory:")
+	if err != nil {
+		return nil, err
+	}
+
+	repo := &SQLRepo{db: db}
+
+	// Run migrations/create tables
+	_ = repo.runMigrationsFromDisk()
+
+	return repo, nil
 }
 
 // SetupWithMigration Responsible for creating/checking for the database file and running migrations. This also returns the SQLRepo struct ^^^
-func SetupWithMigration(migrate bool) (*SQLRepo, error) {
+func SetupWithMigration(migrationFS embed.FS) (*SQLRepo, error) {
 	dbDir := "database/data"
 
 	// Ensure the database directory exists, the directory will always exist locally with the .gitignore placeholder,
@@ -43,10 +83,8 @@ func SetupWithMigration(migrate bool) (*SQLRepo, error) {
 	// Set value to struct
 	repo := &SQLRepo{db: db}
 
-	// Only run the file validation/migration if migrate is true, this is done in main.go on startup
-	if migrate {
-		_ = repo.runMigrations()
-	}
+	// Run the migrations with the embedded migrations filesystem from main.go
+	_ = repo.runMigrations(migrationFS)
 
 	return repo, nil
 }
@@ -59,11 +97,8 @@ func (r *SQLRepo) PingDB() (bool, error) {
 }
 
 // Method for running migrations, uses the repo
-func (r *SQLRepo) runMigrations() error {
-	migrationDir := "database/migrations"
-
-	// Get migration files
-	files, err := os.ReadDir(migrationDir)
+func (r *SQLRepo) runMigrations(migrationFS embed.FS) error {
+	files, err := migrationFS.ReadDir("database/migrations")
 	if err != nil {
 		return fmt.Errorf("failed to read migrations directory: %w", err)
 	}
@@ -74,9 +109,7 @@ func (r *SQLRepo) runMigrations() error {
 		return fmt.Errorf("failed to get applied migrations: %w", err)
 	}
 
-	// Run new migrations in order
 	for _, file := range files {
-		// There should NEVER be a
 		if file.IsDir() {
 			continue
 		}
@@ -86,8 +119,7 @@ func (r *SQLRepo) runMigrations() error {
 			continue
 		}
 
-		// Read and execute migration
-		content, err := os.ReadFile(filepath.Join(migrationDir, filename))
+		content, err := migrationFS.ReadFile(filepath.Join("database/migrations", filename))
 		if err != nil {
 			return fmt.Errorf("failed to read migration %s: %w", filename, err)
 		}
@@ -104,6 +136,73 @@ func (r *SQLRepo) runMigrations() error {
 	}
 
 	return nil
+}
+
+func (r *SQLRepo) runMigrationsFromDisk() error {
+	// Find the project root by looking for go.mod
+	projectRoot, err := findProjectRoot()
+	if err != nil {
+		return fmt.Errorf("failed to find project root: %w", err)
+	}
+
+	migrationsPath := filepath.Join(projectRoot, "database", "migrations")
+
+	files, err := os.ReadDir(migrationsPath)
+	if err != nil {
+		return fmt.Errorf("failed to read migrations directory: %w", err)
+	}
+
+	appliedMigrations, err := r.getAppliedMigrations()
+	if err != nil {
+		return fmt.Errorf("failed to get applied migrations: %w", err)
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		filename := file.Name()
+		if appliedMigrations[filename] {
+			continue
+		}
+
+		content, err := os.ReadFile(filepath.Join(migrationsPath, filename))
+		if err != nil {
+			return fmt.Errorf("failed to read migration %s: %w", filename, err)
+		}
+
+		if _, err := r.db.Exec(string(content)); err != nil {
+			return fmt.Errorf("failed to execute migration %s: %w", filename, err)
+		}
+
+		_, err = r.db.Exec("INSERT INTO migrations (filename) VALUES (?)", filename)
+		if err != nil {
+			return fmt.Errorf("failed to record migration %s: %w", filename, err)
+		}
+	}
+
+	return nil
+}
+
+// findProjectRoot walks up the directory tree to find go.mod
+func findProjectRoot() (string, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return "", err
+	}
+
+	for {
+		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
+			return dir, nil
+		}
+
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			return "", fmt.Errorf("could not find go.mod in parent directories")
+		}
+		dir = parent
+	}
 }
 
 func (r *SQLRepo) getAppliedMigrations() (map[string]bool, error) {

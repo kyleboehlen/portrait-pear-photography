@@ -68,18 +68,14 @@ var UpsertShootRoute = routing.Route{
 		}
 
 		// Create a database connection
-		db, err := repository.Setup()
-		if err != nil {
-			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
-			return
-		}
+		db := repository.Get()
 
 		// We need an ID for updates, or a Name for creates
 		if shoot.ID != 0 {
 			// TODO: Update existing shoot
 		} else if shoot.Name != "" {
 			// Create new shoot
-			err = db.CreateShoot(&shoot)
+			err := db.CreateShoot(&shoot)
 			if err != nil {
 				response.WriteJSONErrorResponse(w, "Failed to create shoot", response.ErrorCodeFailedToCreateShoot)
 				return
@@ -99,11 +95,7 @@ var GetShootsRoute = routing.Route{
 	Path:   "/admin/shoots",
 	Handle: func(w http.ResponseWriter, r *http.Request) {
 		// Create a database connection
-		db, err := repository.Setup()
-		if err != nil {
-			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
-			return
-		}
+		db := repository.Get()
 
 		shoots, err := db.GetShoots()
 		if err != nil {
@@ -133,13 +125,9 @@ var DeleteShootRoute = routing.Route{
 		}
 
 		// Create a database connection
-		db, err := repository.Setup()
-		if err != nil {
-			response.WriteJSONErrorResponse(w, "Failed to create database connection", response.ErrorCodeDatabaseConnection)
-			return
-		}
+		db := repository.Get()
 
-		err = db.DeleteShoot(deleteShootRequest.ID)
+		err := db.DeleteShoot(deleteShootRequest.ID)
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to delete shoot", response.ErrorCodeFailedToDeleteShoot)
 			return

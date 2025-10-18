@@ -12,12 +12,9 @@ var HealthRoutes = []routing.Route{
 		Method: "GET",
 		Path:   "/health",
 		Handle: func(w http.ResponseWriter, r *http.Request) {
-			repo, err := repository.Setup()
-			if err != nil {
-				response.WriteJSONErrorResponse(w, "Failed to setup DB repo", response.ErrorCodeDatabaseConnection)
-			}
+			db := repository.Get()
 
-			if success, err := repo.PingDB(); err != nil || !success {
+			if success, err := db.PingDB(); err != nil || !success {
 				response.WriteJSONErrorResponse(w, "Database ping failed", response.ErrorCodeDatabaseNotHealthy)
 				return
 			}

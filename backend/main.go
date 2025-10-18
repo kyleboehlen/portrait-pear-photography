@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	_ "friday/api/handlers" // This is required to register the routes
 	"friday/api/middleware"
 	"friday/api/routing"
@@ -8,6 +9,11 @@ import (
 	"log"
 	"net/http"
 )
+
+// Need to embed the database migrations in the binary
+//
+//go:embed database/migrations
+var migrationFS embed.FS
 
 func main() {
 	// This gets a new server mux with all routes registered, this allows routes to be defined in their own file
@@ -23,17 +29,15 @@ func main() {
 	// origins specified in the .env vars
 	httpHandler = middleware.CORS(httpHandler)
 
-	// Setup database - run migrations and check for database file
-	_, err := repository.SetupWithMigration(true)
+	// Setup database - run migrations using the embedded migration files, and check for the database file
+	err := repository.Setup(migrationFS)
 	if err != nil {
 		log.Fatalf("Failed to set up database: %v", err)
 	}
 
 	// Get all home page photos
 	// Get photos from shoot
-	// Get all shoots
 
-	// Admin - Delete shoot
 	// Admin - Upsert photo
 	// Admin - Delete photo
 

@@ -9,6 +9,7 @@ import (
 func TestCreateAdminJWT_Success(t *testing.T) {
 	// Reset secrets for clean test
 	secrets = nil
+	SetSecretKey()
 
 	tokenString, err := CreateAdminJWT()
 
@@ -35,6 +36,7 @@ func TestCreateAdminJWT_Success(t *testing.T) {
 func TestCreateAdminJWT_SecretsInitialization(t *testing.T) {
 	// Reset secrets
 	secrets = nil
+	SetSecretKey()
 
 	// First call should initialize secrets
 	token1, err := CreateAdminJWT()
@@ -59,6 +61,7 @@ func TestCreateAdminJWT_SecretsInitialization(t *testing.T) {
 func TestParseAdminJWT_ValidToken(t *testing.T) {
 	// Reset and create a valid token
 	secrets = nil
+	SetSecretKey()
 	tokenString, err := CreateAdminJWT()
 	if err != nil {
 		t.Fatalf("Failed to create test token: %v", err)
@@ -88,6 +91,7 @@ func TestParseAdminJWT_ValidToken(t *testing.T) {
 func TestParseAdminJWT_InvalidToken(t *testing.T) {
 	// Ensure secrets are initialized
 	secrets = nil
+	SetSecretKey()
 	_, _ = CreateAdminJWT()
 
 	invalidToken := "invalid.token.string"
@@ -114,6 +118,7 @@ func TestParseAdminJWT_WrongSignature(t *testing.T) {
 
 	// Initialize secrets with different key
 	secrets = nil
+	SetSecretKey()
 	_, _ = CreateAdminJWT()
 
 	parsedClaims, err := parseAdminJWT(wrongToken)
@@ -129,6 +134,7 @@ func TestParseAdminJWT_WrongSignature(t *testing.T) {
 func TestIsJWTValid_ValidToken(t *testing.T) {
 	// Reset and create a valid token
 	secrets = nil
+	SetSecretKey()
 	tokenString, err := CreateAdminJWT()
 	if err != nil {
 		t.Fatalf("Failed to create test token: %v", err)
@@ -147,6 +153,7 @@ func TestIsJWTValid_ValidToken(t *testing.T) {
 func TestIsJWTValid_InvalidToken(t *testing.T) {
 	// Ensure secrets are initialized
 	secrets = nil
+	SetSecretKey()
 	_, _ = CreateAdminJWT()
 
 	invalidToken := "invalid.token.string"
@@ -228,10 +235,10 @@ func TestSecretsOnlyInitializedOnce(t *testing.T) {
 	secrets = nil
 
 	// Call setup multiple times
-	setSecretKey()
+	SetSecretKey()
 	firstSecrets := secrets
 
-	setSecretKey()
+	SetSecretKey()
 	secondSecrets := secrets
 
 	// Should be the same instance
