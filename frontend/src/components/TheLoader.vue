@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center">
-    <img :src="pearLoader" class="max-h-72" />
+    <img :src="pearLoader" class="max-h-72"/>
   </div>
 </template>
 

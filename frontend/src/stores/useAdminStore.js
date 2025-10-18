@@ -1,9 +1,9 @@
-import { defineStore } from "pinia";
-import { useFridayApi } from "@/composables/useFridayApi";
+import {defineStore} from "pinia";
+import {useFridayApi} from "@/composables/useFridayApi";
 
-const { postApi, getApi, deleteApi } = useFridayApi();
+const {postApi, getApi, deleteApi} = useFridayApi();
 
-export const useAdminStore = defineStore("admin",  {
+export const useAdminStore = defineStore("admin", {
     state: () => ({
         bearerToken: '',
         shoots: [],
@@ -11,15 +11,17 @@ export const useAdminStore = defineStore("admin",  {
         updateShoot: {},
     }),
     getters: {
-      selectedShoot(state) {
+        selectedShoot(state) {
             return state.shoots.find(shoot => shoot.id === state.selectedShootId) || null;
+        },
+        isDirty(_) {
+            return true
         }
     },
-    // TODO: isDirty computed property - for when a shoot or a list of photos is changed w/o being persisted yet
     actions: {
         // Somehow we need to catch forbidden errors and clear the token
         async authenticate(password) {
-            const res = await postApi('/authenticate', { password: password });
+            const res = await postApi('/authenticate', {password: password});
             if (res !== false) {
                 this.bearerToken = res.token;
             }
@@ -28,19 +30,19 @@ export const useAdminStore = defineStore("admin",  {
             await getApi('/admin/test', this.bearerToken);
         },
         async createShoot(shootName) {
-            const res = await postApi('/admin/shoot', { name: shootName }, this.bearerToken);
+            const res = await postApi('/admin/shoot', {name: shootName}, this.bearerToken);
             if (res !== false) {
                 this.selectedShootId = res.id;
             }
         },
-        async loadShootsFromApi(){
+        async loadShootsFromApi() {
             const res = await getApi('/admin/shoots', this.bearerToken);
             if (res !== false) {
                 this.shoots = res;
             }
         },
         async deleteSelectedShoot() {
-            const res = await deleteApi(`/admin/unshoot`, { id: this.selectedShootId }, this.bearerToken);
+            const res = await deleteApi(`/admin/unshoot`, {id: this.selectedShootId}, this.bearerToken);
             if (res !== false) {
                 this.shoots = this.shoots.filter(shoot => shoot.id !== this.selectedShootId);
                 this.selectedShootId = 0;

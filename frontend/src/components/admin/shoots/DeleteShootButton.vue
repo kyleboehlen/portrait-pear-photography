@@ -23,7 +23,7 @@ const deleteShoot = () => {
           <button class="btn btn-error btn-outline" @click="deleteShoot">Yeah, do it</button>
         </form>
       </div>
-<!--  This handles closing the modal by clicking out of the modal -->
+      <!--  This handles closing the modal by clicking out of the modal -->
       <form method="dialog" class="modal-backdrop">
         <button>close</button>
       </form>

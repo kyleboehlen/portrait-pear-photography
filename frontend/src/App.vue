@@ -1,20 +1,18 @@
 <template>
   <div class="app-wrapper flex flex-col min-h-screen justify-start">
-    <TheHeader />
+    <TheHeader/>
 
     <router-view v-slot="{ Component }">
-      <component :is="Component" class="grow" />
+      <component :is="Component" class="grow"/>
     </router-view>
 
-    <TheInstagramButton />
-
-    <TheFooter class="justify-self-end" />
+    <TheFooter class="justify-self-end"/>
   </div>
 </template>
 
 <script setup>
 // Vue
-import { RouterView } from "vue-router"
+import {RouterView} from "vue-router"
 // Components
 import TheHeader from "@/components/TheHeader.vue"
 import TheFooter from "@/components/TheFooter.vue"

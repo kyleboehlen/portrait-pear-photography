@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" id="modal-nav" class="modal-toggle" ref="modalToggle" />
+  <input type="checkbox" id="modal-nav" class="modal-toggle" ref="modalToggle"/>
   <label for="modal-nav" class="modal cursor-pointer">
     <label class="modal-box relative flex flex-col items-center max-xs:px-0" for="">
       <!-- Filter folders select -->
@@ -9,9 +9,9 @@
         </label>
         <div class="input-group w-full">
           <select
-            v-model="filterSelect"
-            id="filter-select"
-            class="select select-bordered select-primary w-10/12 focus:outline-none">
+              v-model="filterSelect"
+              id="filter-select"
+              class="select select-bordered select-primary w-10/12 focus:outline-none">
             <option value="0">Show All</option>
             <option value="1">Portrait</option>
             <option value="2">Automotive</option>
@@ -31,13 +31,13 @@
         </label>
         <div class="input-group w-full" v-click-away="shootIDValid">
           <input
-            v-model="shoot"
-            type="text"
-            placeholder="Shoot ID..."
-            maxlength="6"
-            class="input input-bordered input-primary focus:outline-none w-10/12"
-            :class="{ 'input-primary': !shootIDInvalid, 'input-error': shootIDInvalid }"
-            @focus="shootIDInvalid = false" />
+              v-model="shoot"
+              type="text"
+              placeholder="Shoot ID..."
+              maxlength="6"
+              class="input input-bordered input-primary focus:outline-none w-10/12"
+              :class="{ 'input-primary': !shootIDInvalid, 'input-error': shootIDInvalid }"
+              @focus="shootIDInvalid = false"/>
           <button class="btn max-xs:btn-square" @click="searchShoot">
             <Icon icon="search" class="text-primary h-2/3 w-auto"></Icon>
           </button>
@@ -53,12 +53,12 @@
 
 <script setup>
 // Vue
-import { computed, ref, onMounted } from "vue"
-import { useRouter } from "vue-router"
+import {computed, ref, onMounted} from "vue"
+import {useRouter} from "vue-router"
 // Store
 // import { useFilterStore } from "@/stores/filter.js"
 // Icons
-import { Icon, addIcon } from "@iconify/vue/offline"
+import {Icon, addIcon} from "@iconify/vue/offline"
 import home from "@iconify-icons/pajamas/home"
 import search from "@iconify-icons/pajamas/search-sm"
 import mail from "@iconify-icons/pajamas/mail"
@@ -100,7 +100,7 @@ const navigate = (target) => {
   }
 
   // Push other routes
-  router.push({ name: target })
+  router.push({name: target})
   hideModal()
 }
 
@@ -109,7 +109,7 @@ const searchShoot = () => {
   if (shoot?.value == null || shoot.value.length !== 6) {
     shootIDInvalid.value = true
   } else {
-    router.push({ name: "shoot", params: { shoot_slug: shoot.value.toUpperCase() } })
+    router.push({name: "shoot", params: {shoot_slug: shoot.value.toUpperCase()}})
     hideModal()
   }
 }

@@ -1,6 +1,6 @@
 <script setup>
-import { useFridayApi } from "@/composables/useFridayApi";
-import { usePhotosStore } from "@/stores/usePhotosStore"
+import {useFridayApi} from "@/composables/useFridayApi";
+import {usePhotosStore} from "@/stores/usePhotosStore"
 import PhotoCard from "@/components/panel/PhotoCard.vue";
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
 import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue";
@@ -8,7 +8,7 @@ import TheInstagramButton from "@/components/TheInstagramButton.vue";
 
 const props = defineProps(["shoot_slug"])
 
-const { apiCallInProgress } = useFridayApi()
+const {apiCallInProgress} = useFridayApi()
 const photos = usePhotosStore()
 // Health check on mounted
 // Set shoot ID if it exists in the route
@@ -19,34 +19,34 @@ const photos = usePhotosStore()
   <main class="flex">
     <!-- No images found message -->
     <Transition name="fade">
-      <NotFoundMessage v-if="!apiCallInProgress && photos.displayPhotos.length === 0" class="w-full" />
+      <NotFoundMessage v-if="!apiCallInProgress && photos.displayPhotos.length === 0" class="w-full"/>
     </Transition>
 
     <!-- Actually show images! -->
-<!--    <Transition name="fade">-->
-<!--      <div-->
-<!--          v-if="apiCallFinished && filteredPhotos.length > 0"-->
-<!--          class="w-full flex flex-wrap items-center justify-around">-->
-<!--        <PhotoCard-->
-<!--            v-for="photo in filteredPhotos"-->
-<!--            class="hover:cursor-zoom-in"-->
-<!--            :key="photo.id"-->
-<!--            :photo="photo"-->
-<!--            :cachedPhotos="cachedPhotos"-->
-<!--            cache="true"-->
-<!--            @click="fullsizeImage(photo)" />-->
-<!--      </div>-->
-<!--    </Transition>-->
+    <!--    <Transition name="fade">-->
+    <!--      <div-->
+    <!--          v-if="apiCallFinished && filteredPhotos.length > 0"-->
+    <!--          class="w-full flex flex-wrap items-center justify-around">-->
+    <!--        <PhotoCard-->
+    <!--            v-for="photo in filteredPhotos"-->
+    <!--            class="hover:cursor-zoom-in"-->
+    <!--            :key="photo.id"-->
+    <!--            :photo="photo"-->
+    <!--            :cachedPhotos="cachedPhotos"-->
+    <!--            cache="true"-->
+    <!--            @click="fullsizeImage(photo)" />-->
+    <!--      </div>-->
+    <!--    </Transition>-->
 
-    <TheInstagramButton />
+    <TheInstagramButton/>
     <!-- Full size viewer -->
-<!--    <TheFullsizeViewer-->
-<!--        v-if="showFullsize"-->
-<!--        class="modal-open"-->
-<!--        :photo="fullsizePhoto"-->
-<!--        :photos="filteredPhotos"-->
-<!--        :cachedPhotos="cachedPhotos"-->
-<!--        @close="showFullsize = false" />-->
+    <!--    <TheFullsizeViewer-->
+    <!--        v-if="showFullsize"-->
+    <!--        class="modal-open"-->
+    <!--        :photo="fullsizePhoto"-->
+    <!--        :photos="filteredPhotos"-->
+    <!--        :cachedPhotos="cachedPhotos"-->
+    <!--        @close="showFullsize = false" />-->
   </main>
 </template>
 

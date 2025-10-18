@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @plugin "daisyui/theme" {
     name: "light";
     default: true;

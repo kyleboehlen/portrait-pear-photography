@@ -2,33 +2,35 @@
   <main class="flex">
     <!-- No images found message -->
     <Transition name="fade">
-      <NotFoundMessage v-if="apiCallFinished && filteredPhotos.length === 0" :msg="notFoundMsg" class="w-full" />
+      <NotFoundMessage v-if="apiCallFinished && filteredPhotos.length === 0" :msg="notFoundMsg" class="w-full"/>
     </Transition>
 
     <!-- Actually show images! -->
     <Transition name="fade">
       <div
-        v-if="apiCallFinished && filteredPhotos.length > 0"
-        class="w-full flex flex-wrap items-center justify-around">
+          v-if="apiCallFinished && filteredPhotos.length > 0"
+          class="w-full flex flex-wrap items-center justify-around">
         <PhotoCard
-          v-for="photo in filteredPhotos"
-          class="hover:cursor-zoom-in"
-          :key="photo.id"
-          :photo="photo"
-          :cachedPhotos="cachedPhotos"
-          cache="true"
-          @click="fullsizeImage(photo)" />
+            v-for="photo in filteredPhotos"
+            class="hover:cursor-zoom-in"
+            :key="photo.id"
+            :photo="photo"
+            :cachedPhotos="cachedPhotos"
+            cache="true"
+            @click="fullsizeImage(photo)"/>
       </div>
     </Transition>
 
     <!-- Full size viewer -->
     <TheFullsizeViewer
-      v-if="showFullsize"
-      class="modal-open"
-      :photo="fullsizePhoto"
-      :photos="filteredPhotos"
-      :cachedPhotos="cachedPhotos"
-      @close="showFullsize = false" />
+        v-if="showFullsize"
+        class="modal-open"
+        :photo="fullsizePhoto"
+        :photos="filteredPhotos"
+        :cachedPhotos="cachedPhotos"
+        @close="showFullsize = false"/>
+
+    <TheInstagramButton/>
   </main>
 </template>
 
@@ -36,7 +38,7 @@
 // Axios
 import axios from "axios"
 // Vue
-import { onMounted, ref, computed } from "vue"
+import {onMounted, ref, computed} from "vue"
 // Components
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 import PhotoCard from "@/components/panel/PhotoCard.vue"
@@ -130,18 +132,18 @@ const refreshHomePhotos = () => {
       method: "get",
       url: `${apiUrl}/api/pear/home`,
     })
-      .then(function (response) {
-        // Cache
-        home.photos = response.data.photos
-        home.setLastUpdated()
+        .then(function (response) {
+          // Cache
+          home.photos = response.data.photos
+          home.setLastUpdated()
 
-        // Set photos
-        photos.value = response.data.photos
-        apiCallFinished.value = true
-      })
-      .catch(function () {
-        apiCallFinished.value = true
-      })
+          // Set photos
+          photos.value = response.data.photos
+          apiCallFinished.value = true
+        })
+        .catch(function () {
+          apiCallFinished.value = true
+        })
   }
 
   // Set cached

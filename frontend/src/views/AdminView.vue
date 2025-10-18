@@ -1,22 +1,19 @@
-<script setup lang="js">
-import { useFridayApi } from "@/composables/useFridayApi";
+<script setup>
+import {useFridayApi} from "@/composables/useFridayApi";
 import PasswordPromptWidget from "@/components/admin/PasswordPromptWidget.vue"
-import AdminActionFlowWidget from "@/components/admin/AdminActionFlowWidget.vue";
+import AdminActionFlowWidget from "@/components/admin/actions/AdminActionFlowWidget.vue";
+import AdminActionPanelWidget from "@/components/admin/actions/AdminActionPanelWidget.vue";
 
-const { adminApiIsAuthenticated } = useFridayApi();
+const {adminApiIsAuthenticated} = useFridayApi();
 </script>
 
 <template>
-  <main class="flex">
+  <main class="flex flex-col justify-center items-start">
     <!-- Show password widget if we don't have an admin token -->
     <PasswordPromptWidget v-if="!adminApiIsAuthenticated" />
-    <AdminActionFlowWidget v-else />
+    <AdminActionFlowWidget v-if="adminApiIsAuthenticated" />
+    <AdminActionPanelWidget v-if="adminApiIsAuthenticated" class="flex-1" />
   </main>
-<!-- If we do have an authZ token, show the admin action widget -->
-<!-- Show the shoot edit form if shoot id is selected -->
-<!-- Show the full photo tree, or show a mini photo tree based on the shoot photos -->
-<!-- Show the hover preview panel, or show the upload widget -->
-<!-- Possibly disable this view on a mobile screen -->
 </template>
 
 <style scoped>

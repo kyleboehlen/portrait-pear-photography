@@ -1,49 +1,49 @@
 <template>
   <div class="modal w-screen h-screen">
     <div
-      class="bg-base-100 grow w-screen h-screen flex justify-between sm:p-2 flex-nowrap"
-      :class="{ 'flex-col': !isNative, 'flex-col-reverse': isNative }">
+        class="bg-base-100 grow w-screen h-screen flex justify-between sm:p-2 flex-nowrap"
+        :class="{ 'flex-col': !isNative, 'flex-col-reverse': isNative }">
       <!-- Actions bar -->
       <div
-        class="flex justify-between items-center w-auto py-2 px-4 sm:px-6"
-        :class="{ 'pb-6': isNative, 'px-6': isNative }">
+          class="flex justify-between items-center w-auto py-2 px-4 sm:px-6"
+          :class="{ 'pb-6': isNative, 'px-6': isNative }">
         <!-- Download -->
         <a class="btn btn-sm xs:btn-md sm:btn-lg" :href="downloadLink" target="_blank">
-          <Icon icon="download" class="h-4/6 w-auto px-0 sm:px-1" />
+          <Icon icon="download" class="h-4/6 w-auto px-0 sm:px-1"/>
         </a>
 
         <!-- Toggle back/forth -->
         <div class="flex justify-center items-center">
           <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="goLeft">
-            <Icon icon="left" class="h-4/6 w-auto px-0 sm:px-1" />
+            <Icon icon="left" class="h-4/6 w-auto px-0 sm:px-1"/>
           </button>
 
           <h2 class="text-xl xs:text-2xl sm:text-3xl pb-1 sm:pb-2 px-4 sm:px-6">{{ photoIndex }}/{{ photoCount }}</h2>
 
           <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="goRight">
-            <Icon icon="right" class="h-4/6 w-auto px-0 sm:px-1" />
+            <Icon icon="right" class="h-4/6 w-auto px-0 sm:px-1"/>
           </button>
         </div>
 
         <!-- Close -->
         <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="$emit('close')">
-          <Icon icon="close" class="h-4/6 w-auto" />
+          <Icon icon="close" class="h-4/6 w-auto"/>
         </button>
       </div>
 
       <!-- Image container -->
       <div
-        v-if="isOnline || (useCached && !loading && cachedSource.length > 100)"
-        class="w-auto h-5/6 flex justify-center items-center shrink m-1 grow"
-        @touchstart="touchStart($event)"
-        @touchend="touchEnd($event)">
+          v-if="isOnline || (useCached && !loading && cachedSource.length > 100)"
+          class="w-auto h-5/6 flex justify-center items-center shrink m-1 grow"
+          @touchstart="touchStart($event)"
+          @touchend="touchEnd($event)">
         <img
-          v-if="!useCached && !loading"
-          v-lazy="{ src: photo?.full_res_asset_url, loading: pearLoader, delay: 1000 }"
-          class="object-contain max-h-full rounded-lg" />
-        <img v-else-if="!loading" :src="cachedSource" class="object-contain max-h-full rounded-lg" />
+            v-if="!useCached && !loading"
+            v-lazy="{ src: photo?.full_res_asset_url, loading: pearLoader, delay: 1000 }"
+            class="object-contain max-h-full rounded-lg"/>
+        <img v-else-if="!loading" :src="cachedSource" class="object-contain max-h-full rounded-lg"/>
       </div>
-      <NotFoundMessage v-else-if="!loading" msg="Go online to load full-res images :)" class="grow" />
+      <NotFoundMessage v-else-if="!loading" msg="Go online to load full-res images :)" class="grow"/>
 
       <div class="modal" id="download-modal">
         <div class="modal-box">
@@ -59,11 +59,11 @@
 
 <script setup>
 // Vue
-import { ref, computed, onMounted, nextTick } from "vue"
+import {ref, computed, onMounted, nextTick} from "vue"
 // Loader
 // import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
 // Icons
-import { Icon, addIcon } from "@iconify/vue/offline"
+import {Icon, addIcon} from "@iconify/vue/offline"
 import close from "@iconify-icons/pajamas/close"
 import download from "@iconify-icons/pajamas/download"
 import left from "@iconify-icons/pajamas/chevron-lg-left"
@@ -163,6 +163,7 @@ const goRight = () => {
 // Swipe
 let touchstartX = 0
 let touchendX = 0
+
 function checkSwipe() {
   if (Math.abs(touchstartX - touchendX) > window.innerWidth / 4) {
     if (touchendX < touchstartX) {
@@ -174,6 +175,7 @@ function checkSwipe() {
     }
   }
 }
+
 const touchStart = (e) => {
   touchstartX = e.changedTouches[0].screenX
 }

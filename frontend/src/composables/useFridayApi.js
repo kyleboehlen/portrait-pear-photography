@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ref } from 'vue';
+import {ref} from 'vue';
 
 const baseUrl = import.meta.env.VITE_API_URL;
 const apiCallInProgress = ref(false);
@@ -38,7 +38,7 @@ async function baseApiCall(method, path, body = null, token = null) {
 
             // These are specifically the error codes for admin auth related issues, if we get one of these then the
             // token is no longer valid, or we don't have a token.
-            if (errorCode >= 20 && errorCode < 30 ){
+            if (errorCode >= 20 && errorCode < 30) {
                 adminApiIsAuthenticated.value = false;
             }
 
@@ -88,5 +88,5 @@ export const useFridayApi = () => {
     // healthCheck();
 
     // Expose the ref for logic regarding waiting for API calls, and expose methods to make GET and POST requests
-    return { apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi };
+    return {apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi};
 };

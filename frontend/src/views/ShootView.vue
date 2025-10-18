@@ -2,37 +2,37 @@
   <main class="flex">
     <!-- Shoot not found :( -->
     <Transition name="fade">
-      <NotFoundMessage v-if="apiCallFinished && !shootFound" :msg="notFoundMsg" class="w-full" />
+      <NotFoundMessage v-if="apiCallFinished && !shootFound" :msg="notFoundMsg" class="w-full"/>
     </Transition>
 
     <!-- The photos, yay -->
     <Transition name="fade">
       <div v-if="isShoot" class="w-full flex flex-wrap items-center justify-around">
         <PhotoCard
-          v-for="photo in filteredPhotos"
-          :key="photo.id"
-          :photo="photo"
-          :cachedPhotos="cachedPhotos"
-          class="hover:cursor-zoom-in"
-          @click="fullsizeImage(photo)" />
+            v-for="photo in filteredPhotos"
+            :key="photo.id"
+            :photo="photo"
+            :cachedPhotos="cachedPhotos"
+            class="hover:cursor-zoom-in"
+            @click="fullsizeImage(photo)"/>
       </div>
     </Transition>
 
     <!-- Favorites button -->
     <TheInstagramButton
-      v-if="showFavoritesButton"
-      :shootSlug="shootSlug"
-      :photos="photos"
-      @refreshCache="loadCachedImages" />
+        v-if="showFavoritesButton"
+        :shootSlug="shootSlug"
+        :photos="photos"
+        @refreshCache="loadCachedImages"/>
 
     <!-- Full size viewer -->
     <TheFullsizeViewer
-      v-if="showFullsize"
-      class="modal-open"
-      :photo="fullsizePhoto"
-      :photos="filteredPhotos"
-      :cachedPhotos="cachedPhotos"
-      @close="showFullsize = false" />
+        v-if="showFullsize"
+        class="modal-open"
+        :photo="fullsizePhoto"
+        :photos="filteredPhotos"
+        :cachedPhotos="cachedPhotos"
+        @close="showFullsize = false"/>
   </main>
 </template>
 
@@ -40,9 +40,9 @@
 // Axios
 import axios from "axios"
 // Capacitor
-import { Capacitor } from "@capacitor/core"
+import {Capacitor} from "@capacitor/core"
 // Vue
-import { onMounted, computed, ref, watch } from "vue"
+import {onMounted, computed, ref, watch} from "vue"
 // Components
 import TheInstagramButton from "@/components/TheInstagramButton.vue"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
@@ -122,17 +122,17 @@ const getShootFromAPI = async () => {
       method: "get",
       url: `${apiUrl}/api/pear/shoot/${shootSlug.value}`,
     })
-      .then(function (response) {
-        apiCallFinished.value = true
-        shootFound.value = true
-        photos.value = response.data.photos
-        // Update cache if favorited
-        updateFavoritedShoot(photos.value)
-      })
-      .catch(function () {
-        apiCallFinished.value = true
-        shootFound.value = false
-      })
+        .then(function (response) {
+          apiCallFinished.value = true
+          shootFound.value = true
+          photos.value = response.data.photos
+          // Update cache if favorited
+          updateFavoritedShoot(photos.value)
+        })
+        .catch(function () {
+          apiCallFinished.value = true
+          shootFound.value = false
+        })
   }
 }
 

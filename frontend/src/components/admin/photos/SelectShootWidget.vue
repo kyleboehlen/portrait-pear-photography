@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useAdminStore } from '@/stores/useAdminStore'
+import {useAdminStore} from '@/stores/useAdminStore'
 // import { useFridayApi } from '@/composables/useFridayApi'; // TODO: see below
-import { onMounted } from "vue";
+import {onMounted} from "vue";
 // import TheLoader from "@/components/TheLoader.vue"; // TODO: see below
 
 // const { apiCallInProgress } = useFridayApi() // TODO: see below
@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-<!--  TODO: show loader instead of select on api call in progress?-->
+  <!--  TODO: show loader instead of select on api call in progress?-->
   <select
       v-model.number="adminStore.selectedShootId"
       class="select select-ghost select-md focus:outline-none focus:ring-0 !text-white"
