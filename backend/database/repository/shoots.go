@@ -6,6 +6,8 @@ import (
 	"encoding/hex"
 	"fmt"
 	"friday/database/models"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -38,8 +40,15 @@ func (r *SQLRepo) CreateShoot(shoot *models.Shoot) error {
 }
 
 func (r *SQLRepo) GetShoots() ([]*models.Shoot, error) {
-	// Specifically grabbing only the columns that are part of the Shoot struct
-	query := `SELECT id, name, date, slug FROM shoots`
+	query := `
+  SELECT
+   s.id, s.name, s.date, s.slug,
+   GROUP_CONCAT(sc.category_id) as category_ids
+  FROM shoots s
+  LEFT JOIN shoots_categories sc ON s.id = sc.shoot_id
+  GROUP BY s.id
+  ORDER BY s.id
+ `
 	rows, err := r.db.Query(query)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get shoots: %w", err)
@@ -51,10 +60,25 @@ func (r *SQLRepo) GetShoots() ([]*models.Shoot, error) {
 	var shoots []*models.Shoot
 	for rows.Next() {
 		var shoot models.Shoot
-		err := rows.Scan(&shoot.ID, &shoot.Name, &shoot.Date, &shoot.Slug)
+		var categoryIDs sql.NullString
+
+		err := rows.Scan(&shoot.ID, &shoot.Name, &shoot.Date, &shoot.Slug, &categoryIDs)
 		if err != nil {
 			return nil, fmt.Errorf("failed to scan shoot: %w", err)
 		}
+
+		shoot.DefaultCategories = []int{}
+		if categoryIDs.Valid && categoryIDs.String != "" {
+			idStrings := strings.Split(categoryIDs.String, ",")
+			for _, idStr := range idStrings {
+				id, err := strconv.Atoi(idStr)
+				if err != nil {
+					return nil, fmt.Errorf("failed to parse category ID: %w", err)
+				}
+				shoot.DefaultCategories = append(shoot.DefaultCategories, id)
+			}
+		}
+
 		shoots = append(shoots, &shoot)
 	}
 
@@ -64,7 +88,6 @@ func (r *SQLRepo) GetShoots() ([]*models.Shoot, error) {
 
 	return shoots, nil
 }
-
 func (r *SQLRepo) DeleteShoot(id int) error {
 	query := `DELETE FROM shoots WHERE id = ?`
 

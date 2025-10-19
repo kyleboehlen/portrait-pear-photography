@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="More capacitor cleanup">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/repository/sqlite.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoPreviewPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoPreviewPanel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +95,7 @@
       <workItem from="1760119002539" duration="38818000" />
       <workItem from="1760670996047" duration="7774000" />
       <workItem from="1760769501425" duration="16302000" />
-      <workItem from="1760853912070" duration="304000" />
+      <workItem from="1760853912070" duration="2052000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
