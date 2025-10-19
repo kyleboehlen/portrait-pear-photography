@@ -8,14 +8,14 @@ export const useAdminStore = defineStore("admin", {
         bearerToken: '',
         shoots: [],
         selectedShootId: 0,
-        updateShoot: {},
+        updateShoot: null,
     }),
     getters: {
         selectedShoot(state) {
             return state.shoots.find(shoot => shoot.id === state.selectedShootId) || null;
         },
-        isDirty(_) {
-            return true
+        isDirty(state) {
+            return state.updateShoot && JSON.stringify(state.updateShoot) !== JSON.stringify(state.selectedShoot);
         }
     },
     actions: {

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="bg-secondary">
+<div class="">
 
 </div>
 </template>

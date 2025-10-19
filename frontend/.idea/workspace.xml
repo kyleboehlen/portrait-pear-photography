@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Initial create shoot by textbox name widget">
-      <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/EditShootWidget.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/PhotoTree.vue" afterDir="false" />
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="More capacitor cleanup">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/repository/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoPreviewPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoPreviewPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +76,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/imgs" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/admin/photos" />
+      <recent name="$PROJECT_DIR$/src/components/admin/shoots" />
+      <recent name="$PROJECT_DIR$/src/components/admin/actions" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -92,6 +100,8 @@
       <workItem from="1759593668556" duration="26403000" />
       <workItem from="1760119002539" duration="38818000" />
       <workItem from="1760670996047" duration="7774000" />
+      <workItem from="1760769501425" duration="16302000" />
+      <workItem from="1760853912070" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
@@ -157,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760298987249</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="More capacitor cleanup">
+      <option name="closed" value="true" />
+      <created>1760770192511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760770192511</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +202,7 @@
     <MESSAGE value="so my ide will stop yelling at me about import routes" />
     <MESSAGE value="Entity and Action part of the admin workflow selector" />
     <MESSAGE value="Initial create shoot by textbox name widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial create shoot by textbox name widget" />
+    <MESSAGE value="More capacitor cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="More capacitor cleanup" />
   </component>
 </project>

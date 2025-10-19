@@ -25,7 +25,7 @@ func Get() *SQLRepo {
 }
 
 func Setup(migrationFS embed.FS) error {
-	if os.Getenv("TEST") == "true" {
+	if os.Getenv("TEST") == "true" && os.Getenv("IN_MEMORY_DATABASE") != "false" {
 		repo, err := setupTestDB()
 		if err != nil {
 			return err

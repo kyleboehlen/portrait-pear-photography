@@ -47,7 +47,9 @@ Backend:
 - On run the backend will automatically crate a JWT secret
 
 Recommend using GoLand and use the saved configurations.
-For example for CORs to work locally you'll need to add the env var: `DEBUG_CORS=true`
+For example for CORs to work locally you'll need to add the env var: `DEBUG_CORS=true`<br>
+Settings `TEST=true` will use an in-memory database for easier testing and set the admin password to password<br>
+If can use `IN_MEMORY_DB=false` to override the in-memory database even when `TEST` is true.
 
 ## Deployment
 
