@@ -1,6 +1,7 @@
 <script setup>
 import {onMounted, onUnmounted, watch, ref, computed} from 'vue';
 import {useAdminStore} from '@/stores/useAdminStore';
+import PhotoTree from "@/components/admin/photos/PhotoTree.vue";
 
 const adminStore = useAdminStore();
 
@@ -56,7 +57,7 @@ const toggleCategory = (categoryId) => {
 
 <template>
   <!-- The v-if is only here to prevent the v-model from binding to updateShoot.name before it exists -->
-  <div v-if="adminStore.updateShoot" class="border-r-4 border-secondary flex flex-col items-center">
+  <div v-if="adminStore.updateShoot" class="flex flex-col items-center">
     <!--  Title (name), and Date -->
     <div class="w-3/4 flex flex-row justify-center items-center mt-6 border-b-2 border-neutral">
       <input type="text"
@@ -103,6 +104,9 @@ const toggleCategory = (categoryId) => {
     <input type="file" class="file-input file-input-primary w-3/4 mt-4 text-white" multiple />
 
     <!--  Photo tree for preview -->
+    <div class="max-h-[40vh] w-3/4 mt-2 pl-4 pr-16">
+      <PhotoTree class="h-full w-full" />
+    </div>
   </div>
 </template>
 

@@ -9,6 +9,7 @@ export const useAdminStore = defineStore("admin", {
         shoots: [],
         selectedShootId: 0,
         updateShoot: {},
+        previewPhotoUrl: '',
     }),
     getters: {
         selectedShoot(state) {
@@ -16,7 +17,7 @@ export const useAdminStore = defineStore("admin", {
         },
         isDirty(state) {
             return state.updateShoot && JSON.stringify(state.updateShoot) !== JSON.stringify(state.selectedShoot);
-        }
+        },
     },
     actions: {
         // Somehow we need to catch forbidden errors and clear the token

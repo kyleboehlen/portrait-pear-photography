@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Update shoot default categories mock up ui">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Mock photo button links and photo upload input">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoPreviewPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoPreviewPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +63,7 @@
     "Docker.Debug.executor": "Run",
     "Docker.Develop.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Debug",
+    "Go Build.go build friday.executor": "Run",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
     "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
@@ -162,8 +168,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="API functions for the frontend composable&#10;.env for frontend API urls&#10;Health check on API composable first reference&#10;CORs middleware&#10;Placeholder for admin auth middleware" />
-    <MESSAGE value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
     <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
     <MESSAGE value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
     <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
@@ -187,7 +191,9 @@
     <MESSAGE value="Reformat repo&#10;Refactor component dirs&#10;Wireframe out the rest of the admin panel space&#10;Abstract the fab button" />
     <MESSAGE value="add isDirty logic&#10;Initial UpdateShootWidget with name, date, and URL&#10;Add TEST in memory database override&#10;Temp semantic borders for photo preview placeholder&#10;Add AdminSaveButton to AdminActionPanelWidget" />
     <MESSAGE value="Update shoot default categories mock up ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update shoot default categories mock up ui" />
+    <MESSAGE value="Update default build goland env vars" />
+    <MESSAGE value="Mock photo button links and photo upload input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mock photo button links and photo upload input" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
