@@ -2,7 +2,7 @@
 import {computed} from 'vue'
 import {useAdminRoutes} from '@/composables/useAdminRoutes'
 import CreateNewShootWidget from "@/components/admin/shoots/CreateNewShootWidget.vue";
-import SelectShootWidget from "@/components/admin/photos/SelectShootWidget.vue";
+import SelectShootWidget from "@/components/admin/shoots/SelectShootWidget.vue";
 import DeleteShootButton from "@/components/admin/shoots/DeleteShootButton.vue";
 
 const {entity, action, selector, setEntity, setAction, setSelector} = useAdminRoutes()
