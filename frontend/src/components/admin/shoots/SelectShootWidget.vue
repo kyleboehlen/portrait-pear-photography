@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useAdminStore} from '@/stores/useAdminStore'
 // import { useFridayApi } from '@/composables/useFridayApi'; // TODO: see below
-import {onMounted} from "vue";
+import {onMounted, onUnmounted} from "vue";
 // import TheLoader from "@/components/TheLoader.vue"; // TODO: see below
 
 // const { apiCallInProgress } = useFridayApi() // TODO: see below
@@ -9,6 +9,9 @@ import {onMounted} from "vue";
 const adminStore = useAdminStore()
 onMounted(() => {
   adminStore.loadShootsFromApi()
+})
+onUnmounted(() => {
+  adminStore.selectedShootId = 0
 })
 </script>
 

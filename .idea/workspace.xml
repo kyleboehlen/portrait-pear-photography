@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Mock photo button links and photo upload input">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
-    </list>
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Lil refactor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,11 +108,11 @@
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/admin/shoots" />
       <recent name="$PROJECT_DIR$/passwords" />
       <recent name="$PROJECT_DIR$/backend/api" />
       <recent name="$PROJECT_DIR$/backend/routing" />
       <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build friday">
@@ -164,7 +160,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
     <MESSAGE value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
     <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
     <MESSAGE value="Nevermind, i don't wanna use env vars" />
@@ -189,7 +184,8 @@
     <MESSAGE value="Update shoot default categories mock up ui" />
     <MESSAGE value="Update default build goland env vars" />
     <MESSAGE value="Mock photo button links and photo upload input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mock photo button links and photo upload input" />
+    <MESSAGE value="Lil refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lil refactor" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -260,31 +256,6 @@
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
           <line>256</line>
           <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>28</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>147</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>149</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>151</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>155</line>
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

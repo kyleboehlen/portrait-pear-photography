@@ -10,7 +10,7 @@ const adminStore = useAdminStore();
 const adminRoutes = useAdminRoutes()
 
 const showUpdateShootWidget = computed(() => {
-  return adminRoutes.entity.value === 'shoots' && adminRoutes.action.value === 'update' && adminStore.selectedShoot.value !== null
+  return adminRoutes.entity.value === 'shoots' && adminRoutes.action.value === 'update' && adminStore.selectedShootId !== 0
 })
 </script>
 
@@ -23,7 +23,7 @@ const showUpdateShootWidget = computed(() => {
     <!--    TODO: Delete photo tree-->
     <!--    TODO: Categorize photo tree-->
     <PhotoPreviewPanel v-if="showUpdateShootWidget" class="p-4" />
-    <AdminSaveButton v-if="adminStore.isDirty" />
+    <AdminSaveButton v-if="adminStore.isDirty && showUpdateShootWidget" />
   </div>
 </template>
 
