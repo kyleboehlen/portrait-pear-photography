@@ -90,8 +90,18 @@ const toggleCategory = (categoryId) => {
         {{ category.name }}
       </span>
     </div>
+
     <!--  Manage photos links buttons -->
+<!--    TODO: clicks need to link to the proper admin routes -->
+    <div class="w-3/4 flex flex-row flex-nowrap mt-16 gap-4">
+      <button class="btn btn-error btn-outline flex-grow">Delete Photos</button>
+      <button class="btn btn-warning btn-outline flex-grow">Favorite Photos</button>
+      <button class="btn btn-accent btn-outline flex-grow">Categorize Photos</button>
+    </div>
+
     <!--  Upload photos control -->
+    <input type="file" class="file-input file-input-primary w-3/4 mt-4 text-white" multiple />
+
     <!--  Photo tree for preview -->
   </div>
 </template>
