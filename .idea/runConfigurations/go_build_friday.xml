@@ -5,6 +5,7 @@
     <envs>
       <env name="DEBUG_CORS" value="true" />
       <env name="TEST" value="true" />
+      <env name="IN_MEMORY_DATABASE" value="false" />
     </envs>
     <kind value="PACKAGE" />
     <package value="friday" />

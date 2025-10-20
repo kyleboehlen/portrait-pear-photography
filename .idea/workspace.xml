@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add shoots/photos table migrations&#10;Add upsert shoot API enpoint with create shoot functionality">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/EditShootWidget.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoPreviewPanel.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Update shoot default categories mock up ui">
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +19,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///opt/homebrew/opt/go/libexec" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.1.darwin-arm64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -61,7 +57,7 @@
     "Docker.Debug.executor": "Run",
     "Docker.Develop.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Run",
+    "Go Build.go build friday.executor": "Debug",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
     "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
@@ -69,14 +65,18 @@
     "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor": "Run",
     "Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor": "Run",
     "Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor": "Run",
+    "Go Test.TestAuthenticateAdmin_NonAdminRoute in friday/api/middleware.executor": "Run",
     "Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor": "Run",
+    "Go Test.TestCreateAdminJWT_Success in friday/services/auth.executor": "Debug",
+    "Go Test.TestHealthEndpoint in friday/api/handlers.executor": "Run",
     "Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor": "Run",
     "Go Test.TestTestRoute_Success in friday/api/handlers.executor": "Run",
+    "Go Test.TestUpsertShootRoute_CreateSuccess in friday/api/handlers.executor": "Debug",
     "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
     "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
     "Go Test.go test backend.executor": "Run",
     "Go Test.go test friday/api/handlers.executor": "Run",
-    "Go Test.go test friday/api/middleware.executor": "Run",
+    "Go Test.go test friday/api/middleware.executor": "Debug",
     "Go Test.go test friday/api/routing.executor": "Run",
     "Go Test.go test friday/api/util.executor": "Run",
     "Go Test.go test friday/services/auth.executor": "Run",
@@ -89,6 +89,7 @@
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -161,10 +162,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add initial go backend&#10;Adds dockerfile for building for windows/linux/mac&#10;Sets up how responses and error codes will look from the api&#10;Renames the module to Friday&#10;Adds a health check heartbeat endpoint&#10;Sets the pattern for how routing/controllers/handlers will be handled&#10;Updates the readme (uses local development, not docker)&#10;Saves goland run configs&#10;Tests for everything included (unit/acceptance)" />
-    <MESSAGE value="update goland workspace" />
-    <MESSAGE value="Start removing capacitor" />
-    <MESSAGE value="Update goland workspace" />
     <MESSAGE value="API functions for the frontend composable&#10;.env for frontend API urls&#10;Health check on API composable first reference&#10;CORs middleware&#10;Placeholder for admin auth middleware" />
     <MESSAGE value="Configure SQLite database&#10;Add database connection check to health endpoint&#10;Set SQL dialect for GoLand&#10;Install SQLite3 driver" />
     <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
@@ -183,7 +180,14 @@
     <MESSAGE value="Seed categories" />
     <MESSAGE value="Increase text bcrypt cost for fe animation purposes" />
     <MESSAGE value="Add shoots/photos table migrations&#10;Add upsert shoot API enpoint with create shoot functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add shoots/photos table migrations&#10;Add upsert shoot API enpoint with create shoot functionality" />
+    <MESSAGE value="Get all shoots endpoint&#10;Set UI to redirect to the proper update shoot selected on create shoot&#10;Downgrade go version for delve reasons&#10;Remove more apple specific assets" />
+    <MESSAGE value="Auto check authentication" />
+    <MESSAGE value="Delete shoot functionality" />
+    <MESSAGE value="Oh, for tests sake!&#10;(tests showed from fragile parts of the code)&#10;Repository now creates an instance on setup and calls that instance from its handlers&#10;Added tests for the shoot crud routes&#10;You can now call setting the secret key explicitly&#10;Embedded the database migrations in the binary&#10;Database repository supports in memory testing database" />
+    <MESSAGE value="Reformat repo&#10;Refactor component dirs&#10;Wireframe out the rest of the admin panel space&#10;Abstract the fab button" />
+    <MESSAGE value="add isDirty logic&#10;Initial UpdateShootWidget with name, date, and URL&#10;Add TEST in memory database override&#10;Temp semantic borders for photo preview placeholder&#10;Add AdminSaveButton to AdminActionPanelWidget" />
+    <MESSAGE value="Update shoot default categories mock up ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update shoot default categories mock up ui" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -193,22 +197,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>44</line>
+          <line>63</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>48</line>
+          <line>67</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>55</line>
+          <line>74</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>59</line>
+          <line>78</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -217,25 +221,83 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>81</line>
+          <line>79</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>82</line>
+          <line>80</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/shoots.go</url>
-          <line>25</line>
+          <line>28</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/shoots.go</url>
-          <line>31</line>
+          <line>34</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>105</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>118</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>122</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>255</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>250</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
+          <line>256</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
+          <line>28</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
+          <line>147</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
+          <line>149</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
+          <line>151</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
+          <line>155</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/portrait_pear_photography$TestUpsertShootRoute_CreateSuccess_in_friday_api_handlers.out" NAME="TestUpsertShootRoute_CreateSuccess in friday/api/handlers Coverage Results" MODIFIED="1760765420150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
