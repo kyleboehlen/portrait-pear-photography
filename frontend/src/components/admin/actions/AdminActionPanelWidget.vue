@@ -22,7 +22,7 @@ const showUpdateShootWidget = computed(() => {
     <!--    TODO: Favorites photo tree-->
     <!--    TODO: Delete photo tree-->
     <!--    TODO: Categorize photo tree-->
-    <PhotoPreviewPanel v-if="showUpdateShootWidget" class="p-4" />
+    <PhotoPreviewPanel v-if="showUpdateShootWidget" class="p-4 flex-1" />
     <AdminSaveButton v-if="adminStore.isDirty && showUpdateShootWidget" />
   </div>
 </template>
