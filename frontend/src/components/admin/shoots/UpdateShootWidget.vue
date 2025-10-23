@@ -101,7 +101,7 @@ const toggleCategory = (categoryId) => {
     </div>
 
     <!--  Upload photos control -->
-    <input type="file" class="file-input file-input-primary w-3/4 mt-4 text-white" multiple />
+    <input type="file" class="file-input file-input-primary w-3/4 mt-4 text-white" accept=".jpg, .jpeg" multiple />
 
     <!--  Photo tree for preview -->
     <div class="max-h-[40vh] w-3/4 mt-2 pl-4 pr-16">

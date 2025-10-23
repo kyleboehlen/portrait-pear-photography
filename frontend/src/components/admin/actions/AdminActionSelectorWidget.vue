@@ -4,6 +4,8 @@ import {useAdminRoutes} from '@/composables/useAdminRoutes'
 import CreateNewShootWidget from "@/components/admin/shoots/CreateNewShootWidget.vue";
 import SelectShootWidget from "@/components/admin/shoots/SelectShootWidget.vue";
 import DeleteShootButton from "@/components/admin/shoots/DeleteShootButton.vue";
+import DatabaseUploadWidget from "@/components/admin/database/DatabaseUploadWidget.vue";
+import DatabaseDownloadWidget from "@/components/admin/database/DatabaseDownloadWidget.vue";
 
 const {entity, action, selector, setEntity, setAction, setSelector} = useAdminRoutes()
 
@@ -94,6 +96,12 @@ const actions = computed(() => {
         <CreateNewShootWidget v-if="action === 'create'"/>
         <SelectShootWidget v-else/>
         <DeleteShootButton v-if="action == 'delete'" class="ml-4"/>
+      </span>
+
+      <span v-if="entity === 'database' && action"
+            class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
+        <DatabaseUploadWidget v-if="action === 'import'"/>
+        <DatabaseDownloadWidget v-else-if="action === 'export'"/>
       </span>
     </div>
   </div>
