@@ -7,7 +7,7 @@ import DeleteShootButton from "@/components/admin/shoots/DeleteShootButton.vue";
 import DatabaseUploadWidget from "@/components/admin/database/DatabaseUploadWidget.vue";
 import DatabaseDownloadWidget from "@/components/admin/database/DatabaseDownloadWidget.vue";
 
-const {entity, action, selector, setEntity, setAction, setSelector} = useAdminRoutes()
+const {entity, action, setEntity, setAction } = useAdminRoutes()
 
 const actions = computed(() => {
   switch (entity.value) {
@@ -89,8 +89,9 @@ const actions = computed(() => {
         <option v-for="a in actions" :value="a.value">{{ a.label }}</option>
       </select>
 
-
-      <span v-if="action" class="text-white text-3xl whitespace-nowrap">-></span>
+<!--  Action starts as null, and resets to ''. We check to keep this from disappearing once it's been shown once.
+      That way you're not clicking somewhere that you expect the select to be and it shifts on you. -->
+      <span v-if="action || action === ''" class="text-white text-3xl whitespace-nowrap">-></span>
       <span v-if="entity === 'shoots' && action"
             class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
         <CreateNewShootWidget v-if="action === 'create'"/>
@@ -98,11 +99,14 @@ const actions = computed(() => {
         <DeleteShootButton v-if="action == 'delete'" class="ml-4"/>
       </span>
 
-      <span v-if="entity === 'database' && action"
+      <span v-else-if="entity === 'database' && action"
             class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
         <DatabaseUploadWidget v-if="action === 'import'"/>
         <DatabaseDownloadWidget v-else-if="action === 'export'"/>
       </span>
+
+      <!--  This is a spacer to keep selects in position, see above comment -->
+      <span v-else-if="entity && action === ''" class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap border-dashed border-2 border-primary rounded-sm"></span>
     </div>
   </div>
 </template>

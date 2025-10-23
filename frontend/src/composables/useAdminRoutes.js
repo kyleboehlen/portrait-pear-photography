@@ -5,12 +5,11 @@ export const useAdminRoutes = () => {
     const route = useRoute();
     const router = useRouter();
 
-    const entity = computed(() => route.query.entity ?? "");
-    const action = computed(() => route.query.action ?? "");
-    const selector = computed(() => route.query.selector ?? "");
+    const entity = computed(() => route.query.entity ?? null);
+    const action = computed(() => route.query.action ?? null);
 
     const setEntity = (newEntity) => {
-        setAction("").then(
+        setAction(action.value === null ? null : "").then(
             () => router.replace({
                 query: {
                     ...route.query ?? {},
@@ -21,7 +20,7 @@ export const useAdminRoutes = () => {
     };
 
     const setAction = (newAction) => {
-        return setSelector("").then(
+        return setSelector(null).then(
             () => router.replace({
                 query: {
                     ...route.query ?? {},
@@ -31,6 +30,7 @@ export const useAdminRoutes = () => {
         );
     };
 
+    // Currently this just lives here to make async promises happy
     const setSelector = (newSelector) => {
         return router.replace({
             query: {
@@ -40,5 +40,5 @@ export const useAdminRoutes = () => {
         })
     };
 
-    return {entity, action, selector, setEntity, setAction, setSelector};
+    return {entity, action, setEntity, setAction};
 };
