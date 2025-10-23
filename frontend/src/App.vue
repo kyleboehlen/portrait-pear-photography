@@ -1,13 +1,7 @@
 <template>
-  <div class="app-wrapper flex flex-col min-h-screen justify-start">
-    <TheHeader/>
-
-    <router-view v-slot="{ Component }">
-      <component :is="Component" class="grow"/>
-    </router-view>
-
-    <TheFooter class="justify-self-end"/>
-  </div>
+  <router-view v-slot="{ Component }">
+    <component :is="Component" class="grow"/>
+  </router-view>
 </template>
 
 <script setup>
