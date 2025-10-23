@@ -2,6 +2,7 @@
 import {onMounted, onUnmounted, watch, ref, computed} from 'vue';
 import {useAdminStore} from '@/stores/useAdminStore';
 import PhotoTree from "@/components/admin/photos/PhotoTree.vue";
+import {useAdminRoutes} from '@/composables/useAdminRoutes';
 
 const adminStore = useAdminStore();
 
@@ -18,11 +19,11 @@ watch(() => adminStore.selectedShoot, (newShoot) => {
   // Deep copy including nested arrays - gotta mutate that copy
   adminStore.updateShoot = {
     ...newShoot,
-    default_categories: [...(newShoot.default_categories || [])]
+    default_categories: [...(newShoot.default_categories)]
   }
 })
 onUnmounted(() => {
-  adminStore.updateShoot = {}
+  adminStore.updateShoot = {default_categories: []}
 })
 
 const displayUrl = computed(() => {
@@ -52,6 +53,29 @@ const toggleCategory = (categoryId) => {
   } else {
     adminStore.updateShoot.default_categories.splice(index, 1);
   }
+}
+
+const {setEntity, setAction, setSelector} = useAdminRoutes()
+const navigateToDeletePhotos = () => {
+  setEntity('photos').then(() => {
+    setAction('delete').then(() => {
+      setSelector('byShoot')
+    })
+  })
+}
+const navigateToFavoritePhotos = () => {
+  setEntity('photos').then(() => {
+    setAction('favorite').then(() => {
+      setSelector('byShoot')
+    })
+  })
+}
+const navigateToCategorizePhotos = () => {
+  setEntity('photos').then(() => {
+    setAction('categorize').then(() => {
+      setSelector('byShoot')
+    })
+  })
 }
 </script>
 
@@ -93,11 +117,10 @@ const toggleCategory = (categoryId) => {
     </div>
 
     <!--  Manage photos links buttons -->
-<!--    TODO: clicks need to link to the proper admin routes -->
     <div class="w-3/4 flex flex-row flex-nowrap mt-16 gap-4">
-      <button class="btn btn-error btn-outline flex-grow">Delete Photos</button>
-      <button class="btn btn-warning btn-outline flex-grow">Favorite Photos</button>
-      <button class="btn btn-accent btn-outline flex-grow">Categorize Photos</button>
+      <button class="btn btn-error btn-outline flex-grow" @click="navigateToDeletePhotos">Delete Photos</button>
+      <button class="btn btn-warning btn-outline flex-grow" @click="navigateToFavoritePhotos">Favorite Photos</button>
+      <button class="btn btn-accent btn-outline flex-grow" @click="navigateToCategorizePhotos">Categorize Photos</button>
     </div>
 
     <!--  Upload photos control -->

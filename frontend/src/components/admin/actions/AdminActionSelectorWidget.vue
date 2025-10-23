@@ -6,6 +6,7 @@ import SelectShootWidget from "@/components/admin/shoots/SelectShootWidget.vue";
 import DeleteShootButton from "@/components/admin/shoots/DeleteShootButton.vue";
 import DatabaseUploadWidget from "@/components/admin/database/DatabaseUploadWidget.vue";
 import DatabaseDownloadWidget from "@/components/admin/database/DatabaseDownloadWidget.vue";
+import GroupPhotosBySelector from "@/components/admin/photos/GroupPhotosBySelector.vue";
 
 const {entity, action, setEntity, setAction } = useAdminRoutes()
 
@@ -105,8 +106,13 @@ const actions = computed(() => {
         <DatabaseDownloadWidget v-else-if="action === 'export'"/>
       </span>
 
+      <span v-else-if="entity === 'photos' && action"
+            class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
+        <GroupPhotosBySelector />
+      </span>
+
       <!--  This is a spacer to keep selects in position, see above comment -->
-      <span v-else-if="entity && action === ''" class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap border-dashed border-2 border-primary rounded-sm"></span>
+      <span v-else-if="entity && action === ''" class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap border-dashed border-2 border-neutral rounded-sm"></span>
     </div>
   </div>
 </template>

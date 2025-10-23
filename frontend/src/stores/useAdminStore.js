@@ -8,12 +8,12 @@ export const useAdminStore = defineStore("admin", {
         bearerToken: '',
         shoots: [],
         selectedShootId: 0,
-        updateShoot: {},
+        updateShoot: {default_categories: []},
         previewPhotoUrl: '',
     }),
     getters: {
         selectedShoot(state) {
-            return state.shoots.find(shoot => shoot.id === state.selectedShootId) || {};
+            return state.shoots.find(shoot => shoot.id === state.selectedShootId) || {default_categories: []};
         },
         isDirty(state) {
             return state.updateShoot && JSON.stringify(state.updateShoot) !== JSON.stringify(state.selectedShoot);
