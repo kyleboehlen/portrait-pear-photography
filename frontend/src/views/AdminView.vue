@@ -5,6 +5,7 @@ import AdminActionFlowWidget from "@/components/admin/actions/AdminActionFlowWid
 import AdminActionPanelWidget from "@/components/admin/actions/AdminActionPanelWidget.vue";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import LogoutButton from "@/components/admin/actions/LogoutButton.vue";
 
 const {adminApiIsAuthenticated} = useFridayApi();
 </script>
@@ -13,7 +14,7 @@ const {adminApiIsAuthenticated} = useFridayApi();
   <div class="app-wrapper flex flex-col min-h-screen justify-start">
     <TheHeader>
       <template v-if="adminApiIsAuthenticated" v-slot:action>
-        <button class="btn btn-outline btn-error">Log out</button>
+        <LogoutButton />
       </template>
     </TheHeader>
 
