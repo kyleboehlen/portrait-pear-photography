@@ -42,7 +42,7 @@ import axios from "axios"
 // Capacitor
 import {Capacitor} from "@capacitor/core"
 // Vue
-import {onMounted, computed, ref, watch} from "vue"
+import {computed, onMounted, ref, watch} from "vue"
 // Components
 import TheInstagramButton from "@/components/TheInstagramButton.vue"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"

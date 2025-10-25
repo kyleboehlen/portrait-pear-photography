@@ -18,7 +18,7 @@
 
 <script setup>
 // Vue
-import {computed, ref, onMounted} from "vue"
+import {computed, onMounted, ref} from "vue"
 // Images
 import logo from "@/assets/imgs/green-camera-logo.png?url"
 

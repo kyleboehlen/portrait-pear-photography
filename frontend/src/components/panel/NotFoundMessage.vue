@@ -7,7 +7,7 @@
 
 <script setup>
 // Icons
-import {Icon, addIcon} from "@iconify/vue/offline"
+import {addIcon, Icon} from "@iconify/vue/offline"
 import shutter from "@iconify-icons/material-symbols/camera"
 
 addIcon("shutter", shutter)

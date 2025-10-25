@@ -6,6 +6,7 @@ import (
 	"friday/api/middleware"
 	"friday/api/routing"
 	"friday/database/repository"
+	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 )
@@ -16,6 +17,9 @@ import (
 var migrationFS embed.FS
 
 func main() {
+	// load environment variables from .env (falls back to system env)
+	_ = godotenv.Load(".env")
+
 	// This gets a new server mux with all routes registered, this allows routes to be defined in their own file
 	// alongside the handlers they're associated with
 	mux := routing.GetNewRouter()
@@ -34,14 +38,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to set up database: %v", err)
 	}
-
-	// Get all home page photos
-	// Get photos from shoot
-
-	// Admin - Upsert photo
-	// Admin - Delete photo
-
-	// Admin - set home page photos
 
 	log.Printf("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", httpHandler); err != nil {

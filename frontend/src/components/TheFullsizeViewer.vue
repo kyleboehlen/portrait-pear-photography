@@ -59,11 +59,11 @@
 
 <script setup>
 // Vue
-import {ref, computed, onMounted, nextTick} from "vue"
+import {computed, nextTick, onMounted, ref} from "vue"
 // Loader
 // import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
 // Icons
-import {Icon, addIcon} from "@iconify/vue/offline"
+import {addIcon, Icon} from "@iconify/vue/offline"
 import close from "@iconify-icons/pajamas/close"
 import download from "@iconify-icons/pajamas/download"
 import left from "@iconify-icons/pajamas/chevron-lg-left"

@@ -17,13 +17,13 @@ const showUpdateShootWidget = computed(() => {
 <template>
   <!--Container to split the panel space in half -->
   <div class="w-full flex flex-row flex-nowrap h-full mt-4">
-<!--    If show edit shoot (entity shoots, update, shoot selected -->
+    <!--    If show edit shoot (entity shoots, update, shoot selected -->
     <UpdateShootWidget v-if="showUpdateShootWidget" class="flex-1"/>
     <!--    TODO: Favorites photo tree-->
     <!--    TODO: Delete photo tree-->
     <!--    TODO: Categorize photo tree-->
-    <PhotoPreviewPanel v-if="showUpdateShootWidget" class="p-4 flex-1" />
-    <AdminSaveButton v-if="adminStore.isDirty && showUpdateShootWidget" />
+    <PhotoPreviewPanel v-if="showUpdateShootWidget" class="p-4 flex-1"/>
+    <AdminSaveButton v-if="adminStore.isDirty && showUpdateShootWidget"/>
   </div>
 </template>
 

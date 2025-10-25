@@ -12,7 +12,7 @@ watch(selector, (_, oldValue) => {
 })
 
 onUnmounted(() => {
-setSelector(null)
+  setSelector(null)
 })
 </script>
 

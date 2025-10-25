@@ -304,7 +304,7 @@ func TestGetShootsRoute_Success(t *testing.T) {
 	req := httptest.NewRequest("GET", "/admin/shoots", nil)
 	w := httptest.NewRecorder()
 
-	GetShootsRoute.Handle(w, req)
+	ListShootsRoute.Handle(w, req)
 
 	if w.Code != http.StatusOK {
 		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)

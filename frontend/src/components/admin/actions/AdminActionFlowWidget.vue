@@ -4,7 +4,7 @@ import AdminActionSelectorWidget from "@/components/admin/actions/AdminActionSel
 
 <template>
   <div class="w-full flex flex-row flex-wrap">
-    <AdminActionSelectorWidget />
+    <AdminActionSelectorWidget/>
   </div>
 </template>
 

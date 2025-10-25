@@ -53,12 +53,12 @@
 
 <script setup>
 // Vue
-import {computed, ref, onMounted} from "vue"
+import {computed, onMounted, ref} from "vue"
 import {useRouter} from "vue-router"
 // Store
 // import { useFilterStore } from "@/stores/filter.js"
 // Icons
-import {Icon, addIcon} from "@iconify/vue/offline"
+import {addIcon, Icon} from "@iconify/vue/offline"
 import home from "@iconify-icons/pajamas/home"
 import search from "@iconify-icons/pajamas/search-sm"
 import mail from "@iconify-icons/pajamas/mail"

@@ -104,9 +104,12 @@ async function downloadApi(path, filename, token = null) {
     return true;
 }
 
-function uploadApi(path, file, token = null) {
+function uploadApi(path, file, extra = null, token = null) {
     const formData = new FormData();
     formData.append('file', file);
+    if (extra) {
+        formData.append('data', JSON.stringify(extra));
+    }
     return baseApiCall('post', path, formData, token);
 }
 

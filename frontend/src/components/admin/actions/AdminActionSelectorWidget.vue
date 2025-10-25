@@ -8,7 +8,7 @@ import DatabaseUploadWidget from "@/components/admin/database/DatabaseUploadWidg
 import DatabaseDownloadWidget from "@/components/admin/database/DatabaseDownloadWidget.vue";
 import GroupPhotosBySelector from "@/components/admin/photos/GroupPhotosBySelector.vue";
 
-const {entity, action, setEntity, setAction } = useAdminRoutes()
+const {entity, action, setEntity, setAction} = useAdminRoutes()
 
 const actions = computed(() => {
   switch (entity.value) {
@@ -90,8 +90,8 @@ const actions = computed(() => {
         <option v-for="a in actions" :value="a.value">{{ a.label }}</option>
       </select>
 
-<!--  Action starts as null, and resets to ''. We check to keep this from disappearing once it's been shown once.
-      That way you're not clicking somewhere that you expect the select to be and it shifts on you. -->
+      <!--  Action starts as null, and resets to ''. We check to keep this from disappearing once it's been shown once.
+            That way you're not clicking somewhere that you expect the select to be and it shifts on you. -->
       <span v-if="action || action === ''" class="text-white text-3xl whitespace-nowrap">-></span>
       <span v-if="entity === 'shoots' && action"
             class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
@@ -108,11 +108,12 @@ const actions = computed(() => {
 
       <span v-else-if="entity === 'photos' && action"
             class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap">
-        <GroupPhotosBySelector />
+        <GroupPhotosBySelector/>
       </span>
 
       <!--  This is a spacer to keep selects in position, see above comment -->
-      <span v-else-if="entity && action === ''" class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap border-dashed border-2 border-neutral rounded-sm"></span>
+      <span v-else-if="entity && action === ''"
+            class="flex-1 max-w-1/3 flex flex-row justify-start items-center flex-nowrap border-dashed border-2 border-neutral rounded-sm"></span>
     </div>
   </div>
 </template>

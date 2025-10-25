@@ -38,7 +38,7 @@
 // Axios
 import axios from "axios"
 // Vue
-import {onMounted, ref, computed} from "vue"
+import {computed, onMounted, ref} from "vue"
 // Components
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
 import PhotoCard from "@/components/panel/PhotoCard.vue"

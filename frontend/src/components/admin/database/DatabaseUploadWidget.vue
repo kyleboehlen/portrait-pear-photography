@@ -2,7 +2,7 @@
 import {useTemplateRef} from "vue";
 import ConfirmationModal from "@/components/admin/ConfirmationModal.vue";
 import {useFridayApi} from "@/composables/useFridayApi";
-import { useAdminStore } from "@/stores/useAdminStore";
+import {useAdminStore} from "@/stores/useAdminStore";
 
 const input = useTemplateRef('database-upload')
 const clearFile = () => {
@@ -23,7 +23,8 @@ const handleDbUpload = () => {
 </script>
 
 <template>
-  <input ref="database-upload" type="file" class="file-input file-input-primary w-full text-white" accept=".db" onchange="are_you_sure.showModal()" />
+  <input ref="database-upload" type="file" class="file-input file-input-primary w-full text-white" accept=".db"
+         onchange="are_you_sure.showModal()"/>
 
   <ConfirmationModal @cancel="clearFile" @confirm="handleDbUpload">
     Are you sure you want to upload a new database file??

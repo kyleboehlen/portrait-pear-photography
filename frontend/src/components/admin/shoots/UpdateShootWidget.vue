@@ -1,8 +1,9 @@
 <script setup>
-import {onMounted, onUnmounted, watch, ref, computed} from 'vue';
+import {computed, onMounted, onUnmounted, ref, watch} from 'vue';
 import {useAdminStore} from '@/stores/useAdminStore';
 import PhotoTree from "@/components/admin/photos/PhotoTree.vue";
 import {useAdminRoutes} from '@/composables/useAdminRoutes';
+import UploadPhotoWidget from "@/components/admin/photos/UploadPhotoWidget.vue";
 
 const adminStore = useAdminStore();
 
@@ -120,15 +121,16 @@ const navigateToCategorizePhotos = () => {
     <div class="w-3/4 flex flex-row flex-nowrap mt-16 gap-4">
       <button class="btn btn-error btn-outline flex-grow" @click="navigateToDeletePhotos">Delete Photos</button>
       <button class="btn btn-warning btn-outline flex-grow" @click="navigateToFavoritePhotos">Favorite Photos</button>
-      <button class="btn btn-accent btn-outline flex-grow" @click="navigateToCategorizePhotos">Categorize Photos</button>
+      <button class="btn btn-accent btn-outline flex-grow" @click="navigateToCategorizePhotos">Categorize Photos
+      </button>
     </div>
 
     <!--  Upload photos control -->
-    <input type="file" class="file-input file-input-primary w-3/4 mt-4 text-white" accept=".jpg, .jpeg" multiple />
+    <UploadPhotoWidget class="w-3/4 mt-4"/>
 
     <!--  Photo tree for preview -->
     <div class="max-h-[40vh] w-3/4 mt-2 pl-4 pr-16">
-      <PhotoTree class="h-full w-full" />
+      <PhotoTree class="h-full w-full"/>
     </div>
   </div>
 </template>

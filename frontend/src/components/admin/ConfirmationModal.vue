@@ -8,7 +8,7 @@ const emit = defineEmits(['cancel', 'confirm'])
       <div class="modal-box">
         <h3 class="text-lg font-bold text-white">Oi</h3>
         <p class="py-4 text-white">
-          <slot />
+          <slot/>
         </p>
         <form method="dialog" class="flex flex-row w-full justify-center items-center gap-8">
           <button class="btn btn-primary btn-outline" @click="emit('cancel')">Abort mission</button>

@@ -1,9 +1,7 @@
 <script setup>
 import {useFridayApi} from "@/composables/useFridayApi";
 import {usePhotosStore} from "@/stores/usePhotosStore"
-import PhotoCard from "@/components/panel/PhotoCard.vue";
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
-import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue";
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";

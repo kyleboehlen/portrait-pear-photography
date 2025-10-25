@@ -57,6 +57,23 @@ const (
 	// ErrorCodeFailedToDeleteShoot API return error for repository.DeleteShoot failures
 	ErrorCodeFailedToDeleteShoot ErrorCode = 44
 
+	// ErrorCodePhotosGeneral General photos error code - starts the Photos error block
+	ErrorCodePhotosGeneral ErrorCode = 60
+	// ErrorCodeFailedToReadUploadPhotoRequest Error code for failed reading form data, or photo is too large
+	ErrorCodeFailedToReadUploadPhotoRequest ErrorCode = 61
+	// ErrorCodeMissingPhotoFileRequest Error code for missing photo file in upload request
+	ErrorCodeMissingPhotoFileRequest ErrorCode = 62
+	// ErrorCodeFailedToWritePhoto Error code for failures with the photo temp file
+	ErrorCodeFailedToWritePhoto ErrorCode = 63
+	// ErrorCodeFailedToUploadToCloudflare Error code for failures uploading photo to Cloudflare
+	ErrorCodeFailedToUploadToCloudflare ErrorCode = 64
+	// ErrorCodeMissingExtraPhotoData Error code for missing shoot_id or categories in upload photo request
+	ErrorCodeMissingExtraPhotoData ErrorCode = 65
+	// ErrorCodeInvalidExtraPhotoData Error code for invalid shoot_id or categories in upload photo request
+	ErrorCodeInvalidExtraPhotoData ErrorCode = 66
+	// ErrorCodeFailedToCreatePhoto API return error for failure during photo database operations
+	ErrorCodeFailedToCreatePhoto ErrorCode = 67
+
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota
 )

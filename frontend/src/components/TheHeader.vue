@@ -33,7 +33,7 @@ import logo from "@/assets/imgs/green-camera-logo.png?url"
 import {onMounted, ref} from "vue"
 import {useRouter} from "vue-router"
 // Iconify
-import {Icon, addIcon} from "@iconify/vue/offline"
+import {addIcon, Icon} from "@iconify/vue/offline"
 import hamburger from "@iconify-icons/pajamas/hamburger"
 // Components
 import TheModalNav from "@/components/TheModalNav.vue"

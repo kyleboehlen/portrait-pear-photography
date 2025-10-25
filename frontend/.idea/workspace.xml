@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Fix some display reactivity/state">
-      <change afterPath="$PROJECT_DIR$/src/components/admin/actions/LogoutButton.vue" afterDir="false" />
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Hooks up the preview panel to the admin store">
+      <change afterPath="$PROJECT_DIR$/../backend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/database.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/photos.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/shoots.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/database/repository/photos.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/services/images/cloudflare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/deploy_notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AdminView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AdminView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/useFridayApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +50,12 @@
     &quot;assignee&quot;: &quot;kyleboehlen&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kyleboehlen/portrait-pear-photography.git",
-    "accountId": "ce4d1201-cb44-4506-8e9e-8de35089db00"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:kyleboehlen/portrait-pear-photography.git&quot;,
+    &quot;accountId&quot;: &quot;78e2caf8-0902-47b6-9c7a-f3a2907cee0b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -83,7 +100,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.28774.2" />
       </set>
     </attachedChunks>
   </component>
@@ -101,6 +118,8 @@
       <workItem from="1760769501425" duration="16302000" />
       <workItem from="1760853912070" duration="2052000" />
       <workItem from="1760906194343" duration="13514000" />
+      <workItem from="1761417651769" duration="2776000" />
+      <workItem from="1761430234156" duration="1793000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
@@ -212,16 +231,5 @@
     <MESSAGE value="More capacitor cleanup" />
     <MESSAGE value="Fix some display reactivity/state" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix some display reactivity/state" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue</url>
-          <line>61</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

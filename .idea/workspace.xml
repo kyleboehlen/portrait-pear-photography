@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add shoots/photos table migrations&#10;Add upsert shoot API enpoint with create shoot functionality">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add import/export sqlite database file functionality&#10;Add upload/download file functionality to api composable">
+      <change afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/database.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/photos.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/shoots.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/repository/photos.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/images/cloudflare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/sqlite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseDownloadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseDownloadWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/deploy_notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/backend/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///opt/homebrew/opt/go/libexec" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.1.darwin-arm64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,12 +51,12 @@
     &quot;assignee&quot;: &quot;kyleboehlen&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kyleboehlen/portrait-pear-photography.git&quot;,
-    &quot;accountId&quot;: &quot;2d3d2a7a-4dca-4af4-9378-905aea7744e1&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:kyleboehlen/portrait-pear-photography.git",
+    "accountId": "e48e7869-355a-4051-957f-753ca6079707"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -104,6 +120,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -141,8 +158,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-f466f9b0953e-146d08934cbf-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-252.26830.102" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-GO-252.26830.102" />
+        <option value="bundled-gosdk-3b128438d3f6-4b567d62c776-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.25410.140" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-GO-251.25410.140" />
       </set>
     </attachedChunks>
   </component>
@@ -171,7 +188,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start to remove stuff&#10;Admin password prompt&#10;Upgrade daisyui and update styles accordingly&#10;Add admin friday api wrapper functions" />
     <MESSAGE value="Add admin token middleware - register middleware in main.go&#10;Add admin route for validating password and issuing token&#10;Add bcrypt and jwt dependencies&#10;Add jwt service for generating/parsing jwts&#10;Wire frontend password widget to api&#10;Update workspace" />
     <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
     <MESSAGE value="Nevermind, i don't wanna use env vars" />
@@ -196,7 +212,8 @@
     <MESSAGE value="Update shoot default categories mock up ui" />
     <MESSAGE value="Update default build goland env vars" />
     <MESSAGE value="Mock photo button links and photo upload input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mock photo button links and photo upload input" />
+    <MESSAGE value="Add import/export sqlite database file functionality&#10;Add upload/download file functionality to api composable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add import/export sqlite database file functionality&#10;Add upload/download file functionality to api composable" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -225,73 +242,19 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>255</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>250</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>256</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>31</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>148</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>150</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>152</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>156</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>204</line>
+          <url>file://$PROJECT_DIR$/backend/api/handlers/photos.go</url>
+          <line>44</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>205</line>
+          <url>file://$PROJECT_DIR$/backend/api/handlers/photos.go</url>
+          <line>45</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>219</line>
+          <url>file://$PROJECT_DIR$/backend/api/handlers/photos.go</url>
+          <line>46</line>
           <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>225</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
-          <line>231</line>
-          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
