@@ -5,7 +5,7 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const apiCallInProgress = ref(false);
 const adminApiIsAuthenticated = ref(false);
 
-async function baseApiCall(method, path, body = null, token = null) {
+async function baseApiCall(method, path, body = null, token = null, blob = false) {
     apiCallInProgress.value = true
     try {
         const config = {
@@ -20,6 +20,17 @@ async function baseApiCall(method, path, body = null, token = null) {
             };
         }
 
+        if (body instanceof FormData) {
+            config.headers = {
+                ...config.headers,
+                'Content-Type': 'multipart/form-data',
+            };
+        }
+
+        if (blob) {
+            config.responseType = 'blob';
+        }
+
         const response = await axios(config);
         const apiRes = response.data;
         /* Expected API response structure:
@@ -32,6 +43,10 @@ async function baseApiCall(method, path, body = null, token = null) {
          */
 
         apiCallInProgress.value = false
+
+        if (apiRes instanceof Blob) {
+            return new Blob([apiRes]);
+        }
 
         if (!apiRes.success) {
             const errorCode = apiRes.error_code;
@@ -71,6 +86,30 @@ function postApi(path, body, token = null) {
     return baseApiCall('post', path, body, token);
 }
 
+async function downloadApi(path, filename, token = null) {
+    const blob = await baseApiCall('get', path, null, token, true);
+    if (blob === false) {
+        return false;
+    }
+
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+
+    return true;
+}
+
+function uploadApi(path, file, token = null) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return baseApiCall('post', path, formData, token);
+}
+
 async function healthCheck() {
     // Because the API is serverless, we hit the health endpoint first to warm it up
     console.log('Warming up the API...')
@@ -88,5 +127,5 @@ export const useFridayApi = () => {
     // healthCheck();
 
     // Expose the ref for logic regarding waiting for API calls, and expose methods to make GET and POST requests
-    return {apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi};
+    return {apiCallInProgress, adminApiIsAuthenticated, deleteApi, getApi, postApi, downloadApi, uploadApi};
 };

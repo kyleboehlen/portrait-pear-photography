@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import {useTemplateRef} from "vue";
 import ConfirmationModal from "@/components/admin/ConfirmationModal.vue";
+import {useFridayApi} from "@/composables/useFridayApi";
+import { useAdminStore } from "@/stores/useAdminStore";
 
 const input = useTemplateRef('database-upload')
 const clearFile = () => {
   input.value.value = null
 }
+
+const adminStore = useAdminStore();
+const {uploadApi} = useFridayApi();
 const handleDbUpload = () => {
-  // TODO
-  console.log('Upload db here')
+  const file = input.value?.files?.[0];
+  if (!file) {
+    return;
+  }
+
+  uploadApi('/admin/import-database', file, adminStore.bearerToken);
+  clearFile();
 }
 </script>
 

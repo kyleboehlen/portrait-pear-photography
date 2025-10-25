@@ -14,6 +14,16 @@ const (
 	ErrorCodeDatabaseConnection ErrorCode = 11
 	// ErrorCodeDatabaseNotHealthy Error code for a failed ping to the database
 	ErrorCodeDatabaseNotHealthy ErrorCode = 12
+	// ErrorCodeFailedToReadDatabaseFile Error code for API response on failed database file export
+	ErrorCodeFailedToReadDatabaseFile ErrorCode = 13
+	// ErrorCodeFiledToWriteDatabaseFileResponse Error code for API response on failed database file export write
+	ErrorCodeFiledToWriteDatabaseFileResponse ErrorCode = 14
+	// ErrorCodeFailedToReadDatabaseFileRequest Error code for API response on failed database file import read
+	ErrorCodeFailedToReadDatabaseFileRequest ErrorCode = 15
+	// ErrorCodeMissingDatabaseFileRequest Error code for API response on missing database file in import request
+	ErrorCodeMissingDatabaseFileRequest ErrorCode = 16
+	// ErrorCodeFailedToWriteDatabaseFile Error for any failures in writing database files
+	ErrorCodeFailedToWriteDatabaseFile ErrorCode = 17
 
 	// ErrorCodeAdminAuthorizationGeneral General admin authorization error code - starts the Admin Authorization error block
 	ErrorCodeAdminAuthorizationGeneral ErrorCode = 20

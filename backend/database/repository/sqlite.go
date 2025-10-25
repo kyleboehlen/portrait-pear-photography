@@ -9,6 +9,9 @@ import (
 	"path/filepath"
 )
 
+var dbDir = "database/data"
+var dbFileName = "friday.db"
+
 type SQLRepo struct {
 	db *sql.DB
 }
@@ -59,8 +62,6 @@ func setupTestDB() (*SQLRepo, error) {
 
 // SetupWithMigration Responsible for creating/checking for the database file and running migrations. This also returns the SQLRepo struct ^^^
 func SetupWithMigration(migrationFS embed.FS) (*SQLRepo, error) {
-	dbDir := "database/data"
-
 	// Ensure the database directory exists, the directory will always exist locally with the .gitignore placeholder,
 	// however the deployed binary will not include it
 	if err := os.MkdirAll(dbDir, 0755); err != nil {
@@ -72,7 +73,7 @@ func SetupWithMigration(migrationFS embed.FS) (*SQLRepo, error) {
 	//isNewDB := os.IsNotExist(err) // Placeholder for new database logic if needed in the future
 
 	// Database file path
-	dbPath := filepath.Join(dbDir, "friday.db")
+	dbPath := GetDBPath()
 
 	// SQLite will create the database file on open if it doesn't exist
 	db, err := sql.Open("sqlite3", dbPath)
@@ -232,9 +233,34 @@ func (r *SQLRepo) getAppliedMigrations() (map[string]bool, error) {
 	return applied, rows.Err()
 }
 
+func (r *SQLRepo) ReloadFromDisk() error {
+	dbPath := GetDBPath()
+
+	// Open new DB
+	db, err := sql.Open("sqlite3", dbPath)
+	if err != nil {
+		return fmt.Errorf("failed to open database: %w", err)
+	}
+
+	// Close existing DB (if any) via the receiver
+	if err := r.Close(); err != nil {
+		// If close fails, close the newly opened db to avoid leaks and return the error
+		_ = db.Close()
+		return fmt.Errorf("failed to close existing database: %w", err)
+	}
+
+	// Replace repo DB and return
+	r.db = db
+	return nil
+}
+
 func (r *SQLRepo) Close() error {
 	if r.db != nil {
 		return r.db.Close()
 	}
 	return nil
+}
+
+func GetDBPath() string {
+	return filepath.Join(dbDir, dbFileName)
 }

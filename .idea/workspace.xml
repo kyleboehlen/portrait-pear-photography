@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Add shoots/photos table migrations&#10;Add upsert shoot API enpoint with create shoot functionality">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/LogoutButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/AdminView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/repository/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseDownloadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseDownloadWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +35,12 @@
     &quot;assignee&quot;: &quot;kyleboehlen&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kyleboehlen/portrait-pear-photography.git",
-    "accountId": "2d3d2a7a-4dca-4af4-9378-905aea7744e1"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kyleboehlen/portrait-pear-photography.git&quot;,
+    &quot;accountId&quot;: &quot;2d3d2a7a-4dca-4af4-9378-905aea7744e1&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -60,7 +63,7 @@
     "Docker.Debug.executor": "Run",
     "Docker.Develop.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Run",
+    "Go Build.go build friday.executor": "Debug",
     "Go Build.go build portrait-pear-photography.executor": "Debug",
     "Go Remote.Remote Debugger.executor": "Debug",
     "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
@@ -242,28 +245,53 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>28</line>
+          <line>31</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>147</line>
+          <line>148</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>149</line>
+          <line>150</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>151</line>
+          <line>152</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/database/repository/sqlite.go</url>
-          <line>155</line>
+          <line>156</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>204</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>205</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>219</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>225</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/backend/api/handlers/admin.go</url>
+          <line>231</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
