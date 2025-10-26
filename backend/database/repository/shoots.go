@@ -108,6 +108,57 @@ func (r *SQLRepo) DeleteShoot(id int) error {
 	return nil
 }
 
+func (r *SQLRepo) UpdateShoot(shoot *models.Shoot) error {
+	// Update shoot basic info (outside transaction)
+	query := `UPDATE shoots SET name = ?, date = ?, slug = ? WHERE id = ?`
+	result, err := r.db.Exec(query, shoot.Name, shoot.Date, shoot.Slug, shoot.ID)
+	if err != nil {
+		return fmt.Errorf("failed to update shoot: %w", err)
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("failed to get rows affected: %w", err)
+	}
+
+	if rowsAffected == 0 {
+		return fmt.Errorf("shoot with ID %d not found", shoot.ID)
+	}
+
+	// Handle categories in transaction
+	tx, err := r.db.Begin()
+	if err != nil {
+		return fmt.Errorf("failed to begin transaction: %w", err)
+	}
+	defer func(tx *sql.Tx) {
+		_ = tx.Rollback()
+	}(tx)
+
+	// Delete existing category associations
+	query = `DELETE FROM shoots_categories WHERE shoot_id = ?`
+	_, err = tx.Exec(query, shoot.ID)
+	if err != nil {
+		return fmt.Errorf("failed to delete shoot categories: %w", err)
+	}
+
+	// Insert new category associations
+	if len(shoot.DefaultCategories) > 0 {
+		insertQuery := `INSERT INTO shoots_categories (shoot_id, category_id) VALUES (?, ?)`
+		for _, categoryID := range shoot.DefaultCategories {
+			_, err = tx.Exec(insertQuery, shoot.ID, categoryID)
+			if err != nil {
+				return fmt.Errorf("failed to insert shoot category: %w", err)
+			}
+		}
+	}
+
+	if err := tx.Commit(); err != nil {
+		return fmt.Errorf("failed to commit transaction: %w", err)
+	}
+
+	return nil
+}
+
 func generateRandomSlug(length int) string {
 	bytes := make([]byte, length/2)
 	_, _ = rand.Read(bytes)

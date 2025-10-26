@@ -1,10 +1,11 @@
 <script setup>
 import save from "@iconify-icons/material-symbols/save"
 import TheFabButton from "@/components/TheFabButton.vue";
+import {useAdminStore} from "@/stores/useAdminStore.js";
 
+const adminStore = useAdminStore();
 const handleSave = () => {
-  // TODO
-  console.log("Save mentioned lets goooooo")
+  adminStore.persistUpdateShoot()
 }
 </script>
 

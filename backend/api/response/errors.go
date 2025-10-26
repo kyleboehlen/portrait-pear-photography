@@ -56,6 +56,8 @@ const (
 	ErrorCodeFailedToGetShoots ErrorCode = 43
 	// ErrorCodeFailedToDeleteShoot API return error for repository.DeleteShoot failures
 	ErrorCodeFailedToDeleteShoot ErrorCode = 44
+	// ErrorCodeFailedToUpdateShoot API return error for repository.UpdateShoot failures
+	ErrorCodeFailedToUpdateShoot ErrorCode = 45
 
 	// ErrorCodePhotosGeneral General photos error code - starts the Photos error block
 	ErrorCodePhotosGeneral ErrorCode = 60

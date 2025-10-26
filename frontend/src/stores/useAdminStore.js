@@ -36,6 +36,28 @@ export const useAdminStore = defineStore("admin", {
                 this.selectedShootId = res.id;
             }
         },
+        async persistUpdateShoot() {
+            // Do not persist if nothing has changed, or we don't have shoot information to update
+            if (!this.updateShoot || !this.selectedShootId || !this.isDirty) {
+                return;
+            }
+
+            // Convert default_categories to array of integers to keep the API happy
+            let shootToUpdate = {...this.updateShoot};
+            if (shootToUpdate.default_categories) {
+                shootToUpdate.default_categories = shootToUpdate.default_categories.map(cat => parseInt(cat, 10));
+            }
+
+            const res = await postApi('/admin/shoot', shootToUpdate, this.bearerToken);
+
+            // On a successful update we need to update the shoot array with the persisted data
+            if (res !== false) {
+                const index = this.shoots.findIndex(shoot => shoot.id === this.selectedShootId);
+                if (index !== -1) {
+                    this.shoots[index] = this.updateShoot
+                }
+            }
+        },
         async loadShootsFromApi() {
             const res = await getApi('/admin/shoots', this.bearerToken);
             if (res !== false) {

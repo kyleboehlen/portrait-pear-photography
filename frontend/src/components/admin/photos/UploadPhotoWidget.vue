@@ -22,7 +22,8 @@ const handlePhotoUpload = () => {
 
   const extra = {
     shoot_id: adminStore.selectedShootId,
-    categories: adminStore.selectedShoot.default_categories,
+    // API endpoint requires categories as integers, not strings
+    categories: adminStore.selectedShoot.default_categories.map(cat => parseInt(cat, 10))
   }
 
   for (let i = 0; i < files.length; i++) {

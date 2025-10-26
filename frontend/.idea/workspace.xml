@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Hooks up the preview panel to the admin store">
-      <change afterPath="$PROJECT_DIR$/../backend/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/database.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/photos.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/api/handlers/shoots.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/database/repository/photos.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/services/images/cloudflare.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/shoots.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/shoots.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/deploy_notes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/useFridayApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminSaveButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminSaveButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +103,7 @@
       <workItem from="1760853912070" duration="2052000" />
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
-      <workItem from="1761430234156" duration="1793000" />
+      <workItem from="1761430234156" duration="4721000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
