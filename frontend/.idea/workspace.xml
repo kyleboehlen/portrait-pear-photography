@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Hooks up the preview panel to the admin store">
-      <change afterPath="$PROJECT_DIR$/src/components/admin/photos/ShootPhotoTree.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/composables/usePhotoUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/admin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/photos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/database/repository/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/repository/photos.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/ConfirmationModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/ConfirmationModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminActionFlowWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminActionFlowWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminActionSelectorWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminActionSelectorWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/database/DatabaseUploadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/database/DatabaseUploadWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/GroupPhotosBySelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/GroupPhotosBySelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/CreateNewShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/CreateNewShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/DeleteShootButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/DeleteShootButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/SelectShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/SelectShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/nav/FilterPhotosWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav/FilterPhotosWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/nav/SearchShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav/SearchShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +100,7 @@
       <workItem from="1760853912070" duration="2052000" />
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
-      <workItem from="1761430234156" duration="11806000" />
+      <workItem from="1761430234156" duration="12766000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
