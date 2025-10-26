@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {useAdminStore} from '@/stores/useAdminStore'
 import ConfirmationModal from "@/components/admin/ConfirmationModal.vue";
 

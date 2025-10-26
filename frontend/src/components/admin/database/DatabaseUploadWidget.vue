@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {useTemplateRef} from "vue";
 import ConfirmationModal from "@/components/admin/ConfirmationModal.vue";
 import {useFridayApi} from "@/composables/useFridayApi";

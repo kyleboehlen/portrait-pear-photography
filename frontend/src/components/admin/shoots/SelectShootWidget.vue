@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {useAdminStore} from '@/stores/useAdminStore'
 // import { useFridayApi } from '@/composables/useFridayApi'; // TODO: see below
 import {onMounted, onUnmounted} from "vue";

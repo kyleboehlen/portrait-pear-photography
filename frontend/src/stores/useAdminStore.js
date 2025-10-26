@@ -10,6 +10,7 @@ export const useAdminStore = defineStore("admin", {
         selectedShootId: 0,
         updateShoot: {default_categories: []},
         previewPhotoUrl: '',
+        previewPhotos: [],
     }),
     getters: {
         selectedShoot(state) {
@@ -70,7 +71,10 @@ export const useAdminStore = defineStore("admin", {
                 this.shoots = this.shoots.filter(shoot => shoot.id !== this.selectedShootId);
                 this.selectedShootId = 0;
             }
-        }
+        },
+        async refreshPreviewPhotosFromApi(filterParams = {}) {
+            this.previewPhotos = await postApi('/admin/photos', {filter_parameters: filterParams}, this.bearerToken);
+        },
     },
     persist: true,
 })

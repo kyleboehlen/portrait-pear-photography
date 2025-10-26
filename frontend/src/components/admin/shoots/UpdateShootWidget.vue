@@ -1,11 +1,13 @@
 <script setup>
 import {computed, onMounted, onUnmounted, ref, watch} from 'vue';
 import {useAdminStore} from '@/stores/useAdminStore';
-import PhotoTree from "@/components/admin/photos/PhotoTree.vue";
 import {useAdminRoutes} from '@/composables/useAdminRoutes';
 import UploadPhotoWidget from "@/components/admin/photos/UploadPhotoWidget.vue";
+import ShootPhotoTree from "@/components/admin/photos/ShootPhotoTree.vue";
+import {useFridayApi} from "@/composables/useFridayApi.js";
 
 const adminStore = useAdminStore();
+const {apiCallInProgress} = useFridayApi();
 
 // The only component that needs access to a mutated model of a shoot is this one, therefore we will set the object
 // when the component is mounted and clear it when unmounted.
@@ -130,7 +132,8 @@ const navigateToCategorizePhotos = () => {
 
     <!--  Photo tree for preview -->
     <div class="max-h-[40vh] w-3/4 mt-2 pl-4 pr-16">
-      <PhotoTree class="h-full w-full"/>
+      <!--  Let the photo tree re-mount after API calls to refresh state    -->
+      <ShootPhotoTree class="h-full w-full"/>
     </div>
   </div>
 </template>

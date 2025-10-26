@@ -1,11 +1,13 @@
 <script setup>
 import {useAdminStore} from "@/stores/useAdminStore.js";
+import {usePhotoUtils} from "@/composables/usePhotoUtils.js";
 
-const props = defineProps(['url'])
+const props = defineProps(['photo'])
 const adminStore = useAdminStore();
+const {gridUrl} = usePhotoUtils();
 
 const handleMouseEnter = () => {
-  adminStore.previewPhotoUrl = props.url;
+  adminStore.previewPhotoUrl = gridUrl(props.photo.guid);
 }
 
 const handleMouseLeave = () => {
@@ -17,7 +19,7 @@ const handleMouseLeave = () => {
   <div class="h-10 w-full flex flex-row justify-start items-center" @mouseenter="handleMouseEnter"
        @mouseleave="handleMouseLeave">
     <div class="border-b-2 border-white w-1/10"></div>
-    <p class="text-white ml-2">Photo Tree Entry</p>
+    <p class="text-white ml-2">{{ props.photo.id }}</p>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import AdminActionSelectorWidget from "@/components/admin/actions/AdminActionSelectorWidget.vue";
 </script>
 

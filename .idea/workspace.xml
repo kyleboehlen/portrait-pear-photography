@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Clean up handlers to respective files&#10;Add the Cloudflare SDK and create a Cloudflare service&#10;Add .env files&#10;Add upload photo functionality&#10;Reformat code">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/ShootPhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/composables/usePhotoUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/shoots.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/shoots.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/handlers/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/photos.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/repository/shoots.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/shoots.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/repository/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/photos.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminSaveButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminSaveButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/ConfirmationModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/ConfirmationModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionFlowWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionFlowWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionSelectorWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionSelectorWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/UploadPhotoWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/CreateNewShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/CreateNewShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/DeleteShootButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/DeleteShootButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/SelectShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/SelectShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav/FilterPhotosWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav/FilterPhotosWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav/SearchShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav/SearchShootWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,8 +189,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Move func that reads request body to utils&#10;Add a test route for the auth token&#10;Remove hardcoded test password hash and key secret&#10;Add godotenv library&#10;Generate in memory token secret key on issue&#10;Fix CORs/Auth middleware execution order&#10;Update readme" />
-    <MESSAGE value="Nevermind, i don't wanna use env vars" />
     <MESSAGE value="Finish generating hashes" />
     <MESSAGE value="Still salty, now with infinitely more concurrency!" />
     <MESSAGE value="Ruining the bit :(" />
@@ -198,7 +212,9 @@
     <MESSAGE value="Mock photo button links and photo upload input" />
     <MESSAGE value="Add import/export sqlite database file functionality&#10;Add upload/download file functionality to api composable" />
     <MESSAGE value="Clean up handlers to respective files&#10;Add the Cloudflare SDK and create a Cloudflare service&#10;Add .env files&#10;Add upload photo functionality&#10;Reformat code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up handlers to respective files&#10;Add the Cloudflare SDK and create a Cloudflare service&#10;Add .env files&#10;Add upload photo functionality&#10;Reformat code" />
+    <MESSAGE value="Add update shoot functionality&#10;Fix categories on photo uploads" />
+    <MESSAGE value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -227,24 +243,9 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/shoots.go</url>
-          <line>13</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/util/utils.go</url>
-          <line>20</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/util/utils.go</url>
-          <line>13</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/util/utils.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="55" />
+          <line>39</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

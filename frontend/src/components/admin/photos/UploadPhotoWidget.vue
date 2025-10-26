@@ -27,7 +27,11 @@ const handlePhotoUpload = () => {
   }
 
   for (let i = 0; i < files.length; i++) {
-    uploadApi('/admin/upload-photo', files[i], extra, adminStore.bearerToken);
+    uploadApi('/admin/upload-photo', files[i], extra, adminStore.bearerToken).then((photo) => {
+      if (photo !== false) {
+        adminStore.previewPhotos.push(photo);
+      }
+    });
   }
 
   clearFiles();

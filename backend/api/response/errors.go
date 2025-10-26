@@ -75,6 +75,8 @@ const (
 	ErrorCodeInvalidExtraPhotoData ErrorCode = 66
 	// ErrorCodeFailedToCreatePhoto API return error for failure during photo database operations
 	ErrorCodeFailedToCreatePhoto ErrorCode = 67
+	// ErrorCodeFailedToGetPhotos API return error for failure during photo retrieval database operations
+	ErrorCodeFailedToGetPhotos ErrorCode = 68
 
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota

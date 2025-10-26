@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"friday/api/response"
+	"friday/api/util"
 	"friday/database/models"
 	"friday/database/repository"
 	"friday/services/images"
@@ -76,8 +77,24 @@ func GetDeletePhotoRouteHandler() http.HandlerFunc {
 	}
 }
 
-func GetListPhotosRouteHandler() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+type FilterPhotosRequest struct {
+	FilterParameters repository.FilterPhotosParameters `json:"filter_parameters"`
+}
 
+func GetListPhotosFilteredRouteHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var filterPhotosRequest FilterPhotosRequest
+		if result, err := util.ReadRequestBody(w, r, &filterPhotosRequest); err != nil || !result {
+			return
+		}
+
+		db := repository.Get()
+		photos, err := db.GetPhotosFiltered(filterPhotosRequest.FilterParameters)
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to get photos", response.ErrorCodeFailedToGetPhotos)
+			return
+		}
+
+		response.WriteJSONSuccessResponse(w, &photos)
 	}
 }

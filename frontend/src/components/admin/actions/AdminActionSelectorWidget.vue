@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {computed} from 'vue'
 import {useAdminRoutes} from '@/composables/useAdminRoutes'
 import CreateNewShootWidget from "@/components/admin/shoots/CreateNewShootWidget.vue";
@@ -69,7 +69,7 @@ const actions = computed(() => {
           '!border-primary': entity,
           '!border-neutral': !entity
         }"
-          @change="setEntity(($event.target as HTMLSelectElement).value)">
+          @change="setEntity($event.target.value)">
         <option value="" disabled>Select an Entity</option>
         <option value="shoots">Shoots</option>
         <option value="photos">Photos</option>
@@ -85,7 +85,7 @@ const actions = computed(() => {
             '!border-primary': action,
             '!border-neutral': !action
           }"
-          @change="setAction(($event.target as HTMLSelectElement).value)">
+          @change="setAction($event.target.value)">
         <option value="" disabled>Select an Action</option>
         <option v-for="a in actions" :value="a.value">{{ a.label }}</option>
       </select>

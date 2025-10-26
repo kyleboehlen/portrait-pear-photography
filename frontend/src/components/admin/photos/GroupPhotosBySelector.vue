@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {onUnmounted, watch} from 'vue'
 import {useAdminRoutes} from '@/composables/useAdminRoutes'
 

@@ -58,10 +58,10 @@ var DeletePhotoRoute = routing.Route{
 	Handle: GetDeletePhotoRouteHandler(),
 }
 
-var ListPhotosRoute = routing.Route{
-	Method: "GET",
+var ListPhotosFilteredRoute = routing.Route{
+	Method: "POST",
 	Path:   "/admin/photos",
-	Handle: GetListPhotosRouteHandler(),
+	Handle: GetListPhotosFilteredRouteHandler(),
 }
 
 var AdminRoutes = []routing.Route{
@@ -74,7 +74,7 @@ var AdminRoutes = []routing.Route{
 	ImportDatabaseRoute,
 	UploadPhotoRoute,
 	DeletePhotoRoute,
-	ListPhotosRoute,
+	ListPhotosFilteredRoute,
 }
 
 func init() {
