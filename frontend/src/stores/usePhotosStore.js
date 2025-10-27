@@ -1,4 +1,5 @@
 import {defineStore} from "pinia";
+import {useFridayApi} from "@/composables/useFridayApi";
 
 export const usePhotosStore = defineStore("photos", {
     // Photos property that can be iterated over in shared photo component
@@ -16,6 +17,7 @@ export const usePhotosStore = defineStore("photos", {
     }),
     getters: {
         displayPhotos: (state) => {
+            // TODO: this can't be exclusive
             if (state.shootSlug !== '') {
                 return state.shootPhotos
             } else if (state.filterCategory === 0) {
@@ -33,8 +35,15 @@ export const usePhotosStore = defineStore("photos", {
             this.shootSlug = shootSlug
             // TODO: API call?
             this.filterCategory = 0
-        }
+        },
         // TODO: Determine what action needs to take place in order to set home photos the first time
+        async loadHomePhotos() {
+            const {getApi} = useFridayApi()
+            const photos = await getApi('/photos/favorites')
+            if (photos) {
+                this.homePhotos = photos
+            }
+        }
     },
     persist: true,
 })

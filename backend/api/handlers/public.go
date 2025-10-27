@@ -7,3 +7,11 @@ var ListFavoritePhotosRoute = routing.Route{
 	Path:   "/photos/favorites",
 	Handle: GetListFavoritePhotosRouteHandler(),
 }
+
+var PublicRoutes = []routing.Route{
+	ListFavoritePhotosRoute,
+}
+
+func init() {
+	routing.RegisterRoutes(PublicRoutes)
+}

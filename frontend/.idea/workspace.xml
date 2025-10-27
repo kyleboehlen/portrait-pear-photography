@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Hooks up the preview panel to the admin store">
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Update upload process">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/public.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/public.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/useFridayApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/usePhotosStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PhotosView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,29 +49,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.useAdminStore.js.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend/src/assets/imgs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.useAdminStore.js.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend/src/assets/imgs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/imgs" />
@@ -101,6 +105,7 @@
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
       <workItem from="1761430234156" duration="12766000" />
+      <workItem from="1761533309231" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />

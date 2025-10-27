@@ -1,76 +1,23 @@
-<template>
-  <div
-      class="flex justify-center bg-secondary/50 max-xs:w-full max-sm:w-3/4 sm:h-96 border shadow-md shadow-secondary rounded-lg border-secondary m-4">
-    <!-- If not cached show lazy load, otherwise paint it from cache -->
-    <img
-        v-if="crossorigin"
-        ref="img"
-        v-lazy="{ src: props.photo.compressed_asset_url, loading: logo, delay: 500, lifecycle: lazyLifecycle }"
-        :class="imgClasses"
-        crossorigin="anonymous"/>
-    <img
-        v-else-if="!useCached"
-        v-lazy="{ src: props.photo.compressed_asset_url, loading: logo, delay: 500 }"
-        :class="imgClasses"/>
-    <img v-else :src="cachedSource" :class="imgClasses"/>
-  </div>
-</template>
-
 <script setup>
-// Vue
 import {computed, onMounted, ref} from "vue"
-// Images
 import logo from "@/assets/imgs/green-camera-logo.png?url"
+import {usePhotoUtils} from "@/composables/usePhotoUtils.js"
 
-const props = defineProps(["photo", "cache", "cachedPhotos"])
+const props = defineProps(["photo"])
 
 const img = ref()
-const isOnline = ref(false)
 
-const isCached = computed(() => {
-  if (props.cachedPhotos !== undefined) {
-    return props.cachedPhotos.includes(props.photo.compressed_asset_url)
-  }
+// const lazyLifecycle = {
+//   loaded: onLoad,
+// }
 
-  return false
-})
-
-const useCached = computed(() => {
-  return isCached.value && false && !isOnline.value
-})
-
-const crossorigin = computed(() => {
-  if (false && !isCached.value) {
-    return true
-  }
-  return false
-})
-
-const cachedSource = ref(null)
-onMounted(() => {
-  // Handle online state
-  isOnline.value = navigator.onLine
-  window.addEventListener("online", setOnline)
-  window.addEventListener("offline", setOffline)
-
-  if (isCached.value) {
-    images.getBase64(props.photo.compressed_asset_url).then((src) => {
-      cachedSource.value = src
-    })
-  }
-})
-
-const setOnline = () => {
-  isOnline.value = true
-}
-
-const setOffline = () => {
-  isOnline.value = false
-}
-
-const lazyLifecycle = {
-  loaded: onLoad,
-}
-
-const imgClasses = "max-w-full max-h-full object-contain rounded-lg"
+const {previewUrl} = usePhotoUtils()
+const photoUrl = previewUrl(props.photo.guid)
 </script>
+
+<template>
+  <div
+      class="flex justify-center bg-secondary/50 max-xs:w-full max-sm:w-3/4 sm:h-96 border shadow-md shadow-secondary rounded-lg border-secondary mt-4 p-1">
+    <img :src="photoUrl" class="max-w-full max-h-full object-contain rounded-lg" />
+  </div>
+</template>

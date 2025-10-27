@@ -4,15 +4,22 @@ import {usePhotosStore} from "@/stores/usePhotosStore"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 import TheHeader from "@/components/TheHeader.vue";
+import {onMounted} from "vue";
 import TheFooter from "@/components/TheFooter.vue";
+import PhotoCard from "@/components/panel/PhotoCard.vue";
 
 const props = defineProps(["shoot_slug"])
 
 const {apiCallInProgress} = useFridayApi()
 const photos = usePhotosStore()
-// Health check on mounted
-// Set shoot ID if it exists in the route
-//
+
+onMounted(async () => {
+  await photos.loadHomePhotos()
+})
+
+const fullSizeImage = (photo) => {
+console.log(photo)
+}
 </script>
 
 <template>
@@ -25,21 +32,19 @@ const photos = usePhotosStore()
         <NotFoundMessage v-if="!apiCallInProgress && photos.displayPhotos.length === 0" class="w-full"/>
       </Transition>
 
-      <!-- Actually show images! -->
-      <!--    <Transition name="fade">-->
-      <!--      <div-->
-      <!--          v-if="apiCallFinished && filteredPhotos.length > 0"-->
-      <!--          class="w-full flex flex-wrap items-center justify-around">-->
-      <!--        <PhotoCard-->
-      <!--            v-for="photo in filteredPhotos"-->
-      <!--            class="hover:cursor-zoom-in"-->
-      <!--            :key="photo.id"-->
-      <!--            :photo="photo"-->
-      <!--            :cachedPhotos="cachedPhotos"-->
-      <!--            cache="true"-->
-      <!--            @click="fullsizeImage(photo)" />-->
-      <!--      </div>-->
-      <!--    </Transition>-->
+<!--       Actually show images! -->
+          <Transition name="fade">
+            <div
+                v-if="!apiCallInProgress && photos.displayPhotos.length > 0"
+                class="w-full flex flex-wrap items-center justify-around">
+              <PhotoCard
+                  v-for="photo in photos.displayPhotos"
+                  class="hover:cursor-zoom-in"
+                  :key="photo.id"
+                  :photo="photo"
+                  @click="fullsizeImage(photo)" />
+            </div>
+          </Transition>
 
       <TheInstagramButton/>
       <!-- Full size viewer -->
