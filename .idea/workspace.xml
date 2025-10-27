@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/ShootPhotoTree.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/composables/usePhotoUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/handlers/public.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/admin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/handlers/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/photos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/repository/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/photos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/ConfirmationModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/ConfirmationModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionFlowWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionFlowWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionSelectorWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionSelectorWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/database/DatabaseUploadWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTree.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/UploadPhotoWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/UploadPhotoWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/CreateNewShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/CreateNewShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/DeleteShootButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/DeleteShootButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/SelectShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/SelectShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav/FilterPhotosWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav/FilterPhotosWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav/SearchShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav/SearchShootWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +31,12 @@
     &quot;assignee&quot;: &quot;kyleboehlen&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:kyleboehlen/portrait-pear-photography.git",
-    "accountId": "e48e7869-355a-4051-957f-753ca6079707"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:kyleboehlen/portrait-pear-photography.git&quot;,
+    &quot;accountId&quot;: &quot;e48e7869-355a-4051-957f-753ca6079707&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -74,64 +53,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Docker.Debug.executor": "Run",
-    "Docker.Develop.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Debug",
-    "Go Build.go build portrait-pear-photography.executor": "Debug",
-    "Go Remote.Remote Debugger.executor": "Debug",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_NonAdminRoute in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor": "Run",
-    "Go Test.TestCreateAdminJWT_Success in friday/services/auth.executor": "Debug",
-    "Go Test.TestHealthEndpoint in friday/api/handlers.executor": "Run",
-    "Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor": "Run",
-    "Go Test.TestTestRoute_Success in friday/api/handlers.executor": "Run",
-    "Go Test.TestUpsertShootRoute_CreateSuccess in friday/api/handlers.executor": "Debug",
-    "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
-    "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
-    "Go Test.go test backend.executor": "Run",
-    "Go Test.go test friday/api/handlers.executor": "Run",
-    "Go Test.go test friday/api/middleware.executor": "Debug",
-    "Go Test.go test friday/api/routing.executor": "Run",
-    "Go Test.go test friday/api/util.executor": "Run",
-    "Go Test.go test friday/services/auth.executor": "Run",
-    "Go Test.gobench friday/api/response.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Docker.Debug.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Develop.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build friday.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Build.go build portrait-pear-photography.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Remote.Remote Debugger.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_NonAdminRoute in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestCreateAdminJWT_Success in friday/services/auth.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestHealthEndpoint in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestTestRoute_Success in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestUpsertShootRoute_CreateSuccess in friday/api/handlers.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestWriteJSONErrorResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test backend.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/middleware.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.go test friday/api/routing.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/util.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/services/auth.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.gobench friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend" />
@@ -222,26 +201,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>63</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>67</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>74</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/backend/api/handlers/admin_test.go</url>
-          <line>78</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/backend/api/util/utils.go</url>
           <line>39</line>

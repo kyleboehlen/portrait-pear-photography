@@ -98,3 +98,18 @@ func GetListPhotosFilteredRouteHandler() http.HandlerFunc {
 		response.WriteJSONSuccessResponse(w, &photos)
 	}
 }
+
+func GetListFavoritePhotosRouteHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		db := repository.Get()
+
+		photos, err := db.GetPhotosFiltered(repository.FilterPhotosParameters{
+			Favorites: true,
+		})
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to get favorite photos", response.ErrorCodeFailedToGetPhotos)
+		}
+
+		response.WriteJSONSuccessResponse(w, &photos)
+	}
+}
