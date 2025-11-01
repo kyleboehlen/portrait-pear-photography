@@ -4,21 +4,25 @@ import {usePhotosStore} from "@/stores/usePhotosStore"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 import TheHeader from "@/components/TheHeader.vue";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import TheFooter from "@/components/TheFooter.vue";
 import PhotoCard from "@/components/panel/PhotoCard.vue";
+import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue";
 
 const props = defineProps(["shoot_slug"])
 
 const {apiCallInProgress} = useFridayApi()
-const photos = usePhotosStore()
+const photosStore = usePhotosStore()
 
 onMounted(async () => {
-  await photos.loadHomePhotos()
+  await photosStore.loadHomePhotos()
 })
 
+const showFullsize = ref(false)
 const fullSizeImage = (photo) => {
 console.log(photo)
+  photosStore.selectedPhotoId = photo.id
+  showFullsize.value = true
 }
 </script>
 
@@ -29,32 +33,29 @@ console.log(photo)
     <main class="flex grow">
       <!-- No images found message -->
       <Transition name="fade">
-        <NotFoundMessage v-if="!apiCallInProgress && photos.displayPhotos.length === 0" class="w-full"/>
+        <NotFoundMessage v-if="!apiCallInProgress && photosStore.displayPhotos.length === 0" class="w-full"/>
       </Transition>
 
 <!--       Actually show images! -->
           <Transition name="fade">
             <div
-                v-if="!apiCallInProgress && photos.displayPhotos.length > 0"
+                v-if="!apiCallInProgress && photosStore.displayPhotos.length > 0"
                 class="w-full flex flex-wrap items-center justify-around">
               <PhotoCard
-                  v-for="photo in photos.displayPhotos"
+                  v-for="photo in photosStore.displayPhotos"
                   class="hover:cursor-zoom-in"
                   :key="photo.id"
                   :photo="photo"
-                  @click="fullsizeImage(photo)" />
+                  @click="fullSizeImage(photo)" />
             </div>
           </Transition>
 
       <TheInstagramButton/>
-      <!-- Full size viewer -->
-      <!--    <TheFullsizeViewer-->
-      <!--        v-if="showFullsize"-->
-      <!--        class="modal-open"-->
-      <!--        :photo="fullsizePhoto"-->
-      <!--        :photos="filteredPhotos"-->
-      <!--        :cachedPhotos="cachedPhotos"-->
-      <!--        @close="showFullsize = false" />-->
+
+      <TheFullsizeViewer
+          v-if="showFullsize"
+          class="modal-open"
+          @close="showFullsize = false" />
     </main>
 
     <TheFooter class="justify-self-end"/>

@@ -1,162 +1,65 @@
-<template>
-  <div class="modal w-screen h-screen">
-    <div
-        class="bg-base-100 grow w-screen h-screen flex justify-between sm:p-2 flex-nowrap"
-        :class="{ 'flex-col': !isNative, 'flex-col-reverse': isNative }">
-      <!-- Actions bar -->
-      <div
-          class="flex justify-between items-center w-auto py-2 px-4 sm:px-6"
-          :class="{ 'pb-6': isNative, 'px-6': isNative }">
-        <!-- Download -->
-        <a class="btn btn-sm xs:btn-md sm:btn-lg" :href="downloadLink" target="_blank">
-          <Icon icon="download" class="h-4/6 w-auto px-0 sm:px-1"/>
-        </a>
-
-        <!-- Toggle back/forth -->
-        <div class="flex justify-center items-center">
-          <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="goLeft">
-            <Icon icon="left" class="h-4/6 w-auto px-0 sm:px-1"/>
-          </button>
-
-          <h2 class="text-xl xs:text-2xl sm:text-3xl pb-1 sm:pb-2 px-4 sm:px-6">{{ photoIndex }}/{{ photoCount }}</h2>
-
-          <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="goRight">
-            <Icon icon="right" class="h-4/6 w-auto px-0 sm:px-1"/>
-          </button>
-        </div>
-
-        <!-- Close -->
-        <button class="btn btn-sm xs:btn-md sm:btn-lg" @click="$emit('close')">
-          <Icon icon="close" class="h-4/6 w-auto"/>
-        </button>
-      </div>
-
-      <!-- Image container -->
-      <div
-          v-if="isOnline || (useCached && !loading && cachedSource.length > 100)"
-          class="w-auto h-5/6 flex justify-center items-center shrink m-1 grow"
-          @touchstart="touchStart($event)"
-          @touchend="touchEnd($event)">
-        <img
-            v-if="!useCached && !loading"
-            v-lazy="{ src: photo?.full_res_asset_url, loading: pearLoader, delay: 1000 }"
-            class="object-contain max-h-full rounded-lg"/>
-        <img v-else-if="!loading" :src="cachedSource" class="object-contain max-h-full rounded-lg"/>
-      </div>
-      <NotFoundMessage v-else-if="!loading" msg="Go online to load full-res images :)" class="grow"/>
-
-      <div class="modal" id="download-modal">
-        <div class="modal-box">
-          <p class="py-4">Long press the image to save it to your gallery :)</p>
-          <div class="modal-action">
-            <a href="#" class="btn btn-success">Ok</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
-// Vue
 import {computed, nextTick, onMounted, ref} from "vue"
-// Loader
-// import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
-// Icons
+import pearLoader from "@/assets/imgs/metronome-pear-white.apng?url"
 import {addIcon, Icon} from "@iconify/vue/offline"
 import close from "@iconify-icons/pajamas/close"
 import download from "@iconify-icons/pajamas/download"
 import left from "@iconify-icons/pajamas/chevron-lg-left"
 import right from "@iconify-icons/pajamas/chevron-lg-right"
-// Components
-import NotFoundMessage from "@/components/panel/NotFoundMessage.vue"
-// Stores
-// import { useImagesStore } from "@/stores/images.js"
+import { usePhotosStore } from "@/stores/usePhotosStore.js";
+import { usePhotoUtils} from "@/composables/usePhotoUtils.js";
 
 addIcon("close", close)
 addIcon("download", download)
 addIcon("left", left)
 addIcon("right", right)
 
-const props = defineProps(["photo", "photos", "cachedPhotos"])
+const isLoading = ref(true)
 
-const isNative = false
-const isOnline = ref(navigator.onLine)
-const loading = ref(true)
-
+const photosStore = usePhotosStore()
+const {fullResUrl, previewUrl} = usePhotoUtils()
 const downloadLink = computed(() => {
-  return photo?.value?.full_res_asset_url
+  return fullResUrl(photosStore.selectedPhoto.guid)
 })
 
-const isCached = computed(() => {
-  if (props.cachedPhotos !== undefined && photo.value !== null && isNative) {
-    return props.cachedPhotos.includes(photo.value.full_res_asset_url)
-  }
-
-  return false
+const displaySrc = computed(() => {
+  return previewUrl(photosStore.selectedPhoto.guid)
 })
 
-const useCached = computed(() => {
-  return isCached.value && isNative && !isOnline.value
-})
-
-const photo = ref(null)
-const cachedSource = ref(null)
-const images = useImagesStore()
 onMounted(() => {
-  photo.value = props.photo
-  // Event listener to go online
-  window.addEventListener("online", () => {
-    isOnline.value = true
-  })
-  if (isNative && isCached.value) {
-    loadCachedSource()
-  } else {
-    loading.value = false
-  }
+  isLoading.value = false
 })
-const photoIndex = computed(() => {
-  if (photo.value !== null) {
-    const index = props.photos.findIndex((p) => p.id == photo.value.id)
-    return index + 1
-  }
-  return null
-})
-const photoCount = computed(() => {
-  if (photo.value !== null) {
-    return props.photos.length
-  }
-  return null
+
+const numDisplayPhotos = computed(() => {
+  return photosStore.displayPhotos.length
 })
 
 const goLeft = () => {
-  loading.value = true
+  isLoading.value = true
+
   nextTick(() => {
-    if (photoIndex.value <= 1) {
-      photo.value = props.photos[props.photos.length - 1]
-    } else {
-      photo.value = props.photos[photoIndex.value - 2]
+    let nextIndex = photosStore.selectedPhotoIndex - 1
+    if (nextIndex < 0) {
+      nextIndex = numDisplayPhotos.value - 1
     }
-    if (isNative) {
-      loadCachedSource()
-    } else {
-      loading.value = false
-    }
+
+    photosStore.selectedPhotoId = photosStore.displayPhotos[nextIndex].id
+
+    isLoading.value = false
   })
 }
 const goRight = () => {
-  loading.value = true
+  isLoading.value = true
+
   nextTick(() => {
-    if (photoIndex.value >= props.photos.length) {
-      photo.value = props.photos[0]
-    } else {
-      photo.value = props.photos[photoIndex.value]
+    let nextIndex = photosStore.selectedPhotoIndex + 1
+    if (nextIndex >= numDisplayPhotos.value) {
+      nextIndex = 0
     }
-    if (isNative) {
-      loadCachedSource()
-    } else {
-      loading.value = false
-    }
+
+    photosStore.selectedPhotoId = photosStore.displayPhotos[nextIndex].id
+
+    isLoading.value = false
   })
 }
 
@@ -167,7 +70,6 @@ let touchendX = 0
 function checkSwipe() {
   if (Math.abs(touchstartX - touchendX) > window.innerWidth / 4) {
     if (touchendX < touchstartX) {
-      console.log(touchendX - touchstartX)
       goLeft()
     }
     if (touchendX > touchstartX) {
@@ -181,19 +83,52 @@ const touchStart = (e) => {
 }
 const touchEnd = (e) => {
   touchendX = e.changedTouches[0].screenX
-  if (isNative) {
-    checkSwipe()
-  }
-}
-
-const loadCachedSource = () => {
-  if (isCached.value) {
-    images.getBase64(photo.value.full_res_asset_url).then((src) => {
-      cachedSource.value = src
-      loading.value = false
-    })
-  } else {
-    loading.value = false
-  }
+  checkSwipe()
 }
 </script>
+
+<template>
+  <div class="modal w-screen h-screen">
+    <div
+        class="bg-base-100 grow w-screen h-screen flex justify-between sm:p-2 flex-nowrap flex-col">
+      <!-- Actions bar -->
+      <div
+          class="flex justify-between items-center w-auto py-2 px-4 sm:px-6">
+        <!-- Download -->
+        <a class="btn btn-sm btn-primary xs:btn-md sm:btn-lg" :href="downloadLink" target="_blank">
+          <Icon icon="download" class="h-4/6 w-auto px-0 sm:px-1"/>
+        </a>
+
+        <!-- Toggle back/forth -->
+        <div class="flex justify-center items-center">
+          <button class="btn btn-sm btn-primary xs:btn-md sm:btn-lg" @click="goLeft">
+            <Icon icon="left" class="h-4/6 w-auto px-0 sm:px-1"/>
+          </button>
+
+          <h2 class="text-white text-xl xs:text-2xl sm:text-3xl pb-1 sm:pb-2 px-4 sm:px-6">{{ photosStore.selectedPhotoIndex + 1 }}/{{ numDisplayPhotos }}</h2>
+
+          <button class="btn btn-sm btn-primary xs:btn-md sm:btn-lg" @click="goRight">
+            <Icon icon="right" class="h-4/6 w-auto px-0 sm:px-1"/>
+          </button>
+        </div>
+
+        <!-- Close -->
+        <button class="btn btn-sm btn-primary xs:btn-md sm:btn-lg" @click="$emit('close')">
+          <Icon icon="close" class="h-4/6 w-auto"/>
+        </button>
+      </div>
+
+      <!-- Image container -->
+      <div
+          v-if="!isLoading"
+          class="w-auto h-5/6 flex justify-center items-center shrink m-1 grow"
+          @touchstart="touchStart($event)"
+          @touchend="touchEnd($event)">
+        <img
+            v-if="!isLoading"
+            v-lazy="{ src: displaySrc, loading: pearLoader, delay: 1000 }"
+            class="object-contain max-h-full rounded-lg"/>
+      </div>
+    </div>
+  </div>
+</template>

@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Dirty initial home page view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/public.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/public.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/composables/useFridayApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +173,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finish generating hashes" />
     <MESSAGE value="Still salty, now with infinitely more concurrency!" />
     <MESSAGE value="Ruining the bit :(" />
     <MESSAGE value="Removing open origins from CORS" />
@@ -197,7 +197,8 @@
     <MESSAGE value="Clean up handlers to respective files&#10;Add the Cloudflare SDK and create a Cloudflare service&#10;Add .env files&#10;Add upload photo functionality&#10;Reformat code" />
     <MESSAGE value="Add update shoot functionality&#10;Fix categories on photo uploads" />
     <MESSAGE value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
+    <MESSAGE value="Dirty initial home page view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dirty initial home page view" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
