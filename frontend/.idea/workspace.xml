@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Update upload process">
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Fix the filter menu">
+      <change afterPath="$PROJECT_DIR$/src/components/TheFilterMenu.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TheShareButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheFullSizeViewer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheModalNav.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/usePhotosStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PhotosView.vue" afterDir="false" />
     </list>
@@ -20,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Composition API Component" />
         <option value="JavaScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -104,7 +107,7 @@
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
       <workItem from="1761430234156" duration="12766000" />
-      <workItem from="1761533309231" duration="16158000" />
+      <workItem from="1761533309231" duration="27498000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
@@ -186,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760941436628</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fix the filter menu">
+      <option name="closed" value="true" />
+      <created>1762056967497</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762056967497</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +226,7 @@
     <MESSAGE value="Initial create shoot by textbox name widget" />
     <MESSAGE value="More capacitor cleanup" />
     <MESSAGE value="Fix some display reactivity/state" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some display reactivity/state" />
+    <MESSAGE value="Fix the filter menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the filter menu" />
   </component>
 </project>

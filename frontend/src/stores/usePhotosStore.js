@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {useFridayApi} from "@/composables/useFridayApi";
+import {useRoute} from "vue-router";
 
 export const usePhotosStore = defineStore("photos", {
     state: () => ({
@@ -7,18 +8,20 @@ export const usePhotosStore = defineStore("photos", {
         homeLastLoaded: 0,
         homePhotos: [],
         shootPhotos: [],
-        shootSlug: '',
+        loadedShootSlug: '',
+        selectedShootSlug: '',
         selectedPhotoId: 0,
     }),
     getters: {
         displayPhotos: (state) => {
-            // TODO: this can't be exclusive
-            if (state.shootSlug !== '') {
+            if (state.selectedShootSlug !== '') {
                 return state.shootPhotos
-            } else if (state.filterCategory === 0) {
-                return state.homePhotos
             } else {
-                return state.homePhotos.filter(photo => photo.category_id === state.filterCategory)
+                if (state.filterCategory === 0) {
+                    return state.homePhotos
+                } else {
+                    return state.homePhotos.filter(photo => photo.category_id === state.filterCategory)
+                }
             }
         },
         selectedPhoto(state) {
@@ -32,20 +35,41 @@ export const usePhotosStore = defineStore("photos", {
         setFilterCategory(categoryId) {
             this.filterCategory = parseInt(categoryId)
         },
-        setShootId(shootSlug) {
-            this.shootSlug = shootSlug
-            // TODO: API call?
-            this.filterCategory = 0
-        },
-        async loadHomePhotos() {
-            const {getApi} = useFridayApi()
-            const photos = await getApi('/photos/favorites')
-            if (photos) {
-                this.homePhotos = photos
+        async loadPhotos() {
+            if (this.selectedShootSlug !== '') {
+                if (this.loadedShootSlug !== this.selectedShootSlug) {
+                    this.filterCategory = 0
+                    const {postApi} = useFridayApi()
+                    // TODO: Call get shoot photos API with body for shoot_slug
+                }
+            } else {
+                const {getApi} = useFridayApi()
+                // 30 minutes in milliseconds
+                if (this.homeLastLoaded + 1800000 <= Date.now()) {
+                    const photos = await getApi('/photos/favorites')
+                    if (photos) {
+                        // Fisher-Yates (Knuth) shuffle:
+                        let currentIndex = photos.length;
+                        let randomIndex;
+
+                        // While there remain elements to shuffle
+                        while (currentIndex !== 0) {
+                            // Pick a remaining element
+                            randomIndex = Math.floor(Math.random() * currentIndex);
+                            currentIndex--;
+
+                            // And swap it with the current element
+                            [photos[currentIndex], photos[randomIndex]] = [
+                                photos[randomIndex],
+                                photos[currentIndex],
+                            ];
+                        }
+
+                        this.homePhotos = photos
+                        this.homeLastLoaded = Date.now()
+                    }
+                }
             }
-            // TODO: cache the last time we loaded the home photos
-            // TODO: randomize the order of the home photos
-            // TODO: check the last time we loaded the home photos and ignore if we already have them
         }
     },
     persist: true,

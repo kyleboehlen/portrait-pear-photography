@@ -4,30 +4,35 @@ import {usePhotosStore} from "@/stores/usePhotosStore"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 import TheHeader from "@/components/TheHeader.vue";
-import {onMounted, ref} from "vue";
+import {ref, computed} from "vue";
 import TheFooter from "@/components/TheFooter.vue";
 import PhotoCard from "@/components/panel/PhotoCard.vue";
-import TheFullsizeViewer from "@/components/TheFullsizeViewer.vue";
-
-const props = defineProps(["shoot_slug"])
+import TheFullSizeViewer from "@/components/TheFullSizeViewer.vue";
+import TheFilterMenu from "@/components/TheFilterMenu.vue";
+import TheShareButton from "@/components/TheShareButton.vue";
 
 const {apiCallInProgress} = useFridayApi()
 const photosStore = usePhotosStore()
 
-onMounted(async () => {
-  await photosStore.loadHomePhotos()
+const isShootView = computed(() => {
+  return photosStore.selectedShootSlug !== ''
 })
 
-const showFullsize = ref(false)
+const showFullSize = ref(false)
 const fullSizeImage = (photo) => {
   photosStore.selectedPhotoId = photo.id
-  showFullsize.value = true
+  showFullSize.value = true
 }
 </script>
 
 <template>
   <div class="app-wrapper flex flex-col min-h-screen justify-start">
-    <TheHeader/>
+    <TheHeader>
+      <template v-slot:action>
+        <TheShareButton v-if="isShootView"/>
+        <TheFilterMenu v-else />
+      </template>
+    </TheHeader>
 
     <main class="flex grow">
       <!-- No images found message -->
@@ -51,10 +56,10 @@ const fullSizeImage = (photo) => {
 
       <TheInstagramButton/>
 
-      <TheFullsizeViewer
-          v-if="showFullsize"
+      <TheFullSizeViewer
+          v-if="showFullSize"
           class="modal-open"
-          @close="showFullsize = false"/>
+          @close="showFullSize = false"/>
     </main>
 
     <TheFooter class="justify-self-end"/>
