@@ -7,12 +7,10 @@
     <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Update upload process">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheFullsizeViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/panel/PhotoCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TheModalNav.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/usePhotosStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PhotosView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ShootView.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
       <workItem from="1761430234156" duration="12766000" />
-      <workItem from="1761533309231" duration="8783000" />
+      <workItem from="1761533309231" duration="16158000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />

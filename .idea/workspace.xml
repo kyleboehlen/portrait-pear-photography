@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Dirty initial home page view">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Fix home view + photo card + full size viewer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFullsizeViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/panel/PhotoCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheModalNav.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ShootView.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +171,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Still salty, now with infinitely more concurrency!" />
     <MESSAGE value="Ruining the bit :(" />
     <MESSAGE value="Removing open origins from CORS" />
     <MESSAGE value="Update read body util to be strict&#10;Add tests for read body util&#10;(Thank god they added generics to go)" />
@@ -198,7 +195,8 @@
     <MESSAGE value="Add update shoot functionality&#10;Fix categories on photo uploads" />
     <MESSAGE value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
     <MESSAGE value="Dirty initial home page view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dirty initial home page view" />
+    <MESSAGE value="Fix home view + photo card + full size viewer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix home view + photo card + full size viewer" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

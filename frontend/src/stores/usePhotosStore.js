@@ -30,7 +30,7 @@ export const usePhotosStore = defineStore("photos", {
     },
     actions: {
         setFilterCategory(categoryId) {
-            this.category = parseInt(categoryId)
+            this.filterCategory = parseInt(categoryId)
         },
         setShootId(shootSlug) {
             this.shootSlug = shootSlug

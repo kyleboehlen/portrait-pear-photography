@@ -20,7 +20,6 @@ onMounted(async () => {
 
 const showFullsize = ref(false)
 const fullSizeImage = (photo) => {
-console.log(photo)
   photosStore.selectedPhotoId = photo.id
   showFullsize.value = true
 }
@@ -36,26 +35,26 @@ console.log(photo)
         <NotFoundMessage v-if="!apiCallInProgress && photosStore.displayPhotos.length === 0" class="w-full"/>
       </Transition>
 
-<!--       Actually show images! -->
-          <Transition name="fade">
-            <div
-                v-if="!apiCallInProgress && photosStore.displayPhotos.length > 0"
-                class="w-full flex flex-wrap items-center justify-around">
-              <PhotoCard
-                  v-for="photo in photosStore.displayPhotos"
-                  class="hover:cursor-zoom-in"
-                  :key="photo.id"
-                  :photo="photo"
-                  @click="fullSizeImage(photo)" />
-            </div>
-          </Transition>
+      <!-- Actually show images! -->
+      <Transition name="fade">
+        <div
+            v-if="!apiCallInProgress && photosStore.displayPhotos.length > 0"
+            class="w-full flex flex-wrap items-center justify-around">
+          <PhotoCard
+              v-for="photo in photosStore.displayPhotos"
+              class="hover:cursor-pointer"
+              :key="photo.id"
+              :photo="photo"
+              @click="fullSizeImage(photo)"/>
+        </div>
+      </Transition>
 
       <TheInstagramButton/>
 
       <TheFullsizeViewer
           v-if="showFullsize"
           class="modal-open"
-          @close="showFullsize = false" />
+          @close="showFullsize = false"/>
     </main>
 
     <TheFooter class="justify-self-end"/>
