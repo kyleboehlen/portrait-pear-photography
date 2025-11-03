@@ -19,7 +19,8 @@ const handleMouseLeave = () => {
   <div class="h-10 w-full flex flex-row justify-start items-center hover:bg-neutral" @mouseenter="handleMouseEnter"
        @mouseleave="handleMouseLeave">
     <div class="border-b-2 border-white w-1/10"></div>
-    <p class="text-white ml-2">{{ props.photo.id }} - {{ props.photo.guid }}</p>
+    <p class="text-white ml-2">{{ props.photo.id }} - </p>
+    <slot />
   </div>
 </template>
 

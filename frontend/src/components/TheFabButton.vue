@@ -11,9 +11,9 @@ const handleClick = () => {
 </script>
 
 <template>
-  <span class="fixed right-0 bottom-0 pb-3 pr-3">
+  <span class="fixed right-0 bottom-0 pb-3 pr-3 text-white/75">
     <button
-        class="w-18 h-18 bg-neutral btn-circle flex flex-row justify-center items-center p-2 hover:text-primary text-white/75 hover:cursor-pointer"
+        class="w-18 h-18 bg-neutral btn-circle flex flex-row justify-center items-center p-2 hover:cursor-pointer"
         @click="handleClick">
       <Icon icon="fab" class=" w-full h-auto"/>
     </button>

@@ -11,6 +11,7 @@ export const useAdminStore = defineStore("admin", {
         updateShoot: {default_categories: []},
         previewPhotoUrl: '',
         previewPhotos: [],
+        photosToMutate: [],
     }),
     getters: {
         selectedShoot(state) {
@@ -75,6 +76,10 @@ export const useAdminStore = defineStore("admin", {
         async refreshPreviewPhotosFromApi(filterParams = {}) {
             this.previewPhotos = await postApi('/admin/photos', {filter_parameters: filterParams}, this.bearerToken);
         },
+        async deletePhotos() {
+            // TODO: async call API over and over again lol
+            this.previewPhotos = []
+        }
     },
     persist: true,
 })

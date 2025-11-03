@@ -10,5 +10,5 @@ const redirectToInstagram = () => {
 
 
 <template>
-  <TheFabButton :icon="insta" @fab-clicked="redirectToInstagram"/>
+  <TheFabButton class="hover:text-primary" :icon="insta" @fab-clicked="redirectToInstagram"/>
 </template>

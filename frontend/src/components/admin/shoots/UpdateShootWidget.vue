@@ -5,6 +5,8 @@ import {useAdminRoutes} from '@/composables/useAdminRoutes';
 import UploadPhotoWidget from "@/components/admin/photos/UploadPhotoWidget.vue";
 import ShootPhotoTree from "@/components/admin/photos/ShootPhotoTree.vue";
 import {useFridayApi} from "@/composables/useFridayApi.js";
+import save from "@iconify-icons/material-symbols/save.js";
+import TheFabButton from "@/components/TheFabButton.vue";
 
 const adminStore = useAdminStore();
 const {apiCallInProgress} = useFridayApi();
@@ -80,6 +82,10 @@ const navigateToCategorizePhotos = () => {
     })
   })
 }
+
+const handleSave = () => {
+  adminStore.persistUpdateShoot()
+}
 </script>
 
 <template>
@@ -135,6 +141,9 @@ const navigateToCategorizePhotos = () => {
       <!--  Let the photo tree re-mount after API calls to refresh state    -->
       <ShootPhotoTree class="h-full w-full"/>
     </div>
+
+<!--    Save button -->
+    <TheFabButton v-if="adminStore.isDirty" class="hover:text-primary" :icon="save" @fab-clicked="handleSave"/>
   </div>
 </template>
 

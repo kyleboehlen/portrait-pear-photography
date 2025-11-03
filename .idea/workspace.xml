@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Fix home view + photo card + full size viewer">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/TheFilterMenu.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/TheShareButton.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/DeletePhotosWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/usePhotosStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/PhotosView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheFabButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheFabButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TheInstagramButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminSaveButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminSaveButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
