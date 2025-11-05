@@ -71,9 +71,31 @@ func GetUploadPhotoRouteHandler() http.HandlerFunc {
 	}
 }
 
+type DeletePhotoRequest struct {
+	ID int `json:"id"`
+}
+
 func GetDeletePhotoRouteHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		var deletePhotoRequest DeletePhotoRequest
+		if result, err := util.ReadRequestBody(w, r, &deletePhotoRequest); err != nil || !result {
+			return
+		}
+		if deletePhotoRequest.ID == 0 {
+			response.WriteJSONErrorResponse(w, "Request is missing photo ID", response.ErrorCodePhotosMissingRequiredFields)
+			return
+		}
 
+		// Create a database connection
+		db := repository.Get()
+
+		err := db.DeletePhoto(deletePhotoRequest.ID)
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to delete photo", response.ErrorCodeFailedToDeletePhoto)
+			return
+		}
+
+		response.WriteJSONSuccessResponse(w, nil)
 	}
 }
 

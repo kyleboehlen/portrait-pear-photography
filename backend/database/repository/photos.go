@@ -214,3 +214,23 @@ func (r *SQLRepo) GetPhotosFiltered(filterParams FilterPhotosParameters) ([]mode
 
 	return photos, nil
 }
+
+func (r *SQLRepo) DeletePhoto(id int) error {
+	query := `DELETE FROM photos WHERE id = ?`
+
+	result, err := r.db.Exec(query, id)
+	if err != nil {
+		return fmt.Errorf("failed to delete photo: %w", err)
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("failed to get rows affected: %w", err)
+	}
+
+	if rowsAffected == 0 {
+		return fmt.Errorf("photo with ID %d not found", id)
+	}
+
+	return nil
+}

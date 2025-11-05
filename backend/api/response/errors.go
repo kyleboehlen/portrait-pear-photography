@@ -77,6 +77,10 @@ const (
 	ErrorCodeFailedToCreatePhoto ErrorCode = 67
 	// ErrorCodeFailedToGetPhotos API return error for failure during photo retrieval database operations
 	ErrorCodeFailedToGetPhotos ErrorCode = 68
+	// ErrorCodePhotosMissingRequiredFields Error code for missing required fields in photo update requests, like ID
+	ErrorCodePhotosMissingRequiredFields ErrorCode = 69
+	// ErrorCodeFailedToDeletePhoto API return error for failure during photo deletion database operations
+	ErrorCodeFailedToDeletePhoto ErrorCode = 70
 
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota

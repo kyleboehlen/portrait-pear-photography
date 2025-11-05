@@ -5,6 +5,7 @@ import (
 	"embed"
 	"encoding/json"
 	"friday/api/response"
+	"friday/database/models"
 	"friday/database/repository"
 	"friday/services/auth"
 	"net/http"
@@ -382,5 +383,80 @@ func TestDeleteShootRoute_MissingID(t *testing.T) {
 	}
 	if apiResp.ErrorCode != response.ErrorCodeShootsMissingRequiredFields {
 		t.Errorf("Expected error code %v, got %v", response.ErrorCodeShootsMissingRequiredFields, apiResp.ErrorCode)
+	}
+}
+
+func TestDeletePhotoRoute_Success(t *testing.T) {
+	// Set TEST environment variable
+	_ = os.Setenv("TEST", "true")
+	defer func() {
+		_ = os.Unsetenv("TEST")
+	}()
+
+	db := repository.Get()
+
+	_ = db.CreatePhoto(&models.Photo{
+		ID:         1,
+		Guid:       "test-guid",
+		Favorite:   false,
+		ShootID:    1,
+		Categories: []int{},
+	})
+
+	// Create request with shoot ID to delete
+	reqBody := DeletePhotoRequest{ID: 1}
+	jsonBody, _ := json.Marshal(reqBody)
+
+	req := httptest.NewRequest("DELETE", "/admin/delete-photo", bytes.NewReader(jsonBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+
+	DeletePhotoRoute.Handle(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)
+	}
+
+	var apiResp response.APIResponse
+	if err := json.Unmarshal(w.Body.Bytes(), &apiResp); err != nil {
+		t.Fatalf("Failed to unmarshal response: %v", err)
+	}
+
+	if !apiResp.Success {
+		t.Error("Expected success to be true")
+	}
+}
+
+func TestDeletePhotoRoute_MissingID(t *testing.T) {
+	// Set TEST environment variable
+	_ = os.Setenv("TEST", "true")
+	defer func() {
+		_ = os.Unsetenv("TEST")
+	}()
+
+	// Create request without ID
+	reqBody := DeletePhotoRequest{ID: 0}
+	jsonBody, _ := json.Marshal(reqBody)
+
+	req := httptest.NewRequest("DELETE", "/admin/delete-photo", bytes.NewReader(jsonBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+
+	DeletePhotoRoute.Handle(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)
+	}
+
+	var apiResp response.APIResponse
+	if err := json.Unmarshal(w.Body.Bytes(), &apiResp); err != nil {
+		t.Fatalf("Failed to unmarshal response: %v", err)
+	}
+
+	if apiResp.Success {
+		t.Error("Expected success to be false")
+	}
+	if apiResp.ErrorCode != response.ErrorCodePhotosMissingRequiredFields {
+		t.Errorf("Expected error code %v, got %v", response.ErrorCodePhotosMissingRequiredFields, apiResp.ErrorCode)
 	}
 }

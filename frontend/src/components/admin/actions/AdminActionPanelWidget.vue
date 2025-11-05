@@ -1,5 +1,4 @@
 <script setup>
-import AdminSaveButton from "@/components/admin/actions/AdminSaveButton.vue";
 import {useAdminStore} from "@/stores/useAdminStore";
 import PhotoPreviewPanel from "@/components/admin/photos/PhotoPreviewPanel.vue";
 import UpdateShootWidget from "@/components/admin/shoots/UpdateShootWidget.vue";

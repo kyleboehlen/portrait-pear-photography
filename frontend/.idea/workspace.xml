@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Add share button for shoot views instead of the filter menu&#10;Handle original photo state mutation with router guards&#10;Add randomization, caching, and only one function to handle loading photos via the API">
-      <change afterPath="$PROJECT_DIR$/src/components/admin/photos/DeletePhotosWidget.vue" afterDir="false" />
+    <list default="true" id="94c8b641-b059-4486-8f19-8e32e7ce9deb" name="Changes" comment="Quick and dirty delete UI mockup">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/handlers/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/handlers/photos.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api/response/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/database/repository/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/database/repository/photos.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheFabButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheFabButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TheInstagramButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheInstagramButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/actions/AdminSaveButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/actions/AdminSaveButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/shoots/UpdateShootWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +105,7 @@
       <workItem from="1760906194343" duration="13514000" />
       <workItem from="1761417651769" duration="2776000" />
       <workItem from="1761430234156" duration="12766000" />
-      <workItem from="1761533309231" duration="34132000" />
+      <workItem from="1761533309231" duration="36501000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade daisyui">
       <option name="closed" value="true" />
@@ -206,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762125132623</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Quick and dirty delete UI mockup">
+      <option name="closed" value="true" />
+      <created>1762148296747</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1762148296747</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +242,7 @@
     <MESSAGE value="Fix some display reactivity/state" />
     <MESSAGE value="Fix the filter menu" />
     <MESSAGE value="Add share button for shoot views instead of the filter menu&#10;Handle original photo state mutation with router guards&#10;Add randomization, caching, and only one function to handle loading photos via the API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add share button for shoot views instead of the filter menu&#10;Handle original photo state mutation with router guards&#10;Add randomization, caching, and only one function to handle loading photos via the API" />
+    <MESSAGE value="Quick and dirty delete UI mockup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quick and dirty delete UI mockup" />
   </component>
 </project>
