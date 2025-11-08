@@ -15,10 +15,6 @@ watch(() => adminStore.selectedShootId, (newShootId) => {
 
 <template>
   <PhotoTree>
-    <PhotoTreeEntry v-for="photo in adminStore.previewPhotos" :key="photo.id" :photo="photo" />
+    <PhotoTreeEntry v-for="photo in adminStore.previewPhotos" :key="photo.id" :photo="photo"/>
   </PhotoTree>
 </template>
-
-<style scoped>
-
-</style>

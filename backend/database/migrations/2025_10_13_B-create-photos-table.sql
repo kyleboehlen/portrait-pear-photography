@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS photos
 (
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
     guid     TEXT    NOT NULL UNIQUE,
-    favorite BOOLEAN NOT NULL DEFAULT 0
+    favorite BOOLEAN NOT NULL DEFAULT 0,
+    shoot_id INTEGER REFERENCES shoots (id) ON DELETE CASCADE
 );
 
 -- Create index for faster lookups by guid and favorite status

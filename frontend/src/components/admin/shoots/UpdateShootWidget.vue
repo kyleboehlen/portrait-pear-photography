@@ -4,12 +4,10 @@ import {useAdminStore} from '@/stores/useAdminStore';
 import {useAdminRoutes} from '@/composables/useAdminRoutes';
 import UploadPhotoWidget from "@/components/admin/photos/UploadPhotoWidget.vue";
 import ShootPhotoTree from "@/components/admin/photos/ShootPhotoTree.vue";
-import {useFridayApi} from "@/composables/useFridayApi.js";
 import save from "@iconify-icons/material-symbols/save.js";
 import TheFabButton from "@/components/TheFabButton.vue";
 
 const adminStore = useAdminStore();
-const {apiCallInProgress} = useFridayApi();
 
 // The only component that needs access to a mutated model of a shoot is this one, therefore we will set the object
 // when the component is mounted and clear it when unmounted.
@@ -46,10 +44,10 @@ const copyLink = () => {
 };
 
 const categories = [
-  {id: '1', name: 'Portrait', colorClass: 'badge-primary'},
-  {id: '2', name: 'Automotive', colorClass: 'badge-accent'},
-  {id: '3', name: 'Street', colorClass: 'badge-warning'},
-  {id: '4', name: 'B&W', colorClass: 'badge-neutral'},]
+  {id: 1, name: 'Portrait', colorClass: 'badge-primary'},
+  {id: 2, name: 'Automotive', colorClass: 'badge-accent'},
+  {id: 3, name: 'Street', colorClass: 'badge-warning'},
+  {id: 4, name: 'B&W', colorClass: 'badge-neutral'},]
 
 const toggleCategory = (categoryId) => {
   const index = adminStore.updateShoot.default_categories.indexOf(categoryId);
@@ -142,7 +140,7 @@ const handleSave = () => {
       <ShootPhotoTree class="h-full w-full"/>
     </div>
 
-<!--    Save button -->
+    <!--    Save button -->
     <TheFabButton v-if="adminStore.isDirty" class="hover:text-primary" :icon="save" @fab-clicked="handleSave"/>
   </div>
 </template>

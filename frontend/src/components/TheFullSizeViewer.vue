@@ -6,8 +6,8 @@ import close from "@iconify-icons/pajamas/close"
 import download from "@iconify-icons/pajamas/download"
 import left from "@iconify-icons/pajamas/chevron-lg-left"
 import right from "@iconify-icons/pajamas/chevron-lg-right"
-import { usePhotosStore } from "@/stores/usePhotosStore.js";
-import { usePhotoUtils} from "@/composables/usePhotoUtils.js";
+import {usePhotosStore} from "@/stores/usePhotosStore.js";
+import {usePhotoUtils} from "@/composables/usePhotoUtils.js";
 
 addIcon("close", close)
 addIcon("download", download)
@@ -105,7 +105,8 @@ const touchEnd = (e) => {
             <Icon icon="left" class="h-4/6 w-auto px-0 sm:px-1"/>
           </button>
 
-          <h2 class="text-white/70 text-xl xs:text-2xl sm:text-3xl pb-1 sm:pb-2 px-4 sm:px-6">{{ photosStore.selectedPhotoIndex + 1 }}/{{ numDisplayPhotos }}</h2>
+          <h2 class="text-white/70 text-xl xs:text-2xl sm:text-3xl pb-1 sm:pb-2 px-4 sm:px-6">
+            {{ photosStore.selectedPhotoIndex + 1 }}/{{ numDisplayPhotos }}</h2>
 
           <button class="btn btn-sm btn-primary xs:btn-md sm:btn-lg" @click="goRight">
             <Icon icon="right" class="h-4/6 w-auto px-0 sm:px-1"/>

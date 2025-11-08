@@ -24,7 +24,7 @@ const showPhotoManagementWidget = computed(() => {
     <!--    If show edit shoot (entity shoots, update, shoot selected -->
     <UpdateShootWidget v-if="showUpdateShootWidget" class="flex-1"/>
 
-    <PhotoManagementWidget v-else-if="showPhotoManagementWidget" class="max-h-[75vh] w-3/4 mt-2 pl-4 pr-16 flex-1" />
+    <PhotoManagementWidget v-else-if="showPhotoManagementWidget" class="max-h-[75vh] w-3/4 mt-2 pl-4 pr-16 flex-1"/>
 
     <PhotoPreviewPanel v-if="showUpdateShootWidget || showPhotoManagementWidget" class="p-4 flex-1"/>
   </div>

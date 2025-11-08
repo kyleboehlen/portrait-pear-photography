@@ -52,6 +52,7 @@ func GetUploadPhotoRouteHandler() http.HandlerFunc {
 		image, err := cloudflareClient.UploadPhoto(file)
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to upload photo: "+err.Error(), response.ErrorCodeFailedToUploadToCloudflare)
+			return
 		}
 
 		var photo = &models.Photo{
@@ -65,6 +66,7 @@ func GetUploadPhotoRouteHandler() http.HandlerFunc {
 		err = db.CreatePhoto(photo)
 		if err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to save photo to database", response.ErrorCodeFailedToCreatePhoto)
+			return
 		}
 
 		response.WriteJSONSuccessResponse(w, photo)

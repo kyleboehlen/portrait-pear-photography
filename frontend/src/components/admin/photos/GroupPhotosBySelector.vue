@@ -1,5 +1,5 @@
 <script setup>
-import {onUnmounted, watch} from 'vue'
+import {onUnmounted} from 'vue'
 import {useAdminRoutes} from '@/composables/useAdminRoutes'
 
 const {selector, setSelector} = useAdminRoutes()

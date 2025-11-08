@@ -15,14 +15,14 @@ addIcon("save", save);
 addIcon("heart", heart);
 
 const iconToShow = computed(() => {
-switch (action.value) {
-  case "favorite":
-    return heart;
-  case "delete":
-    return trash;
-  default:
-    return save;
-}
+  switch (action.value) {
+    case "favorite":
+      return heart;
+    case "delete":
+      return trash;
+    default:
+      return save;
+  }
 })
 
 const adminStore = useAdminStore();
@@ -45,5 +45,6 @@ const handleMutatePhotos = () => {
 </script>
 
 <template>
-  <TheFabButton v-if="adminStore.photosToMutate.length > 0" class="hover:text-error" :icon="iconToShow" @fab-clicked="handleMutatePhotos" />
+  <TheFabButton v-if="adminStore.photosToMutate.length > 0" class="hover:text-error" :icon="iconToShow"
+                @fab-clicked="handleMutatePhotos"/>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { useTemplateRef, ref} from "vue";
+import {ref, useTemplateRef} from "vue";
 import ConfirmationModal from "@/components/admin/ConfirmationModal.vue";
 import {useFridayApi} from "@/composables/useFridayApi";
 import {useAdminStore} from "@/stores/useAdminStore";

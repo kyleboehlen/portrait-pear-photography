@@ -10,7 +10,7 @@ const router = createRouter({
             path: "/",
             name: "home",
             component: PhotosView,
-            beforeEnter(to)  {
+            beforeEnter(to) {
                 const photosStore = usePhotosStore();
 
                 if (to.query?.category) {
@@ -31,7 +31,7 @@ const router = createRouter({
             path: "/:shoot_slug",
             name: "shoot",
             component: PhotosView,
-            beforeEnter(to)  {
+            beforeEnter(to) {
                 const photosStore = usePhotosStore();
 
                 if (to.params?.shoot_slug) {

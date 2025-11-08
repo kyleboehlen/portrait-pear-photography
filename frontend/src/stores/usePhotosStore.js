@@ -1,6 +1,5 @@
 import {defineStore} from "pinia";
 import {useFridayApi} from "@/composables/useFridayApi";
-import {useRoute} from "vue-router";
 
 export const usePhotosStore = defineStore("photos", {
     state: () => ({

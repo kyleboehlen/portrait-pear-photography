@@ -8,9 +8,9 @@ import (
 )
 
 func (r *SQLRepo) CreatePhoto(photo *models.Photo) error {
-	query := `INSERT INTO photos (guid, favorite) VALUES (?, false)`
+	query := `INSERT INTO photos (guid, favorite, shoot_id) VALUES (?, false, ?)`
 
-	result, err := r.db.Exec(query, photo.Guid, photo.Favorite)
+	result, err := r.db.Exec(query, photo.Guid, photo.ShootID)
 	if err != nil {
 		return fmt.Errorf("failed to create photo: %v", err)
 	}
@@ -21,13 +21,6 @@ func (r *SQLRepo) CreatePhoto(photo *models.Photo) error {
 	}
 
 	photo.ID = int(id)
-
-	// Set shoot ID - photos can only be uploaded in the scope of a shoot, this doesn't need to be editable
-	query = `INSERT INTO shoots_photos (shoot_id, photo_id) VALUES (?, ?)`
-	_, err = r.db.Exec(query, photo.ShootID, photo.ID)
-	if err != nil {
-		return fmt.Errorf("failed to set shoot for the photo: %v", err)
-	}
 
 	// Set photo categories and favorite status
 	err = r.UpdatePhoto(photo)
@@ -104,21 +97,15 @@ func (r *SQLRepo) GetPhotosFiltered(filterParams FilterPhotosParameters) ([]mode
 	args := make([]interface{}, 0)
 
 	sb.WriteString(`
-  SELECT DISTINCT p.id, p.guid, p.favorite
-  FROM photos p`)
-
-	// Join with shoots_photos only if ShootID is provided
-	if filterParams.ShootID > 0 {
-		sb.WriteString(`
-  INNER JOIN shoots_photos sp ON p.id = sp.photo_id`)
-	}
+	 SELECT DISTINCT p.id, p.guid, p.favorite, p.shoot_id
+	 FROM photos p`)
 
 	// We need at least one WHERE clause
 	sb.WriteString(`
-  WHERE 1=1`)
+	 WHERE 1=1`)
 
 	if filterParams.ShootID > 0 {
-		sb.WriteString(` AND sp.shoot_id = ?`)
+		sb.WriteString(` AND p.shoot_id = ?`)
 		args = append(args, filterParams.ShootID)
 	}
 
@@ -134,32 +121,27 @@ func (r *SQLRepo) GetPhotosFiltered(filterParams FilterPhotosParameters) ([]mode
 			args = append(args, categoryID)
 		}
 		sb.WriteString(fmt.Sprintf(` AND p.id IN (
-   SELECT pc.photo_id
-   FROM photos_categories pc
-   WHERE pc.category_id IN (%s)
-  )`, strings.Join(placeholders, ",")))
+		  SELECT pc.photo_id
+		  FROM photos_categories pc
+		  WHERE pc.category_id IN (%s)
+		 )`, strings.Join(placeholders, ",")))
 	}
 
 	rows, err := r.db.Query(sb.String(), args...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query photos: %v", err)
 	}
-	defer func(rows *sql.Rows) {
-		_ = rows.Close()
-	}(rows)
+	defer func(rows *sql.Rows) { _ = rows.Close() }(rows)
 
 	photoMap := make(map[int]*models.Photo)
 	var photoIDs []int
 
 	for rows.Next() {
 		var photo models.Photo
-		if err := rows.Scan(&photo.ID, &photo.Guid, &photo.Favorite); err != nil {
+		if err := rows.Scan(&photo.ID, &photo.Guid, &photo.Favorite, &photo.ShootID); err != nil {
 			return nil, fmt.Errorf("failed to scan photo: %v", err)
 		}
 
-		if filterParams.ShootID > 0 {
-			photo.ShootID = filterParams.ShootID
-		}
 		photo.Categories = []int{}
 
 		photoMap[photo.ID] = &photo
@@ -180,17 +162,15 @@ func (r *SQLRepo) GetPhotosFiltered(filterParams FilterPhotosParameters) ([]mode
 		}
 
 		query := fmt.Sprintf(`
-   SELECT photo_id, category_id
-   FROM photos_categories
-   WHERE photo_id IN (%s)`, strings.Join(placeholders, ","))
+		 SELECT photo_id, category_id
+		 FROM photos_categories
+		 WHERE photo_id IN (%s)`, strings.Join(placeholders, ","))
 
 		categoryRows, err := r.db.Query(query, categoryArgs...)
 		if err != nil {
 			return nil, fmt.Errorf("failed to query photo categories: %v", err)
 		}
-		defer func(categoryRows *sql.Rows) {
-			_ = categoryRows.Close()
-		}(categoryRows)
+		defer func(categoryRows *sql.Rows) { _ = categoryRows.Close() }(categoryRows)
 
 		for categoryRows.Next() {
 			var photoID, categoryID int
@@ -207,7 +187,7 @@ func (r *SQLRepo) GetPhotosFiltered(filterParams FilterPhotosParameters) ([]mode
 		}
 	}
 
-	// Convert map to slice
+	// Convert map to slice preserving order of photoIDs
 	for _, id := range photoIDs {
 		photos = append(photos, *photoMap[id])
 	}

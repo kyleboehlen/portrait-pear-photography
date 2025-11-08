@@ -4,7 +4,7 @@ import {useAdminRoutes} from "@/composables/useAdminRoutes";
 import GroupByShootsPhotoTree from "@/components/admin/photos/GroupByShootsPhotoTree.vue";
 import GroupByCategoryPhotoTree from "@/components/admin/photos/GroupByCategoryPhotoTree.vue";
 import GroupByFavoritesPhotoTree from "@/components/admin/photos/GroupByFavoritesPhotoTree.vue";
-import {ref, computed} from "vue";
+import {computed, ref} from "vue";
 
 const {selector} = useAdminRoutes()
 

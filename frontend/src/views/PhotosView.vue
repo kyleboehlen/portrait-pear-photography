@@ -4,7 +4,7 @@ import {usePhotosStore} from "@/stores/usePhotosStore"
 import NotFoundMessage from "@/components/panel/NotFoundMessage.vue";
 import TheInstagramButton from "@/components/TheInstagramButton.vue";
 import TheHeader from "@/components/TheHeader.vue";
-import {ref, computed} from "vue";
+import {computed, ref} from "vue";
 import TheFooter from "@/components/TheFooter.vue";
 import PhotoCard from "@/components/panel/PhotoCard.vue";
 import TheFullSizeViewer from "@/components/TheFullSizeViewer.vue";
@@ -30,7 +30,7 @@ const fullSizeImage = (photo) => {
     <TheHeader>
       <template v-slot:action>
         <TheShareButton v-if="isShootView"/>
-        <TheFilterMenu v-else />
+        <TheFilterMenu v-else/>
       </template>
     </TheHeader>
 

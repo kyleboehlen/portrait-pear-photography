@@ -44,12 +44,8 @@ const handleEntryClick = () => {
         'text-white': !isSelectedForDelete,
         'text-red-600 line-through': isSelectedForDelete
       }">{{ photo.guid }}</p>
-<!--      Show faves heart if action is favorite - mutate the image in preview images -->
-<!--      Show categories to toggle on hover if action is categorize - mutate the image in preview images -->
+      <!--      Show faves heart if action is favorite - mutate the image in preview images -->
+      <!--      Show categories to toggle on hover if action is categorize - mutate the image in preview images -->
     </slot>
   </div>
 </template>
-
-<style scoped>
-
-</style>

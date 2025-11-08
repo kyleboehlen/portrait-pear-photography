@@ -22,6 +22,7 @@ func GetUpsertShootRouteHandler() http.HandlerFunc {
 		if shoot.ID != 0 {
 			if err := db.UpdateShoot(&shoot); err != nil {
 				response.WriteJSONErrorResponse(w, "Failed to update shoot", response.ErrorCodeFailedToUpdateShoot)
+				return
 			}
 		} else if shoot.Name != "" {
 			// Create new shoot
