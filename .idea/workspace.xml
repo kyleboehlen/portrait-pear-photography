@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Fix home view + photo card + full size viewer">
+    <list default="true" id="3a73d692-728c-4d0a-ac73-3420b6a682c7" name="Changes" comment="Delete photos functionality">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupByCategoryPhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupByFavoritesPhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupByShootsPhotoTree.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/MutatePhotosButton.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoManagementWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/handlers/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/handlers/photos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/response/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/response/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/repository/photos.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/repository/photos.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/actions/AdminActionPanelWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/DeletePhotosWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/DeletePhotosWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/GroupPhotosBySelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/photos/PhotoTreeEntry.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/useAdminStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,64 +62,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Docker.Debug.executor": "Run",
-    "Docker.Develop.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Go Build.go build friday.executor": "Run",
-    "Go Build.go build portrait-pear-photography.executor": "Debug",
-    "Go Remote.Remote Debugger.executor": "Debug",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateAdmin_NonAdminRoute in friday/api/middleware.executor": "Run",
-    "Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor": "Run",
-    "Go Test.TestCreateAdminJWT_Success in friday/services/auth.executor": "Debug",
-    "Go Test.TestHealthEndpoint in friday/api/handlers.executor": "Run",
-    "Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor": "Run",
-    "Go Test.TestTestRoute_Success in friday/api/handlers.executor": "Run",
-    "Go Test.TestUpsertShootRoute_CreateSuccess in friday/api/handlers.executor": "Debug",
-    "Go Test.TestWriteJSONErrorResponse in friday/api/response.executor": "Run",
-    "Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor": "Run",
-    "Go Test.go test backend.executor": "Run",
-    "Go Test.go test friday/api/handlers.executor": "Run",
-    "Go Test.go test friday/api/middleware.executor": "Debug",
-    "Go Test.go test friday/api/routing.executor": "Run",
-    "Go Test.go test friday/api/util.executor": "Run",
-    "Go Test.go test friday/services/auth.executor": "Run",
-    "Go Test.gobench friday/api/response.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Docker.Debug.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Develop.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build friday.executor&quot;: &quot;Run&quot;,
+    &quot;Go Build.go build portrait-pear-photography.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Remote.Remote Debugger.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_ExpiredToken in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_InvalidAuthHeaderFormat in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_InvalidToken in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_AdminRoute_MissingAuthHeader in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_DifferentAdminPaths in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateAdmin_NonAdminRoute in friday/api/middleware.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestAuthenticateRoute_Success in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestCreateAdminJWT_Success in friday/services/auth.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestHealthEndpoint in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestReadRequestBody_GetNilBody in friday/api/util.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestTestRoute_Success in friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestUpsertShootRoute_CreateSuccess in friday/api/handlers.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestWriteJSONErrorResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestWriteJSONSuccessResponse in friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test backend.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/middleware.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.go test friday/api/routing.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/api/util.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test friday/services/auth.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.gobench friday/api/response.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kyleboehlen/GolandProjects/portrait-pear-photography/main.go&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/GoLand.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend" />
@@ -172,7 +177,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ruining the bit :(" />
     <MESSAGE value="Removing open origins from CORS" />
     <MESSAGE value="Update read body util to be strict&#10;Add tests for read body util&#10;(Thank god they added generics to go)" />
     <MESSAGE value="CORS test" />
@@ -197,7 +201,8 @@
     <MESSAGE value="Remove any ts lang identifiers&#10;Add the filter photos by route handler and database repository func&#10;Wire up photo tree and preview panel to real photos from cloudflare" />
     <MESSAGE value="Dirty initial home page view" />
     <MESSAGE value="Fix home view + photo card + full size viewer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix home view + photo card + full size viewer" />
+    <MESSAGE value="Delete photos functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete photos functionality" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

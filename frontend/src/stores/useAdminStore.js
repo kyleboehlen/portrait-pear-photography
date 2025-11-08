@@ -77,13 +77,13 @@ export const useAdminStore = defineStore("admin", {
             this.previewPhotos = await postApi('/admin/photos', {filter_parameters: filterParams}, this.bearerToken);
         },
         async deletePhotos() {
-            const {deleteApi} = useFridayApi();
+            let deletionPromises = []
             this.photosToMutate.forEach(photo => {
                 let photoId = parseInt(photo);
-                deleteApi('/admin/delete-photo', {id: photoId}, this.bearerToken);
+                deletionPromises.push(deleteApi('/admin/delete-photo', {id: photoId}, this.bearerToken));
             })
             this.photosToMutate = []
-            // TODO: Refresh the preview photos after deletion
+            return deletionPromises
         }
     },
     persist: true,
