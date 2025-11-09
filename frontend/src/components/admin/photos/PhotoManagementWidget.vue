@@ -17,7 +17,7 @@ const favoritesKey = computed(() => `favorites-${keyIncrementor.value}`)
 <template>
 <span>
   <GroupByShootsPhotoTree v-if="selector === 'shoots' || selector === 'shoots-by-date'" :key="shootsKey"/>
-  <GroupByCategoryPhotoTree v-else-if="selector === 'category'" :key="categoryKey"/>
+  <GroupByCategoryPhotoTree v-else-if="selector === 'categories'" :key="categoryKey"/>
   <GroupByFavoritesPhotoTree v-else-if="selector === 'favorites'" :key="favoritesKey"/>
 
   <MutatePhotosButton @mutation-complete="keyIncrementor++"/>

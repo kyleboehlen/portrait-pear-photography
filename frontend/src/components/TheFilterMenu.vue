@@ -3,33 +3,11 @@ import {addIcon, Icon} from "@iconify/vue/offline";
 import {usePhotosStore} from "@/stores/usePhotosStore.js";
 import filter from "@iconify-icons/pajamas/filter"
 import {ref} from "vue";
+import {filterCategories} from "@/constants/categories.js";
 
 addIcon("filter", filter)
 
 const photosStore = usePhotosStore()
-
-const filterCategories = [
-  {
-    id: 0,
-    name: "Show All"
-  },
-  {
-    id: 1,
-    name: "Portrait"
-  },
-  {
-    id: 2,
-    name: "Automotive"
-  },
-  {
-    id: 3,
-    name: "Street"
-  },
-  {
-    id: 4,
-    name: "B&W"
-  },
-]
 
 // Filter dropdown
 const dropdownRef = ref(null)
