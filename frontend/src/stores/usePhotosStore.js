@@ -39,7 +39,8 @@ export const usePhotosStore = defineStore("photos", {
                 if (this.loadedShootSlug !== this.selectedShootSlug) {
                     this.filterCategory = 0
                     const {postApi} = useFridayApi()
-                    // TODO: Call get shoot photos API with body for shoot_slug
+                    this.shootPhotos = await postApi('/photos/shoot', {shoot_slug: this.selectedShootSlug}) || []
+                    this.loadedShootSlug = this.selectedShootSlug
                 }
             } else {
                 const {getApi} = useFridayApi()

@@ -31,7 +31,7 @@ onUnmounted(() => {
 
 const displayUrl = computed(() => {
   const baseUrl = window.location.origin;
-  return `${baseUrl}/shoots/`;
+  return `${baseUrl}/`;
 });
 
 const copyText = ref('Copy')

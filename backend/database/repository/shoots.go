@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"database/sql"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"friday/database/models"
 	"strconv"
@@ -157,6 +158,43 @@ func (r *SQLRepo) UpdateShoot(shoot *models.Shoot) error {
 	}
 
 	return nil
+}
+
+func (r *SQLRepo) GetShootBySlug(slug string) (*models.Shoot, error) {
+	query := `
+  SELECT
+   s.id, s.name, s.date, s.slug,
+   GROUP_CONCAT(sc.category_id) as category_ids
+  FROM shoots s
+  LEFT JOIN shoots_categories sc ON s.id = sc.shoot_id
+  WHERE s.slug = ?
+  GROUP BY s.id
+ `
+
+	var shoot models.Shoot
+	var categoryIDs sql.NullString
+
+	err := r.db.QueryRow(query, slug).Scan(&shoot.ID, &shoot.Name, &shoot.Date, &shoot.Slug, &categoryIDs)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, fmt.Errorf("shoot with slug %s not found", slug)
+		}
+		return nil, fmt.Errorf("failed to get shoot: %w", err)
+	}
+
+	shoot.DefaultCategories = []int{}
+	if categoryIDs.Valid && categoryIDs.String != "" {
+		idStrings := strings.Split(categoryIDs.String, ",")
+		for _, idStr := range idStrings {
+			id, err := strconv.Atoi(idStr)
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse category ID: %w", err)
+			}
+			shoot.DefaultCategories = append(shoot.DefaultCategories, id)
+		}
+	}
+
+	return &shoot, nil
 }
 
 func generateRandomSlug(length int) string {

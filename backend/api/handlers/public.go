@@ -8,8 +8,15 @@ var ListFavoritePhotosRoute = routing.Route{
 	Handle: GetListFavoritePhotosRouteHandler(),
 }
 
+var ListShootPhotosRoute = routing.Route{
+	Method: "POST",
+	Path:   "/photos/shoot",
+	Handle: GetListShootPhotosRouteHandler(),
+}
+
 var PublicRoutes = []routing.Route{
 	ListFavoritePhotosRoute,
+	ListShootPhotosRoute,
 }
 
 func init() {

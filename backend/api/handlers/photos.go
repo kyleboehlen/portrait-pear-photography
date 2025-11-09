@@ -123,6 +123,31 @@ func GetListPhotosFilteredRouteHandler() http.HandlerFunc {
 	}
 }
 
+type ShootSlugRequest struct {
+	ShootSlug string `json:"shoot_slug"`
+}
+
+func GetListShootPhotosRouteHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var shootSlugRequest ShootSlugRequest
+		if result, err := util.ReadRequestBody(w, r, &shootSlugRequest); err != nil || !result {
+			return
+		}
+
+		db := repository.Get()
+		shoot, err := db.GetShootBySlug(shootSlugRequest.ShootSlug)
+		photos, err := db.GetPhotosFiltered(repository.FilterPhotosParameters{
+			ShootID: shoot.ID,
+		})
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to get photos", response.ErrorCodeFailedToGetPhotos)
+			return
+		}
+
+		response.WriteJSONSuccessResponse(w, &photos)
+	}
+}
+
 func GetListFavoritePhotosRouteHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		db := repository.Get()
