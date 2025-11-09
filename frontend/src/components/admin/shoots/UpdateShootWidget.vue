@@ -62,21 +62,21 @@ const {setEntity, setAction, setSelector} = useAdminRoutes()
 const navigateToDeletePhotos = () => {
   setEntity('photos').then(() => {
     setAction('delete').then(() => {
-      setSelector('byShoot')
+      setSelector('shoots-by-date')
     })
   })
 }
 const navigateToFavoritePhotos = () => {
   setEntity('photos').then(() => {
     setAction('favorite').then(() => {
-      setSelector('byShoot')
+      setSelector('shoots-by-date')
     })
   })
 }
 const navigateToCategorizePhotos = () => {
   setEntity('photos').then(() => {
     setAction('categorize').then(() => {
-      setSelector('byShoot')
+      setSelector('shoots-by-date')
     })
   })
 }

@@ -63,7 +63,11 @@ export const useAdminStore = defineStore("admin", {
         async loadShootsFromApi() {
             const res = await getApi('/admin/shoots', this.bearerToken);
             if (res !== false) {
-                this.shoots = res;
+                // Convert to YYYY-MM-DD format that HTML date inputs expect
+                this.shoots = res.map(shoot => {
+                    shoot.date = shoot.date.split('T')[0];
+                    return shoot;
+                })
             }
         },
         async deleteSelectedShoot() {
@@ -75,6 +79,9 @@ export const useAdminStore = defineStore("admin", {
         },
         async refreshPreviewPhotosFromApi(filterParams = {}) {
             this.previewPhotos = await postApi('/admin/photos', {filter_parameters: filterParams}, this.bearerToken);
+            if (!this.previewPhotos) {
+                this.previewPhotos = [];
+            }
         },
         async deletePhotos() {
             let deletionPromises = []
