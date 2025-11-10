@@ -71,6 +71,11 @@ I promise, really. Definitely. Totally. ;)
 The backend can be built with Docker:<br>
 `docker build -f Dockerfile --target dum-e -o ./bin .`
 
+Frontend can be built with pnpm:<br>
+`pnpm run build`<br>
+Then upload the contents of the `dist` folder to a static hosting provider. I've got it in a GCP bucket at the moment.<br>
+It's not really worth going over how to do that, there is plenty of documentation out there.
+
 ## Cloudflare Images
 
 In order to use Cloudflare images you'll need to set the account hash on the front end, and you'll need to set both
