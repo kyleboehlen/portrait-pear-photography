@@ -81,6 +81,8 @@ const (
 	ErrorCodePhotosMissingRequiredFields ErrorCode = 69
 	// ErrorCodeFailedToDeletePhoto API return error for failure during photo deletion database operations
 	ErrorCodeFailedToDeletePhoto ErrorCode = 70
+	// ErrorCodeFailedToUpdatePhoto API return error for failure during photo update database operations
+	ErrorCodeFailedToUpdatePhoto ErrorCode = 71
 
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota

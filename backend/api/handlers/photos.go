@@ -162,3 +162,25 @@ func GetListFavoritePhotosRouteHandler() http.HandlerFunc {
 		response.WriteJSONSuccessResponse(w, &photos)
 	}
 }
+
+type UpdatePhotoRequest struct {
+	Photo models.Photo `json:"photo"`
+}
+
+func GetUpdatePhotoRouteHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var updatePhotoRequest UpdatePhotoRequest
+		if result, err := util.ReadRequestBody(w, r, &updatePhotoRequest); err != nil || !result {
+			return
+		}
+
+		db := repository.Get()
+		err := db.UpdatePhoto(&updatePhotoRequest.Photo)
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to update photo", response.ErrorCodeFailedToUpdatePhoto)
+			return
+		}
+
+		response.WriteJSONSuccessResponse(w, &updatePhotoRequest.Photo)
+	}
+}

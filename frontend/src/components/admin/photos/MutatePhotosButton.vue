@@ -30,12 +30,14 @@ const emit = defineEmits(['mutation-complete'])
 const handleMutatePhotos = () => {
   switch (action.value) {
     case "favorite":
-      console.log('todo favorite mutation')
+      adminStore.saveMutatedPreviewPhotos().then(() => {
+        emit('mutation-complete')
+      })
       break;
     case "delete":
-      Promise.all(adminStore.deletePhotos()).then(() => {
+      adminStore.deletePhotos().then(() => {
         emit('mutation-complete')
-      });
+      })
       break;
     case "categorize":
       console.log('todo categorize mutation')

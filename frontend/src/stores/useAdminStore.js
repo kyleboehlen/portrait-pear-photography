@@ -90,7 +90,16 @@ export const useAdminStore = defineStore("admin", {
                 deletionPromises.push(deleteApi('/admin/delete-photo', {id: photoId}, this.bearerToken));
             })
             this.photosToMutate = []
-            return deletionPromises
+            return Promise.all(deletionPromises)
+        },
+        async saveMutatedPreviewPhotos() {
+            let mutationPromises = []
+            this.photosToMutate.forEach(photoId => {
+                let photo = this.previewPhotos.find(p => p.id === parseInt(photoId));
+                mutationPromises.push(postApi('/admin/update-photo', {'photo': photo}, this.bearerToken));
+            })
+            this.photosToMutate = []
+            return Promise.all(mutationPromises)
         }
     },
     persist: true,

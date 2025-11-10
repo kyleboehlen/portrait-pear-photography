@@ -64,6 +64,12 @@ var ListPhotosFilteredRoute = routing.Route{
 	Handle: GetListPhotosFilteredRouteHandler(),
 }
 
+var UpdatePhotoRoute = routing.Route{
+	Method: "POST",
+	Path:   "/admin/update-photo",
+	Handle: GetUpdatePhotoRouteHandler(),
+}
+
 var AdminRoutes = []routing.Route{
 	AuthenticateRoute,
 	UpsertShootRoute,
@@ -75,6 +81,7 @@ var AdminRoutes = []routing.Route{
 	UploadPhotoRoute,
 	DeletePhotoRoute,
 	ListPhotosFilteredRoute,
+	UpdatePhotoRoute,
 }
 
 func init() {
