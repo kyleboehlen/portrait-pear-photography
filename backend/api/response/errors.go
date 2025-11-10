@@ -83,6 +83,8 @@ const (
 	ErrorCodeFailedToDeletePhoto ErrorCode = 70
 	// ErrorCodeFailedToUpdatePhoto API return error for failure during photo update database operations
 	ErrorCodeFailedToUpdatePhoto ErrorCode = 71
+	// ErrorCodeFailedToPurgePhotosFromCloudflare Specifically for errors for calls to the Cloudflare API during photo purge
+	ErrorCodeFailedToPurgePhotosFromCloudflare ErrorCode = 72
 
 	// Example Error Code Category range:
 	// ErrorCodeExample ErrorCode = 1000 + iota

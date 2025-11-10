@@ -3,6 +3,7 @@ package handlers
 import (
 	"friday/api/response"
 	"friday/database/repository"
+	"friday/services/images"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -91,6 +92,29 @@ func GetImportDatabaseRouteHandler() http.HandlerFunc {
 		db := repository.Get()
 		if err := db.ReloadFromDisk(); err != nil {
 			response.WriteJSONErrorResponse(w, "Failed to reload database from disk: "+err.Error(), response.ErrorCodeDatabaseConnection)
+			return
+		}
+
+		// Get all photos
+		photos, err := db.GetPhotosFiltered(repository.FilterPhotosParameters{})
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failed to get photos after database import: "+err.Error(), response.ErrorCodeFailedToGetPhotos)
+			return
+		}
+
+		// Get just the slugs
+		guids := make([]string, len(photos))
+		for i, photo := range photos {
+			guids[i] = photo.Guid
+		}
+
+		// Purge all photos from Cloudflare
+		cloudflareClient := images.Get()
+		err = cloudflareClient.PurgePhotos(guids)
+
+		if err != nil {
+			response.WriteJSONErrorResponse(w, "Failure during cloudflare operations: "+err.Error(), response.ErrorCodeFailedToPurgePhotosFromCloudflare)
+			return
 		}
 
 		response.WriteJSONSuccessResponse(w, nil)

@@ -17,7 +17,7 @@ const handleDbUpload = () => {
     return;
   }
 
-  uploadApi('/admin/import-database', file, adminStore.bearerToken);
+  uploadApi('/admin/import-database', file, null, adminStore.bearerToken);
   clearFile();
 }
 </script>
