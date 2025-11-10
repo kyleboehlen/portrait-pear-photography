@@ -25,4 +25,4 @@ export const styleCategories = [
     {id: 1, name: 'Portrait', colorClass: 'badge-primary'},
     {id: 2, name: 'Automotive', colorClass: 'badge-accent'},
     {id: 3, name: 'Street', colorClass: 'badge-warning'},
-    {id: 4, name: 'B&W', colorClass: 'badge-neutral'},]
+    {id: 4, name: 'B&W', colorClass: 'badge-error'},]
