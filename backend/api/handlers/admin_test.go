@@ -460,3 +460,171 @@ func TestDeletePhotoRoute_MissingID(t *testing.T) {
 		t.Errorf("Expected error code %v, got %v", response.ErrorCodePhotosMissingRequiredFields, apiResp.ErrorCode)
 	}
 }
+
+func TestUpsertShootRoute_UpdateSuccess(t *testing.T) {
+	// Set TEST environment variable
+	_ = os.Setenv("TEST", "true")
+	defer func() {
+		_ = os.Unsetenv("TEST")
+	}()
+
+	db := repository.Get()
+
+	// Create a shoot first
+	shoot := &models.Shoot{
+		Name: "Original Shoot",
+		Slug: "original-slug",
+	}
+	_ = db.CreateShoot(shoot)
+
+	// Update the shoot
+	reqBody := map[string]interface{}{
+		"id":   shoot.ID,
+		"name": "Updated Shoot",
+		"slug": "updated-slug",
+	}
+	jsonBody, _ := json.Marshal(reqBody)
+
+	req := httptest.NewRequest("POST", "/admin/shoot", bytes.NewReader(jsonBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+
+	UpsertShootRoute.Handle(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)
+	}
+
+	var apiResp response.APIResponse
+	if err := json.Unmarshal(w.Body.Bytes(), &apiResp); err != nil {
+		t.Fatalf("Failed to unmarshal response: %v", err)
+	}
+
+	if !apiResp.Success {
+		t.Error("Expected success to be true")
+	}
+
+	// Verify the shoot was updated
+	var updatedShoot models.Shoot
+	dataBytes, _ := json.Marshal(apiResp.Content)
+	if err := json.Unmarshal(dataBytes, &updatedShoot); err != nil {
+		t.Fatalf("Failed to unmarshal shoot response: %v", err)
+	}
+
+	if updatedShoot.Name != "Updated Shoot" {
+		t.Errorf("Expected name to be 'Updated Shoot', got '%s'", updatedShoot.Name)
+	}
+	if updatedShoot.Slug != "updated-slug" {
+		t.Errorf("Expected slug to be 'updated-slug', got '%s'", updatedShoot.Slug)
+	}
+}
+
+func TestUpdatePhotoRoute_Success(t *testing.T) {
+	// Set TEST environment variable
+	_ = os.Setenv("TEST", "true")
+	defer func() {
+		_ = os.Unsetenv("TEST")
+	}()
+
+	db := repository.Get()
+
+	// Create a photo first
+	photo := &models.Photo{
+		Guid:       "test-guid-update",
+		Favorite:   false,
+		ShootID:    1,
+		Categories: []int{1, 2},
+	}
+	_ = db.CreatePhoto(photo)
+
+	// Update the photo
+	reqBody := UpdatePhotoRequest{
+		Photo: models.Photo{
+			ID:         photo.ID,
+			Guid:       photo.Guid,
+			Favorite:   true,
+			ShootID:    2,
+			Categories: []int{3, 4, 5},
+		},
+	}
+	jsonBody, _ := json.Marshal(reqBody)
+
+	req := httptest.NewRequest("POST", "/admin/update-photo", bytes.NewReader(jsonBody))
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+
+	UpdatePhotoRoute.Handle(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)
+	}
+
+	var apiResp response.APIResponse
+	if err := json.Unmarshal(w.Body.Bytes(), &apiResp); err != nil {
+		t.Fatalf("Failed to unmarshal response: %v", err)
+	}
+
+	if !apiResp.Success {
+		t.Error("Expected success to be true")
+	}
+
+	// Verify the photo was updated
+	var updatedPhoto models.Photo
+	dataBytes, _ := json.Marshal(apiResp.Content)
+	if err := json.Unmarshal(dataBytes, &updatedPhoto); err != nil {
+		t.Fatalf("Failed to unmarshal photo response: %v", err)
+	}
+
+	if !updatedPhoto.Favorite {
+		t.Error("Expected favorite to be true")
+	}
+	if updatedPhoto.ShootID != 2 {
+		t.Errorf("Expected shoot_id to be 2, got %d", updatedPhoto.ShootID)
+	}
+	if len(updatedPhoto.Categories) != 3 {
+		t.Errorf("Expected 3 categories, got %d", len(updatedPhoto.Categories))
+	}
+}
+
+func TestListShootsRoute_Success(t *testing.T) {
+	// Set TEST environment variable
+	_ = os.Setenv("TEST", "true")
+	defer func() {
+		_ = os.Unsetenv("TEST")
+	}()
+
+	db := repository.Get()
+
+	// Create some test shoots
+	_ = db.CreateShoot(&models.Shoot{Name: "Shoot 1", Slug: "shoot-1"})
+	_ = db.CreateShoot(&models.Shoot{Name: "Shoot 2", Slug: "shoot-2"})
+
+	req := httptest.NewRequest("GET", "/admin/shoots", nil)
+	w := httptest.NewRecorder()
+
+	ListShootsRoute.Handle(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, w.Code)
+	}
+
+	var apiResp response.APIResponse
+	if err := json.Unmarshal(w.Body.Bytes(), &apiResp); err != nil {
+		t.Fatalf("Failed to unmarshal response: %v", err)
+	}
+
+	if !apiResp.Success {
+		t.Error("Expected success to be true")
+	}
+
+	// Verify shoots are returned
+	var shoots []models.Shoot
+	dataBytes, _ := json.Marshal(apiResp.Content)
+	if err := json.Unmarshal(dataBytes, &shoots); err != nil {
+		t.Fatalf("Failed to unmarshal shoots response: %v", err)
+	}
+
+	if len(shoots) < 2 {
+		t.Errorf("Expected at least 2 shoots, got %d", len(shoots))
+	}
+}
