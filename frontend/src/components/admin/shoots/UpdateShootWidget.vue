@@ -6,6 +6,7 @@ import UploadPhotoWidget from "@/components/admin/photos/UploadPhotoWidget.vue";
 import ShootPhotoTree from "@/components/admin/photos/ShootPhotoTree.vue";
 import save from "@iconify-icons/material-symbols/save.js";
 import TheFabButton from "@/components/TheFabButton.vue";
+import {styleCategories} from "@/constants/categories.js";
 
 const adminStore = useAdminStore();
 
@@ -42,12 +43,6 @@ const copyLink = () => {
     copyText.value = 'Copy'
   }, 2000);
 };
-
-const categories = [
-  {id: 1, name: 'Portrait', colorClass: 'badge-primary'},
-  {id: 2, name: 'Automotive', colorClass: 'badge-accent'},
-  {id: 3, name: 'Street', colorClass: 'badge-warning'},
-  {id: 4, name: 'B&W', colorClass: 'badge-neutral'},]
 
 const toggleCategory = (categoryId) => {
   const index = adminStore.updateShoot.default_categories.indexOf(categoryId);
@@ -114,7 +109,7 @@ const handleSave = () => {
 
     <!--  Default category badges -->
     <div class="w-3/4 flex flex-row flex-nowrap mt-4 gap-6">
-      <span v-for="category in categories" :key="category.id" class="badge badge-lg hover:cursor-pointer flex-1"
+      <span v-for="category in styleCategories" :key="category.id" class="badge badge-lg hover:cursor-pointer flex-1"
             :class="{
         'badge-dash': adminStore.updateShoot.default_categories.indexOf(category.id) === -1,
         [category.colorClass]: true

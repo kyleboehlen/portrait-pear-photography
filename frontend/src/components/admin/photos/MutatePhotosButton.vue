@@ -40,7 +40,9 @@ const handleMutatePhotos = () => {
       })
       break;
     case "categorize":
-      console.log('todo categorize mutation')
+      adminStore.saveMutatedPreviewPhotos().then(() => {
+        emit('mutation-complete')
+      })
       break;
   }
 }

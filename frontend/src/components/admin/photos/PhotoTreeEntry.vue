@@ -2,9 +2,10 @@
 import {useAdminStore} from "@/stores/useAdminStore.js";
 import {usePhotoUtils} from "@/composables/usePhotoUtils.js";
 import {useAdminRoutes} from "@/composables/useAdminRoutes.js";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {addIcon, Icon} from "@iconify/vue/offline";
 import heart from "@iconify-icons/mdi/cards-heart-outline"
+import {styleCategories} from "@/constants/categories.js";
 
 addIcon("heart", heart);
 
@@ -37,6 +38,15 @@ const handleMouseLeave = () => {
   adminStore.previewPhotoUrl = '';
 }
 
+const categories = ref(props.photo.categories);
+const toggleCategory = (categoryId) => {
+  if (categories.value.includes(categoryId)) {
+    categories.value.splice(categories.value.findIndex(id => id === categoryId), 1);
+  } else {
+    categories.value.push(categoryId);
+  }
+}
+
 const handleEntryClick = () => {
   if (action.value === 'delete') {
     if (isSelectedForDelete.value) {
@@ -47,6 +57,10 @@ const handleEntryClick = () => {
   } else {
     if (action.value === 'favorite') {
       adminStore.previewPhotos[previewPhotoIndex.value].favorite = !isFavorite.value;
+    }
+
+    if (action.value === 'categorize') {
+      adminStore.previewPhotos[previewPhotoIndex.value].categories = categories.value
     }
 
     if (!adminStore.photosToMutate.includes(props.photo.id)) {
@@ -69,6 +83,15 @@ const handleEntryClick = () => {
         'text-white': !isSelectedForDelete,
         'text-red-600 line-through': isSelectedForDelete
       }">{{ photo.guid }}</p>
+      <div v-if="action === 'categorize'" class="w-auto flex flex-row flex-nowrap ml-2 gap-2">
+        <span v-for="category in styleCategories" :key="category.id" class="badge badge-sm hover:cursor-pointer flex-1"
+              :class="{
+          'badge-dash': categories.includes(category.id) === false,
+          [category.colorClass]: true
+        }" @click="toggleCategory(category.id)">
+          {{ category.name }}
+        </span>
+      </div>
       <!--      Show categories to toggle on hover if action is categorize - mutate the image in preview images -->
     </slot>
   </div>
