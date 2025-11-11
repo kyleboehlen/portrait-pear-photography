@@ -68,13 +68,58 @@ totally<br>
 the easier solution. Definitely not insane. Go read the source code and do the math. It's fine.<br>
 I promise, really. Definitely. Totally. ;)
 
-The backend can be built with Docker:<br>
-`docker build -f Dockerfile --target dum-e -o ./bin .`
-
 Frontend can be built with pnpm:<br>
 `pnpm run build`<br>
 Then upload the contents of the `dist` folder to a static hosting provider. I've got it in a GCP bucket at the moment.<br>
-It's not really worth going over how to do that, there is plenty of documentation out there.
+It's not really worth going over how to do that, there is plenty of documentation out there.<br>
+Note: portraitpear.photography is pointed to the GCP address with a CNAME record in Cloudflare.
+
+Deploying the backend to GCP Cloud Run requires a few steps:
+The gcloud cli is required and can be installed with
+`brew install gcloud-cli` and `gcloud init`
+
+You'll need to add a Cloudflare Images API token as a secret in GCP Secret Manager.<br>
+
+You'll also need to create a GCP bucket `portrait-pear-db`
+Either from the console, or with `gsutil mb gs://portrait-pear-db`
+
+Then to deploy (from the backend directory) run:
+```bash
+gcloud run deploy portrait-pear-api \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --memory 512Mi \
+  --cpu 1 \
+  --max-instances 1 \
+  --set-secrets "CLOUDFLARE_IMAGES_API_TOKEN=cloudflare_images_api_token:latest,CLOUDFLARE_ACCOUNT_ID=cloudflare_account_id:latest" \
+  --add-volume name=storage,type=cloud-storage,bucket=portrait-pear-db \
+  --add-volume-mount volume=storage,mount-path=/database/data
+```
+
+If you get an error that the Service Account doesn't have access to the secrets you can fix it with the following commands:
+
+`gcloud run services describe portrait-pear-api --region=us-central1 --format="value(spec.template.spec.serviceAccountName)"`
+
+```bash
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
+  --member="serviceAccount:XXXXXXXXXX-compute@developer.gserviceaccount.com" \
+  --role="roles/secretmanager.secretAccessor"
+```
+
+If it doesn't have access to the bucket you can fix it with:
+
+```bash
+gsutil iam ch serviceAccount:XXXXXXXXXX-compute@developer.gserviceaccount.com:objectAdmin gs://portrait-pear-db
+```
+
+Good command for troubleshooting logs:
+```bash
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=portrait-pear-api" --limit 20 --format="table(timestamp,severity,textPayload)"
+```
+
+Update the frontend API URL to point to the Cloud Run URL.
 
 ## Cloudflare Images
 

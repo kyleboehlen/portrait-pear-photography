@@ -9,6 +9,7 @@ import (
 	"github.com/joho/godotenv"
 	"log"
 	"net/http"
+	"os"
 )
 
 // Need to embed the database migrations in the binary
@@ -39,8 +40,13 @@ func main() {
 		log.Fatalf("Failed to set up database: %v", err)
 	}
 
-	log.Printf("Starting server on :8080")
-	if err := http.ListenAndServe(":8080", httpHandler); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Printf("Server starting on port %s", port)
+	if err := http.ListenAndServe(":"+port, httpHandler); err != nil {
 		log.Fatal(err)
 	}
 }
