@@ -22,8 +22,7 @@ type UploadPhotoExtraDataRequest struct {
 }
 
 const (
-	MaxFileSize = 20 * 1024 * 1024 // 20MB
-	TargetSize  = 19 * 1024 * 1024 // 19MB
+	MaxFileSize = 20 * 1000 * 1000 // Cloudflare doesn't allow the full 20MB
 )
 
 // CompressedFile implements multipart.File interface
@@ -79,7 +78,7 @@ func GetUploadPhotoRouteHandler() http.HandlerFunc {
 			smallEnoughForUploadFile = NewCompressedFile(fileBytes)
 		} else {
 			// File is > 20MB, need to compress
-			compressedFile, err := compressJPEGHighQuality(fileBytes, TargetSize)
+			compressedFile, err := compressJPEGHighQuality(fileBytes, MaxFileSize)
 			if err != nil {
 				response.WriteJSONErrorResponse(w, "Failed to compress image", response.ErrorCodeFailedToCompressImage)
 				return
