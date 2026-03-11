@@ -43,6 +43,7 @@ export const usePhotosStore = defineStore("photos", {
                     this.loadedShootSlug = this.selectedShootSlug
                 }
             } else {
+                this.filterCategory = 0
                 const {getApi} = useFridayApi()
                 // 30 minutes in milliseconds
                 if (this.homeLastLoaded + 1800000 <= Date.now()) {
