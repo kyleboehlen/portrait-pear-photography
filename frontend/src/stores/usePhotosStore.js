@@ -19,7 +19,7 @@ export const usePhotosStore = defineStore("photos", {
                 if (state.filterCategory === 0) {
                     return state.homePhotos
                 } else {
-                    return state.homePhotos.filter(photo => photo.category_id === state.filterCategory)
+                    return state.homePhotos.filter(photo => photo.categories?.includes(state.filterCategory))
                 }
             }
         },
